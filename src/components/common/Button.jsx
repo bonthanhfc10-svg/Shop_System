@@ -18,10 +18,10 @@ export default function Button({ children, variant = 'primary', size = 'md', onC
   };
 
   const variants = {
-    primary: { background: colors.accent, color: '#fff' },
+    primary: { background: colors.accent, color: colors.bg },
     secondary: { background: colors.bgHover, color: colors.textSecondary, border: `1px solid ${colors.borderInput}` },
-    danger: { background: colors.danger, color: '#fff' },
-    success: { background: colors.success, color: '#fff' },
+    danger: { background: colors.danger, color: colors.bg },
+    success: { background: colors.success, color: colors.bg },
     outline: { background: 'transparent', color: colors.accent, border: `1px solid ${colors.accent}` },
   };
 

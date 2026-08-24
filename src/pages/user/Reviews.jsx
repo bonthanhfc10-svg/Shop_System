@@ -49,7 +49,7 @@ export default function UserReviews() {
                 </Link>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '2px', margin: '6px 0' }}>
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} fill={i < review.rating ? '#f59e0b' : 'none'} color={i < review.rating ? '#f59e0b' : colors.borderInput} />
+                    <Star key={i} size={14} fill={i < review.rating ? '#737373' : 'none'} color={i < review.rating ? '#737373' : colors.borderInput} />
                   ))}
                 </div>
                 <p style={{ margin: '0 0 6px', fontSize: '13px', color: colors.textSecondary, lineHeight: '1.5' }}>

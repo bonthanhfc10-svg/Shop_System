@@ -36,7 +36,7 @@ export default function Register() {
         Sign up for a new account
       </p>
       {error && (
-        <p style={{ margin: '0 0 16px', padding: '10px', borderRadius: '8px', fontSize: '13px', color: '#dc2626', background: '#fef2f2', textAlign: 'center' }}>
+        <p style={{ margin: '0 0 16px', padding: '10px', borderRadius: '8px', fontSize: '13px', color: '#0a0a0a', background: '#f0f0f0', textAlign: 'center' }}>
           {error}
         </p>
       )}
@@ -78,7 +78,7 @@ export default function Register() {
           type="submit"
           disabled={loading}
           style={{
-            padding: '10px', background: colors.accent, color: '#fff', border: 'none',
+            padding: '10px', background: colors.accent, color: colors.bg, border: 'none',
             borderRadius: '8px', fontSize: '14px', fontWeight: '600', cursor: loading ? 'not-allowed' : 'pointer',
             opacity: loading ? 0.7 : 1,
           }}

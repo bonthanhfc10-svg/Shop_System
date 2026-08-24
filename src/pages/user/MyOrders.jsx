@@ -18,11 +18,11 @@ const initialOrders = [
 ];
 
 const statusStyles = {
-  pending: { bg: '#fffbeb', text: '#b45309', dot: '#f59e0b' },
-  processing: { bg: '#eef2ff', text: '#4338ca', dot: '#6366f1' },
-  shipped: { bg: '#ecfdf5', text: '#047857', dot: '#10b981' },
-  delivered: { bg: '#f0fdf4', text: '#15803d', dot: '#22c55e' },
-  cancelled: { bg: '#fef2f2', text: '#b91c1c', dot: '#ef4444' },
+  pending: { bg: '#f5f5f5', text: '#525252', dot: '#0a0a0a' },
+  processing: { bg: '#eeeeee', text: '#262626', dot: '#0a0a0a' },
+  shipped: { bg: '#e8e8e8', text: '#0a0a0a', dot: '#171717' },
+  delivered: { bg: '#e8e8e8', text: '#0a0a0a', dot: '#171717' },
+  cancelled: { bg: '#f0f0f0', text: '#737373', dot: '#0a0a0a' },
 };
 
 const statusOptions = ['pending', 'processing', 'shipped', 'delivered', 'cancelled'];
@@ -129,7 +129,7 @@ export default function MyOrders() {
           background: colors.gradientPrimary, color: '#fff',
           fontSize: '13px', fontWeight: '600', cursor: 'pointer',
           textDecoration: 'none',
-          boxShadow: '0 2px 8px rgba(102,126,234,0.3)', transition: 'all 0.2s',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.12)', transition: 'all 0.2s',
         }}
           onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; }}
           onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
@@ -216,7 +216,7 @@ export default function MyOrders() {
                           border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: '500',
                           transition: 'all 0.15s',
                         }}
-                          onMouseEnter={(e) => { e.currentTarget.style.background = '#eef2ff'; e.currentTarget.style.color = '#4338ca'; }}
+                          onMouseEnter={(e) => { e.currentTarget.style.background = '#eeeeee'; e.currentTarget.style.color = '#262626'; }}
                           onMouseLeave={(e) => { e.currentTarget.style.background = colors.bgHover; e.currentTarget.style.color = colors.textMuted; }}
                           title="Edit order"
                         >
@@ -229,7 +229,7 @@ export default function MyOrders() {
                           border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: '500',
                           transition: 'all 0.15s',
                         }}
-                          onMouseEnter={(e) => { e.currentTarget.style.background = '#fef2f2'; e.currentTarget.style.color = '#dc2626'; }}
+                          onMouseEnter={(e) => { e.currentTarget.style.background = '#f0f0f0'; e.currentTarget.style.color = '#0a0a0a'; }}
                           onMouseLeave={(e) => { e.currentTarget.style.background = colors.bgHover; e.currentTarget.style.color = colors.textMuted; }}
                           title="Delete order"
                         >
@@ -377,10 +377,10 @@ export default function MyOrders() {
           }} onClick={(e) => e.stopPropagation()}>
             <div style={{
               width: '48px', height: '48px', borderRadius: '50%',
-              background: '#fef2f2', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              background: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center',
               margin: '0 auto 16px',
             }}>
-              <AlertTriangle size={24} color="#dc2626" />
+              <AlertTriangle size={24} color="#0a0a0a" />
             </div>
             <h3 style={{ margin: '0 0 8px', fontSize: '17px', fontWeight: '700', color: colors.text }}>Delete Order?</h3>
             <p style={{ margin: '0 0 24px', fontSize: '14px', color: colors.textMuted }}>
@@ -394,7 +394,7 @@ export default function MyOrders() {
               }}>Cancel</button>
               <button onClick={confirmDelete} style={{
                 flex: 1, padding: '10px', borderRadius: '10px', border: 'none',
-                background: '#dc2626', color: '#fff',
+                background: '#0a0a0a', color: '#fff',
                 fontSize: '14px', fontWeight: '600', cursor: 'pointer',
               }}>Delete</button>
             </div>

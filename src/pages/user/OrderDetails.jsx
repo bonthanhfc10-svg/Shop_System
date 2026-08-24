@@ -38,8 +38,8 @@ export default function UserOrderDetails() {
         </div>
         <span style={{
           padding: '6px 14px', borderRadius: '20px', fontSize: '13px', fontWeight: '600',
-          textTransform: 'capitalize', background: order.status === 'delivered' ? '#dcfce7' : order.status === 'shipped' ? '#ecfdf5' : '#fffbeb',
-          color: order.status === 'delivered' ? '#166534' : order.status === 'shipped' ? '#047857' : '#b45309',
+          textTransform: 'capitalize', background: order.status === 'delivered' ? '#e5e5e5' : order.status === 'shipped' ? '#e8e8e8' : '#f5f5f5',
+          color: order.status === 'delivered' ? '#0a0a0a' : order.status === 'shipped' ? '#0a0a0a' : '#525252',
         }}>
           {order.status}
         </span>

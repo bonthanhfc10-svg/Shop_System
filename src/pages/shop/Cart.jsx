@@ -167,7 +167,7 @@ export default function CartPage() {
               width: '100%', padding: '14px', borderRadius: '12px', textDecoration: 'none',
               background: colors.gradientPrimary, color: '#fff',
               fontSize: '15px', fontWeight: '700',
-              boxShadow: '0 4px 16px rgba(102,126,234,0.3)',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
               transition: 'all 0.25s',
             }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}

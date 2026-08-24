@@ -21,11 +21,11 @@ const ordersData = [
 ];
 
 const statusConfig = {
-  pending: { bg: '#fffbeb', text: '#b45309', icon: AlertCircle, color: '#f59e0b' },
-  processing: { bg: '#eef2ff', text: '#4338ca', icon: Clock, color: '#6366f1' },
-  shipped: { bg: '#ecfdf5', text: '#047857', icon: Truck, color: '#10b981' },
-  delivered: { bg: '#f0fdf4', text: '#15803d', icon: CheckCircle2, color: '#22c55e' },
-  cancelled: { bg: '#fef2f2', text: '#b91c1c', icon: XCircle, color: '#ef4444' },
+  pending: { bg: '#f5f5f5', text: '#525252', icon: AlertCircle, color: '#0a0a0a' },
+  processing: { bg: '#eeeeee', text: '#262626', icon: Clock, color: '#0a0a0a' },
+  shipped: { bg: '#e8e8e8', text: '#0a0a0a', icon: Truck, color: '#171717' },
+  delivered: { bg: '#e8e8e8', text: '#0a0a0a', icon: CheckCircle2, color: '#171717' },
+  cancelled: { bg: '#f0f0f0', text: '#737373', icon: XCircle, color: '#0a0a0a' },
 };
 
 const statusFilters = ['all', 'pending', 'processing', 'shipped', 'delivered', 'cancelled'];
@@ -108,23 +108,23 @@ export default function Orders() {
   }, [statusFilter, searchQuery]);
 
   const statCards = [
-    { label: 'Total Orders', value: ordersData.length, icon: ShoppingCart, gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', shadowColor: 'rgba(102,126,234,0.3)' },
-    { label: 'Pending', value: stats.pending, icon: Clock, gradient: 'linear-gradient(135deg, #f59e0b 0%, #f97316 100%)', shadowColor: 'rgba(245,158,11,0.3)' },
-    { label: 'Shipped', value: stats.shipped, icon: Truck, gradient: 'linear-gradient(135deg, #10b981 0%, #38ef7d 100%)', shadowColor: 'rgba(16,185,129,0.3)' },
-    { label: 'Delivered', value: stats.delivered, icon: CheckCircle2, gradient: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)', shadowColor: 'rgba(34,197,94,0.3)' },
+    { label: 'Total Orders', value: ordersData.length, icon: ShoppingCart, gradient: '#000000', shadowColor: 'rgba(0,0,0,0.12)' },
+    { label: 'Pending', value: stats.pending, icon: Clock, gradient: '#000000', shadowColor: 'rgba(0,0,0,0.3)' },
+    { label: 'Shipped', value: stats.shipped, icon: Truck, gradient: '#262626', shadowColor: 'rgba(0,0,0,0.3)' },
+    { label: 'Delivered', value: stats.delivered, icon: CheckCircle2, gradient: '#171717', shadowColor: 'rgba(0,0,0,0.3)' },
   ];
 
   return (
     <div>
       <div style={{
-        background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4f46e5 60%, #7c3aed 100%)',
+        background: '#0a0a0a',
         borderRadius: '20px', padding: 'clamp(24px, 3vw, 36px)',
         position: 'relative', overflow: 'hidden', marginBottom: '24px',
       }}>
         <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <ShoppingCart size={18} color="#fbbf24" />
+              <ShoppingCart size={18} color="#fafafa" />
               <span style={{ fontSize: '12px', fontWeight: '600', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Order Management</span>
             </div>
             <h1 style={{ margin: 0, fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: '800', color: '#fff', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
@@ -365,7 +365,7 @@ export default function Orders() {
               {[1].map((p) => (
                 <button key={p} style={{
                   padding: '6px 12px', borderRadius: '8px', border: 'none',
-                  background: colors.accent, color: '#fff',
+                  background: colors.accent, color: colors.bg,
                   fontSize: '12.5px', fontWeight: '600', cursor: 'default',
                 }}>
                   {p}

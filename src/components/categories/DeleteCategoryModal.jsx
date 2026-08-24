@@ -67,12 +67,12 @@ export default function DeleteCategoryModal({ isOpen, category, onClose, onConfi
             autoFocus
             style={{
               flex: 1, padding: '10px 20px', borderRadius: '10px', border: 'none',
-              background: '#ef4444', color: '#fff',
+              background: '#0a0a0a', color: '#fff',
               fontSize: '13px', fontWeight: '600', cursor: 'pointer', fontFamily: 'inherit',
               transition: 'background 0.15s',
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = '#dc2626'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = '#ef4444'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = '#0a0a0a'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = '#0a0a0a'; }}
           >
             Delete Category
           </button>

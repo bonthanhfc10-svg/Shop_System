@@ -8,16 +8,16 @@ import {
 } from 'lucide-react';
 
 const typeConfig = {
-  Login: { color: '#3b82f6', bg: '#eff6ff', icon: LogIn },
-  Order: { color: '#22c55e', bg: '#f0fdf4', icon: ShoppingCart },
-  Product: { color: '#a855f7', bg: '#f5f3ff', icon: Package },
-  System: { color: '#f59e0b', bg: '#fffbeb', icon: Server },
+  Login: { color: '#404040', bg: '#f2f2f2', icon: LogIn },
+  Order: { color: '#171717', bg: '#e8e8e8', icon: ShoppingCart },
+  Product: { color: '#525252', bg: '#f0f0f0', icon: Package },
+  System: { color: '#0a0a0a', bg: '#f5f5f5', icon: Server },
 };
 
 const actorConfig = {
-  admin: { color: '#6366f1', bg: '#eef2ff' },
-  user: { color: '#059669', bg: '#ecfdf5' },
-  system: { color: '#f59e0b', bg: '#fffbeb' },
+  admin: { color: '#0a0a0a', bg: '#eeeeee' },
+  user: { color: '#171717', bg: '#e8e8e8' },
+  system: { color: '#0a0a0a', bg: '#f5f5f5' },
 };
 
 const logsData = [
@@ -171,14 +171,14 @@ export default function Logs() {
     <div>
       {/* Header */}
       <div style={{
-        background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4f46e5 60%, #7c3aed 100%)',
+        background: '#0a0a0a',
         borderRadius: '20px', padding: 'clamp(24px, 3vw, 36px)',
         position: 'relative', overflow: 'hidden', marginBottom: '24px',
       }}>
         <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <Activity size={18} color="#fbbf24" />
+              <Activity size={18} color="#fafafa" />
               <span style={{ fontSize: '12px', fontWeight: '600', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Audit Trail</span>
             </div>
             <h1 style={{ margin: 0, fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: '800', color: '#fff', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
@@ -204,7 +204,7 @@ export default function Logs() {
             <button style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               padding: '10px 20px', borderRadius: '10px', background: '#fff',
-              color: '#4f46e5', fontSize: '13px', fontWeight: '600', border: 'none', cursor: 'pointer',
+              color: '#0a0a0a', fontSize: '13px', fontWeight: '600', border: 'none', cursor: 'pointer',
               transition: 'all 0.2s',
             }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.2)'; }}
@@ -365,11 +365,11 @@ export default function Logs() {
               style={{
                 display: 'flex', alignItems: 'center', gap: '5px',
                 padding: '10px 14px', borderRadius: '10px', border: 'none',
-                background: '#fef2f2', color: '#dc2626', fontSize: '13px',
+                background: '#f0f0f0', color: '#0a0a0a', fontSize: '13px',
                 fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s',
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = '#fee2e2'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = '#fef2f2'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = '#f0f0f0'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = '#f0f0f0'; }}
             >
               <X size={14} /> Clear
             </button>

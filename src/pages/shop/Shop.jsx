@@ -51,7 +51,7 @@ export default function Shop() {
   return (
     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '24px clamp(16px, 3vw, 32px)' }}>
       <div style={{
-        background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4f46e5 60%, #7c3aed 100%)',
+        background: '#0a0a0a',
         borderRadius: '20px', padding: 'clamp(24px, 3vw, 36px)', marginBottom: '24px',
         position: 'relative', overflow: 'hidden',
       }}>
@@ -185,7 +185,7 @@ export default function Shop() {
                       <span style={{
                         position: 'absolute', top: '10px', left: '10px',
                         padding: '3px 8px', borderRadius: '4px',
-                        background: product.badge === 'Sale' ? '#ef4444' : product.badge === 'New' ? '#6366f1' : '#10b981',
+                        background: product.badge === 'Sale' ? '#0a0a0a' : product.badge === 'New' ? '#0a0a0a' : '#171717',
                         color: '#fff', fontSize: '10px', fontWeight: '700', textTransform: 'uppercase',
                       }}>
                         {product.badge}
@@ -197,7 +197,7 @@ export default function Shop() {
                     <h3 style={{ margin: '4px 0 8px', fontSize: '15px', fontWeight: '600', color: colors.text }}>{product.name}</h3>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '8px' }}>
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={12} fill={i < Math.floor(product.rating) ? '#f59e0b' : 'none'} color={i < Math.floor(product.rating) ? '#f59e0b' : colors.borderInput} />
+                        <Star key={i} size={12} fill={i < Math.floor(product.rating) ? '#737373' : 'none'} color={i < Math.floor(product.rating) ? '#737373' : colors.borderInput} />
                       ))}
                       <span style={{ fontSize: '12px', color: colors.textMuted }}>({product.reviews})</span>
                     </div>

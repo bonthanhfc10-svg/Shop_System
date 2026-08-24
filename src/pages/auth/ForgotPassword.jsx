@@ -28,10 +28,10 @@ export default function ForgotPassword() {
         <div style={{ textAlign: 'center' }}>
           <div style={{
             width: '56px', height: '56px', borderRadius: '50%',
-            background: '#ecfdf5', display: 'flex', alignItems: 'center',
+            background: '#e8e8e8', display: 'flex', alignItems: 'center',
             justifyContent: 'center', margin: '0 auto 16px',
           }}>
-            <Mail size={24} color="#059669" />
+            <Mail size={24} color="#171717" />
           </div>
           <p style={{ margin: '0 0 8px', fontSize: '14px', fontWeight: '600', color: colors.text }}>
             Check your email
@@ -57,7 +57,7 @@ export default function ForgotPassword() {
           <button
             type="submit" disabled={loading}
             style={{
-              padding: '10px', background: colors.accent, color: '#fff', border: 'none',
+              padding: '10px', background: colors.accent, color: colors.bg, border: 'none',
               borderRadius: '8px', fontSize: '14px', fontWeight: '600',
               cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1,
             }}

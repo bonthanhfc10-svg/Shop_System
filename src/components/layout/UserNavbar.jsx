@@ -39,7 +39,7 @@ export default function UserNavbar({ onToggleSidebar }) {
   const badgeStyle = {
     position: 'absolute', top: '1px', right: '0px',
     minWidth: '17px', height: '17px', padding: '0 4px',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    background: '#000000',
     color: '#fff', fontSize: '10.5px', fontWeight: '700',
     borderRadius: '9px', display: 'flex', alignItems: 'center', justifyContent: 'center',
     border: `2px solid ${colors.bgNavbar}`, boxSizing: 'content-box',
@@ -159,7 +159,7 @@ export default function UserNavbar({ onToggleSidebar }) {
               <Bell size={19} />
               <span style={{
                 position: 'absolute', top: '6px', right: '6px',
-                width: '8px', height: '8px', background: '#ef4444',
+                width: '8px', height: '8px', background: '#0a0a0a',
                 borderRadius: '50%', border: `2px solid ${colors.bgNavbar}`,
               }} />
             </Link>
@@ -179,11 +179,11 @@ export default function UserNavbar({ onToggleSidebar }) {
               >
                 <div style={{
                   width: '34px', height: '34px', borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  background: '#000000',
                   color: '#fff', display: 'flex',
                   alignItems: 'center', justifyContent: 'center',
                   fontSize: '14px', fontWeight: '600', flexShrink: 0,
-                  boxShadow: '0 2px 8px rgba(102,126,234,0.3)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
                 }}>
                   {user?.name?.charAt(0) || 'U'}
                 </div>
@@ -262,8 +262,8 @@ export default function UserNavbar({ onToggleSidebar }) {
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               padding: '7px 14px', borderRadius: '9px', textDecoration: 'none',
               fontSize: '13px', fontWeight: '600', color: '#fff',
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              boxShadow: '0 2px 8px rgba(102,126,234,0.3)',
+              background: '#000000',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
               transition: 'all 0.2s',
             }}
               onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.9'; e.currentTarget.style.transform = 'translateY(-1px)'; }}

@@ -17,16 +17,16 @@ const reviewsData = [
 ];
 
 const statsCards = [
-  { label: 'Total Reviews', value: '1,247', icon: MessageSquare, gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', shadowColor: 'rgba(102,126,234,0.3)' },
-  { label: 'Average Rating', value: '4.3', icon: Star, gradient: 'linear-gradient(135deg, #f59e0b 0%, #f97316 100%)', shadowColor: 'rgba(245,158,11,0.3)' },
-  { label: 'Pending', value: '23', icon: Clock, gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', shadowColor: 'rgba(79,172,254,0.3)' },
-  { label: 'Flagged', value: '5', icon: AlertTriangle, gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', shadowColor: 'rgba(250,112,154,0.3)' },
+  { label: 'Total Reviews', value: '1,247', icon: MessageSquare, gradient: '#000000', shadowColor: 'rgba(0,0,0,0.12)' },
+  { label: 'Average Rating', value: '4.3', icon: Star, gradient: '#000000', shadowColor: 'rgba(0,0,0,0.3)' },
+  { label: 'Pending', value: '23', icon: Clock, gradient: '#404040', shadowColor: 'rgba(0,0,0,0.3)' },
+  { label: 'Flagged', value: '5', icon: AlertTriangle, gradient: '#404040', shadowColor: 'rgba(0,0,0,0.3)' },
 ];
 
 const statusConfig = {
-  approved: { bg: '#dcfce7', text: '#166534', dot: '#22c55e', icon: CheckCircle2 },
-  pending: { bg: '#fef9c3', text: '#854d0e', dot: '#eab308', icon: Clock },
-  flagged: { bg: '#fef2f2', text: '#991b1b', dot: '#ef4444', icon: Flag },
+  approved: { bg: '#e5e5e5', text: '#0a0a0a', dot: '#171717', icon: CheckCircle2 },
+  pending: { bg: '#f5f5f5', text: '#737373', dot: '#a3a3a3', icon: Clock },
+  flagged: { bg: '#f0f0f0', text: '#737373', dot: '#0a0a0a', icon: Flag },
 };
 
 function StarRating({ rating, size = 16 }) {
@@ -37,8 +37,8 @@ function StarRating({ rating, size = 16 }) {
         <Star
           key={i}
           size={size}
-          fill={i <= rating ? '#f59e0b' : 'none'}
-          color={i <= rating ? '#f59e0b' : colors.border}
+          fill={i <= rating ? '#737373' : 'none'}
+          color={i <= rating ? '#737373' : colors.border}
           strokeWidth={1.8}
         />
       ))}
@@ -269,10 +269,10 @@ export default function Reviews() {
                               display: 'flex', alignItems: 'center', justifyContent: 'center',
                               width: '36px', height: '36px', borderRadius: '10px',
                               border: `1px solid ${colors.border}`,
-                              background: colors.bgCard, color: '#22c55e',
+                              background: colors.bgCard, color: '#171717',
                               cursor: 'pointer', transition: 'all 0.15s',
                             }}
-                            onMouseEnter={(e) => { e.currentTarget.style.background = '#dcfce7'; }}
+                            onMouseEnter={(e) => { e.currentTarget.style.background = '#e5e5e5'; }}
                             onMouseLeave={(e) => { e.currentTarget.style.background = colors.bgCard; }}
                           >
                             <ThumbsUp size={15} />
@@ -286,10 +286,10 @@ export default function Reviews() {
                               display: 'flex', alignItems: 'center', justifyContent: 'center',
                               width: '36px', height: '36px', borderRadius: '10px',
                               border: `1px solid ${colors.border}`,
-                              background: colors.bgCard, color: '#f59e0b',
+                              background: colors.bgCard, color: '#0a0a0a',
                               cursor: 'pointer', transition: 'all 0.15s',
                             }}
-                            onMouseEnter={(e) => { e.currentTarget.style.background = '#fef9c3'; }}
+                            onMouseEnter={(e) => { e.currentTarget.style.background = '#f5f5f5'; }}
                             onMouseLeave={(e) => { e.currentTarget.style.background = colors.bgCard; }}
                           >
                             <Flag size={15} />

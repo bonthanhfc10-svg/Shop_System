@@ -6,6 +6,7 @@ import coverImg1 from '../../assets/images/Cover1.png';
 import coverImg2 from '../../assets/images/Cover2.png';
 import coverImg3 from '../../assets/images/Cover3.png';
 import coverImg4 from '../../assets/images/Cover4.png';
+import bannerImg from '../../assets/images/Banner.png';
 
 import { formatCurrency } from '../../utils/formatCurrency';
 import {
@@ -33,10 +34,10 @@ const featuredProducts = [
 ];
 
 const features = [
-  { icon: Truck, title: 'Free Shipping', desc: 'On orders over $50', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
-  { icon: Shield, title: 'Secure Payment', desc: '100% secure checkout', gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' },
-  { icon: RotateCcw, title: 'Easy Returns', desc: '30-day return policy', gradient: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)' },
-  { icon: Headphones, title: '24/7 Support', desc: 'Dedicated support team', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' },
+  { icon: Truck, title: 'Free Shipping', desc: 'On orders over $50', gradient: '#000000' },
+  { icon: Shield, title: 'Secure Payment', desc: '100% secure checkout', gradient: '#262626' },
+  { icon: RotateCcw, title: 'Easy Returns', desc: '30-day return policy', gradient: '#404040' },
+  { icon: Headphones, title: '24/7 Support', desc: 'Dedicated support team', gradient: '#404040' },
 ];
 
 const categories = [
@@ -83,7 +84,7 @@ function ProductCard({ product, colors }) {
             <span style={{
               position: 'absolute', top: '10px', left: '10px',
               padding: '3px 8px', borderRadius: '5px',
-              background: product.badge === 'Sale' ? '#ef4444' : product.badge === 'New' ? '#6366f1' : '#10b981',
+              background: product.badge === 'Sale' ? '#0a0a0a' : product.badge === 'New' ? '#0a0a0a' : '#171717',
               color: '#fff', fontSize: '10px', fontWeight: '700', textTransform: 'uppercase',
             }}>
               {product.badge}
@@ -99,7 +100,7 @@ function ProductCard({ product, colors }) {
           </h3>
           <div style={{ display: 'flex', alignItems: 'center', gap: '3px', marginBottom: '8px' }}>
             {[...Array(5)].map((_, i) => (
-              <Star key={i} size={12} fill={i < Math.floor(product.rating) ? '#f59e0b' : 'none'} color={i < Math.floor(product.rating) ? '#f59e0b' : colors.borderInput} />
+              <Star key={i} size={12} fill={i < Math.floor(product.rating) ? '#737373' : 'none'} color={i < Math.floor(product.rating) ? '#737373' : colors.borderInput} />
             ))}
             <span style={{ fontSize: '11px', color: colors.textMuted, marginLeft: '4px' }}>
               ({product.reviews})
@@ -119,7 +120,7 @@ function ProductCard({ product, colors }) {
             {discount && (
               <span style={{
                 padding: '2px 7px', borderRadius: '4px',
-                background: '#fef2f2', color: '#dc2626',
+                background: '#f0f0f0', color: '#0a0a0a',
                 fontSize: '10px', fontWeight: '700',
               }}>
                 -{discount}%
@@ -142,11 +143,11 @@ function CategoryCard({ cat, colors }) {
       onClick={() => navigate(categoryPath)}
       style={{
         padding: '14px', borderRadius: '12px', cursor: 'pointer',
-        background: isSale ? 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)' : colors.bgCard,
+        background: isSale ? '#404040' : colors.bgCard,
         border: `1px solid ${isSale ? 'transparent' : colors.border}`,
         transition: 'all 0.25s',
       }}
-      onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = isSale ? '0 12px 28px rgba(239,68,68,0.35)' : colors.shadowLg; }}
+      onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = isSale ? '0 12px 28px rgba(0,0,0,0.35)' : colors.shadowLg; }}
       onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: cat.subs.length > 0 ? '12px' : '2px' }}>
@@ -216,7 +217,7 @@ export default function Home() {
       <section
         className="news-ticker"
         style={{
-          background: '#1e1b4b',
+          background: '#0a0a0a',
           borderBottom: '1px solid rgba(255,255,255,0.08)',
           display: 'flex', alignItems: 'stretch', overflow: 'hidden',
         }}
@@ -224,7 +225,7 @@ export default function Home() {
         <div style={{
           flexShrink: 0, zIndex: 2, display: 'flex', alignItems: 'center', gap: '6px',
           padding: '8px 16px',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          background: '#000000',
           color: '#fff', fontSize: '11px', fontWeight: '700',
           letterSpacing: '0.1em', textTransform: 'uppercase',
           clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%)',
@@ -240,24 +241,24 @@ export default function Home() {
                 padding: '8px 0', margin: '0 24px', whiteSpace: 'nowrap',
                 fontSize: '12px', color: 'rgba(255,255,255,0.85)',
               }}>
-                <item.icon size={13} color="#fbbf24" />
+                <item.icon size={13} color="#fafafa" />
                 {item.text}
               </span>
             ))}
           </div>
           <div style={{
             position: 'absolute', top: 0, bottom: 0, left: 0, width: '32px',
-            background: 'linear-gradient(90deg, #1e1b4b 20%, transparent)', pointerEvents: 'none',
+            background: 'linear-gradient(90deg, #0a0a0a 20%, transparent)', pointerEvents: 'none',
           }} />
           <div style={{
             position: 'absolute', top: 0, bottom: 0, right: 0, width: '32px',
-            background: 'linear-gradient(270deg, #1e1b4b 20%, transparent)', pointerEvents: 'none',
+            background: 'linear-gradient(270deg, #0a0a0a 20%, transparent)', pointerEvents: 'none',
           }} />
         </div>
       </section>
 
       <section style={{
-        background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4f46e5 60%, #7c3aed 100%)',
+        background: `linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.55)), url(${bannerImg}) center / cover no-repeat`,
         padding: 'clamp(34px, 5vw, 60px) clamp(16px, 3vw, 32px)',
         position: 'relative', overflow: 'hidden',
       }}>
@@ -266,7 +267,7 @@ export default function Home() {
             <span style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               padding: '5px 12px', borderRadius: '20px',
-              background: 'rgba(255,255,255,0.12)', color: '#fbbf24',
+              background: 'rgba(255,255,255,0.12)', color: '#fafafa',
               fontSize: '12px', fontWeight: '600', marginBottom: '14px',
               backdropFilter: 'blur(8px)',
             }}>
@@ -277,7 +278,7 @@ export default function Home() {
               color: '#fff', lineHeight: '1.1', letterSpacing: '-0.03em',
             }}>
               Discover the<br />
-              <span style={{ background: 'linear-gradient(90deg, #fbbf24 0%, #f97316 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <span style={{ background: 'linear-gradient(90deg, #ffffff 0%, #d4d4d4 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Best Deals
               </span>
             </h1>
@@ -291,7 +292,7 @@ export default function Home() {
               <Link to="/shop" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '7px',
                 padding: '11px 22px', borderRadius: '10px',
-                background: '#fff', color: '#4f46e5',
+                background: '#fff', color: '#0a0a0a',
                 fontSize: '13px', fontWeight: '700', textDecoration: 'none',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
                 transition: 'all 0.25s',
@@ -452,7 +453,7 @@ export default function Home() {
         maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(16px, 3vw, 32px) 40px',
       }}>
         <div style={{
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          background: '#000000',
           borderRadius: '16px', padding: 'clamp(24px, 4vw, 40px)',
           textAlign: 'center', position: 'relative', overflow: 'hidden',
         }}>
@@ -479,7 +480,7 @@ export default function Home() {
               />
               <button style={{
                 padding: '11px 22px', borderRadius: '10px', border: 'none',
-                background: '#fff', color: '#4f46e5',
+                background: '#fff', color: '#0a0a0a',
                 fontSize: '13px', fontWeight: '700', cursor: 'pointer',
                 transition: 'all 0.2s',
               }}

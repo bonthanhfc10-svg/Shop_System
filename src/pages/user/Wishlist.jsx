@@ -66,7 +66,7 @@ export default function Wishlist() {
                   <h4 style={{ margin: '4px 0 6px', fontSize: '14px', fontWeight: '600', color: colors.text }}>{product.name}</h4>
                 </Link>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '8px' }}>
-                  <Star size={12} fill="#f59e0b" color="#f59e0b" />
+                  <Star size={12} fill="#737373" color="#737373" />
                   <span style={{ fontSize: '12px', color: colors.textMuted }}>{product.rating}</span>
                 </div>
                 <p style={{ margin: '0 0 10px', fontSize: '16px', fontWeight: '700', color: colors.accent }}>{formatCurrency(product.price)}</p>

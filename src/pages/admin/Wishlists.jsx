@@ -82,34 +82,34 @@ const statsCards = [
     label: 'Total Wishlists',
     value: '456',
     icon: Heart,
-    gradient: 'linear-gradient(135deg, #ec4899 0%, #f472b6 100%)',
-    shadowColor: 'rgba(236,72,153,0.3)',
+    gradient: '#262626',
+    shadowColor: 'rgba(0,0,0,0.3)',
   },
   {
     label: 'Total Items',
     value: '2,340',
     icon: ShoppingBag,
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    shadowColor: 'rgba(102,126,234,0.3)',
+    gradient: '#000000',
+    shadowColor: 'rgba(0,0,0,0.12)',
   },
   {
     label: 'Most Popular Product',
     value: 'Headphones',
     icon: TrendingUp,
-    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
-    shadowColor: 'rgba(17,153,142,0.3)',
+    gradient: '#262626',
+    shadowColor: 'rgba(0,0,0,0.3)',
   },
   {
     label: 'Avg Items/User',
     value: '5.1',
     icon: BarChart3,
-    gradient: 'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)',
-    shadowColor: 'rgba(245,158,11,0.3)',
+    gradient: 'linear-gradient(135deg, #0a0a0a 0%, #fafafa 100%)',
+    shadowColor: 'rgba(0,0,0,0.3)',
   },
 ];
 
 const avatarColors = [
-  '#6366f1', '#ec4899', '#14b8a6', '#f97316', '#8b5cf6', '#ef4444',
+  '#0a0a0a', '#525252', '#a3a3a3', '#525252', '#737373', '#0a0a0a',
 ];
 
 function StatCard({ stat }) {

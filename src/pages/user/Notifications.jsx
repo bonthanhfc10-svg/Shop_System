@@ -3,11 +3,11 @@ import { useTheme } from '../../hooks/useTheme';
 import { Package, Tag, Star, ShoppingCart, CheckCircle2 } from 'lucide-react';
 
 const notifications = [
-  { id: 1, type: 'order', title: 'Order Shipped', message: 'Your order #ORD-7891 has been shipped!', time: '2 hours ago', read: false, icon: Package, color: '#10b981' },
-  { id: 2, type: 'promo', title: 'Flash Sale!', message: 'Get 30% off on all electronics this weekend.', time: '5 hours ago', read: false, icon: Tag, color: '#f59e0b' },
-  { id: 3, type: 'review', title: 'Review Reminder', message: 'How was your Smart Watch Pro? Leave a review!', time: '1 day ago', read: true, icon: Star, color: '#6366f1' },
-  { id: 4, type: 'order', title: 'Order Confirmed', message: 'Your order #ORD-7890 has been confirmed.', time: '2 days ago', read: true, icon: CheckCircle2, color: '#10b981' },
-  { id: 5, type: 'promo', title: 'New Arrivals', message: 'Check out our latest collection of accessories!', time: '3 days ago', read: true, icon: ShoppingCart, color: '#6366f1' },
+  { id: 1, type: 'order', title: 'Order Shipped', message: 'Your order #ORD-7891 has been shipped!', time: '2 hours ago', read: false, icon: Package, color: '#171717' },
+  { id: 2, type: 'promo', title: 'Flash Sale!', message: 'Get 30% off on all electronics this weekend.', time: '5 hours ago', read: false, icon: Tag, color: '#0a0a0a' },
+  { id: 3, type: 'review', title: 'Review Reminder', message: 'How was your Smart Watch Pro? Leave a review!', time: '1 day ago', read: true, icon: Star, color: '#0a0a0a' },
+  { id: 4, type: 'order', title: 'Order Confirmed', message: 'Your order #ORD-7890 has been confirmed.', time: '2 days ago', read: true, icon: CheckCircle2, color: '#171717' },
+  { id: 5, type: 'promo', title: 'New Arrivals', message: 'Check out our latest collection of accessories!', time: '3 days ago', read: true, icon: ShoppingCart, color: '#0a0a0a' },
 ];
 
 export default function Notifications() {

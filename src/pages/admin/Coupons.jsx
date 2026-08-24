@@ -18,8 +18,8 @@ const couponsData = [
     uses: 234,
     status: 'active',
     expiry: '2026-12-31',
-    color: '#6366f1',
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    color: '#0a0a0a',
+    gradient: '#000000',
   },
   {
     id: 2,
@@ -31,8 +31,8 @@ const couponsData = [
     uses: 567,
     status: 'active',
     expiry: '2026-10-15',
-    color: '#10b981',
-    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+    color: '#171717',
+    gradient: '#262626',
   },
   {
     id: 3,
@@ -44,8 +44,8 @@ const couponsData = [
     uses: 892,
     status: 'active',
     expiry: '2027-03-01',
-    color: '#f59e0b',
-    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    color: '#0a0a0a',
+    gradient: '#171717',
   },
   {
     id: 4,
@@ -57,8 +57,8 @@ const couponsData = [
     uses: 1245,
     status: 'active',
     expiry: '2026-11-30',
-    color: '#3b82f6',
-    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    color: '#404040',
+    gradient: '#404040',
   },
   {
     id: 5,
@@ -70,8 +70,8 @@ const couponsData = [
     uses: 89,
     status: 'expired',
     expiry: '2026-08-01',
-    color: '#ef4444',
-    gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    color: '#0a0a0a',
+    gradient: '#404040',
   },
   {
     id: 6,
@@ -83,14 +83,14 @@ const couponsData = [
     uses: 45,
     status: 'active',
     expiry: '2027-06-30',
-    color: '#8b5cf6',
-    gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
+    color: '#737373',
+    gradient: '#737373',
   },
 ];
 
 const statusConfig = {
-  active: { bg: '#dcfce7', text: '#166534', dot: '#22c55e' },
-  expired: { bg: '#fef2f2', text: '#991b1b', dot: '#ef4444' },
+  active: { bg: '#e5e5e5', text: '#0a0a0a', dot: '#171717' },
+  expired: { bg: '#f0f0f0', text: '#737373', dot: '#0a0a0a' },
 };
 
 function CouponCard({ coupon, onCopy, onDelete }) {
@@ -195,8 +195,8 @@ function CouponCard({ coupon, onCopy, onDelete }) {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 width: '34px', height: '34px', borderRadius: '8px',
                 border: `1px solid ${colors.border}`,
-                background: copied ? '#dcfce7' : colors.bgCard,
-                color: copied ? '#166534' : colors.textMuted,
+                background: copied ? '#e5e5e5' : colors.bgCard,
+                color: copied ? '#0a0a0a' : colors.textMuted,
                 cursor: 'pointer', transition: 'all 0.15s',
               }}
               title="Copy code"
@@ -336,7 +336,7 @@ function CouponCard({ coupon, onCopy, onDelete }) {
             <span style={{
               display: 'inline-flex', alignItems: 'center', gap: '4px',
               padding: '3px 8px', borderRadius: '6px',
-              background: '#fef2f2', color: '#991b1b',
+              background: '#f0f0f0', color: '#737373',
               fontSize: '11px', fontWeight: '600',
             }}>
               <X size={11} />
@@ -347,7 +347,7 @@ function CouponCard({ coupon, onCopy, onDelete }) {
             <span style={{
               display: 'inline-flex', alignItems: 'center', gap: '4px',
               padding: '3px 8px', borderRadius: '6px',
-              background: '#dcfce7', color: '#166534',
+              background: '#e5e5e5', color: '#0a0a0a',
               fontSize: '11px', fontWeight: '600',
             }}>
               <CheckCircle2 size={11} />
@@ -405,11 +405,11 @@ export default function Coupons() {
           padding: '12px 24px', borderRadius: '12px',
           background: colors.gradientPrimary, color: '#fff',
           fontSize: '14px', fontWeight: '600', textDecoration: 'none',
-          boxShadow: '0 4px 14px rgba(79,70,229,0.35)',
+          boxShadow: '0 4px 14px rgba(0,0,0,0.35)',
           transition: 'all 0.2s',
         }}
-          onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(79,70,229,0.45)'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(79,70,229,0.35)'; }}
+          onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.45)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(0,0,0,0.35)'; }}
         >
           <Plus size={18} /> Add Coupon
         </Link>
@@ -420,10 +420,10 @@ export default function Coupons() {
         gap: '14px', marginBottom: '28px',
       }}>
         {[
-          { label: 'Total Coupons', value: coupons.length, icon: Ticket, gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
-          { label: 'Active Coupons', value: activeCount, icon: CheckCircle2, gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' },
-          { label: 'Expired Coupons', value: expiredCount, icon: Clock, gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)' },
-          { label: 'Total Redemptions', value: totalUses.toLocaleString(), icon: BarChart3, gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' },
+          { label: 'Total Coupons', value: coupons.length, icon: Ticket, gradient: '#000000' },
+          { label: 'Active Coupons', value: activeCount, icon: CheckCircle2, gradient: '#262626' },
+          { label: 'Expired Coupons', value: expiredCount, icon: Clock, gradient: '#404040' },
+          { label: 'Total Redemptions', value: totalUses.toLocaleString(), icon: BarChart3, gradient: '#404040' },
         ].map((stat) => {
           const StatIcon = stat.icon;
           return (

@@ -107,7 +107,7 @@ export default function CategoryModal({ isOpen, onClose, onSubmit, editing, cate
               ) : (
                 <div style={{
                   width: '52px', height: '52px', borderRadius: '12px', flexShrink: 0,
-                  background: editing?.bg || '#eef2ff', display: 'flex', alignItems: 'center',
+                  background: editing?.bg || '#eeeeee', display: 'flex', alignItems: 'center',
                   justifyContent: 'center', fontSize: '22px',
                 }}>
                   {form.name.charAt(0).toUpperCase() || '🏷️'}

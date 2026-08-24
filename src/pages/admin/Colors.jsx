@@ -26,7 +26,7 @@ export default function Colors() {
         </div>
         <button style={{
           display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 20px',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          background: '#000000',
           color: '#fff', border: 'none', borderRadius: '10px', fontSize: '13px', fontWeight: '600', cursor: 'pointer',
         }}>
           <Plus size={16} /> Add Color
@@ -66,7 +66,7 @@ export default function Colors() {
               <button style={{
                 padding: '6px 10px', borderRadius: '6px', border: 'none', fontSize: '11.5px',
                 fontWeight: '600', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px',
-                background: '#fef2f2', color: '#ef4444',
+                background: '#f0f0f0', color: '#0a0a0a',
               }}>
                 <Trash2 size={11} /> Delete
               </button>

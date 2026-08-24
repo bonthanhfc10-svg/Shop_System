@@ -33,7 +33,7 @@ export default function UserSidebar({ mobileOpen, onClose }) {
     textDecoration: 'none',
     fontSize: '14px',
     fontWeight: isActive ? '600' : '400',
-    color: isActive ? colors.accent : colors.textMuted,
+    color: isActive ? colors.textOnAccent : colors.textMuted,
     background: isActive ? colors.bgNavActive : 'transparent',
     transition: 'all 0.2s',
   });
@@ -96,10 +96,10 @@ export default function UserSidebar({ mobileOpen, onClose }) {
         >
           <div style={{
             width: '48px', height: '48px', borderRadius: '50%',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: '#000000',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: '#fff', fontSize: '18px', fontWeight: '700', flexShrink: 0,
-            boxShadow: '0 4px 12px rgba(102,126,234,0.3)',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.12)',
           }}>
             {user?.name?.charAt(0) || 'U'}
           </div>

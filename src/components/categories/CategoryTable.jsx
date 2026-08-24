@@ -63,10 +63,10 @@ function ActionButtons({ onView, onEdit, onDelete }) {
         <Edit2 size={14} color={colors.accent} />
       </button>
       <button onClick={onDelete} style={baseStyle} aria-label="Delete category" title="Delete"
-        onMouseEnter={(e) => { e.currentTarget.style.background = '#fef2f2'; e.currentTarget.style.borderColor = '#fecaca'; }}
+        onMouseEnter={(e) => { e.currentTarget.style.background = '#f0f0f0'; e.currentTarget.style.borderColor = '#e5e5e5'; }}
         onMouseLeave={(e) => { e.currentTarget.style.background = colors.bgCard; e.currentTarget.style.borderColor = colors.border; }}
       >
-        <Trash2 size={14} color="#ef4444" />
+        <Trash2 size={14} color="#0a0a0a" />
       </button>
     </>
   );

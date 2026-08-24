@@ -23,7 +23,7 @@ function ProfileHeader({ user, colors, isEditing, setIsEditing, avatarPreview, s
     <div style={{ borderRadius: '20px', overflow: 'hidden', background: colors.bgCard, border: `1px solid ${colors.border}` }}>
       <div style={{
         height: 'clamp(140px, 20vw, 220px)',
-        background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 25%, #4f46e5 50%, #7c3aed 75%, #a855f7 100%)',
+        background: '#0a0a0a',
         position: 'relative', overflow: 'hidden',
       }}>
         <div style={{ position: 'absolute', inset: 0, background: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")', opacity: 0.6 }} />
@@ -52,11 +52,11 @@ function ProfileHeader({ user, colors, isEditing, setIsEditing, avatarPreview, s
           <div style={{ position: 'relative', flexShrink: 0 }}>
             <div style={{
               width: '104px', height: '104px', borderRadius: '50%',
-              background: avatarPreview || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              background: avatarPreview || '#000000',
               backgroundSize: 'cover', backgroundPosition: 'center',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               border: `4px solid ${colors.bgCard}`,
-              boxShadow: '0 8px 32px rgba(102,126,234,0.3)',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
               fontSize: '36px', fontWeight: '700', color: '#fff',
               transition: 'all 0.3s',
             }}>
@@ -86,14 +86,14 @@ function ProfileHeader({ user, colors, isEditing, setIsEditing, avatarPreview, s
                 <span style={{
                   display: 'inline-flex', alignItems: 'center', gap: '4px',
                   padding: '4px 10px', borderRadius: '6px', fontSize: '11px', fontWeight: '600',
-                  background: '#eef2ff', color: '#4f46e5',
+                  background: '#eeeeee', color: '#0a0a0a',
                 }}>
                   <Shield size={11} /> {user?.role === 'admin' ? 'Admin' : 'Member'}
                 </span>
                 <span style={{
                   display: 'inline-flex', alignItems: 'center', gap: '4px',
                   padding: '4px 10px', borderRadius: '6px', fontSize: '11px', fontWeight: '600',
-                  background: '#ecfdf5', color: '#059669',
+                  background: '#e8e8e8', color: '#171717',
                 }}>
                   <CheckCircle2 size={11} /> Verified
                 </span>
@@ -113,7 +113,7 @@ function ProfileHeader({ user, colors, isEditing, setIsEditing, avatarPreview, s
               color: isEditing ? colors.text : '#fff',
               fontSize: '13px', fontWeight: '600', cursor: 'pointer',
               transition: 'all 0.25s',
-              boxShadow: isEditing ? 'none' : '0 4px 16px rgba(102,126,234,0.3)',
+              boxShadow: isEditing ? 'none' : '0 4px 16px rgba(0,0,0,0.12)',
             }}
             onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
@@ -204,7 +204,7 @@ function PasswordSection({ colors }) {
     <div style={{ background: colors.bgCard, borderRadius: '16px', padding: 'clamp(20px, 3vw, 28px)', border: `1px solid ${colors.border}` }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: showForm ? '20px' : '0' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: '#404040', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Lock size={18} color="#fff" />
           </div>
           <div>
@@ -244,9 +244,9 @@ function PasswordSection({ colors }) {
           ))}
           <button style={{
             alignSelf: 'flex-end', padding: '10px 22px', borderRadius: '10px', border: 'none',
-            background: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
+            background: '#404040',
             color: '#fff', fontSize: '13px', fontWeight: '600', cursor: 'pointer',
-            display: 'flex', alignItems: 'center', gap: '6px', boxShadow: '0 4px 12px rgba(245,158,11,0.3)',
+            display: 'flex', alignItems: 'center', gap: '6px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
             transition: 'all 0.2s',
           }}
             onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; }}
@@ -262,10 +262,10 @@ function PasswordSection({ colors }) {
 
 function StatsBar({ colors }) {
   const stats = [
-    { label: 'Orders', value: '23', icon: Package, gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', link: '/user/orders' },
-    { label: 'Wishlist', value: '8', icon: Heart, gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', link: '/user/wishlist' },
-    { label: 'Reviews', value: '12', icon: Star, gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)', link: '/user/reviews' },
-    { label: 'Coupons', value: '5', icon: Tag, gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', link: '/user/coupons' },
+    { label: 'Orders', value: '23', icon: Package, gradient: '#000000', link: '/user/orders' },
+    { label: 'Wishlist', value: '8', icon: Heart, gradient: '#404040', link: '/user/wishlist' },
+    { label: 'Reviews', value: '12', icon: Star, gradient: '#262626', link: '/user/reviews' },
+    { label: 'Coupons', value: '5', icon: Tag, gradient: '#404040', link: '/user/coupons' },
   ];
 
   return (
@@ -286,7 +286,7 @@ function StatsBar({ colors }) {
                 width: '44px', height: '44px', borderRadius: '12px',
                 background: s.gradient, display: 'flex', alignItems: 'center',
                 justifyContent: 'center', margin: '0 auto 12px',
-                boxShadow: `0 4px 12px ${s.gradient.includes('#667eea') ? 'rgba(102,126,234,0.3)' : 'rgba(0,0,0,0.1)'}`,
+                boxShadow: '0 4px 12px rgba(0,0,0,0.12)',
               }}>
                 <Icon size={20} color="#fff" />
               </div>
@@ -302,18 +302,18 @@ function StatsBar({ colors }) {
 
 function ActivityTimeline({ colors }) {
   const activities = [
-    { icon: Package, color: '#6366f1', text: 'Order #ORD-7891 delivered', time: '2 hours ago' },
-    { icon: Star, color: '#f59e0b', text: 'Reviewed "Wireless Headphones"', time: '1 day ago' },
-    { icon: Heart, color: '#ef4444', text: 'Added "Smart Watch Pro" to wishlist', time: '2 days ago' },
-    { icon: CreditCard, color: '#10b981', text: 'Payment method updated', time: '3 days ago' },
-    { icon: Package, color: '#6366f1', text: 'Order #ORD-7890 shipped', time: '4 days ago' },
+    { icon: Package, color: '#0a0a0a', text: 'Order #ORD-7891 delivered', time: '2 hours ago' },
+    { icon: Star, color: '#0a0a0a', text: 'Reviewed "Wireless Headphones"', time: '1 day ago' },
+    { icon: Heart, color: '#0a0a0a', text: 'Added "Smart Watch Pro" to wishlist', time: '2 days ago' },
+    { icon: CreditCard, color: '#171717', text: 'Payment method updated', time: '3 days ago' },
+    { icon: Package, color: '#0a0a0a', text: 'Order #ORD-7890 shipped', time: '4 days ago' },
   ];
 
   return (
     <div style={{ background: colors.bgCard, borderRadius: '16px', padding: 'clamp(20px, 3vw, 28px)', border: `1px solid ${colors.border}` }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'linear-gradient(135deg, #737373 0%, #0a0a0a 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Bell size={18} color="#fff" />
           </div>
           <div>
@@ -351,11 +351,11 @@ function ActivityTimeline({ colors }) {
 
 function QuickActions({ colors }) {
   const actions = [
-    { label: 'Manage Addresses', icon: MapPin, color: '#6366f1', path: '/user/addresses' },
-    { label: 'Payment Methods', icon: CreditCard, color: '#10b981', path: '/user/payment-methods' },
-    { label: 'Notification Settings', icon: Bell, color: '#f59e0b', path: '/user/notifications' },
-    { label: 'My Orders', icon: ShoppingBag, color: '#8b5cf6', path: '/user/orders' },
-    { label: 'Support Center', icon: Mail, color: '#ec4899', path: '/user/support' },
+    { label: 'Manage Addresses', icon: MapPin, color: '#0a0a0a', path: '/user/addresses' },
+    { label: 'Payment Methods', icon: CreditCard, color: '#171717', path: '/user/payment-methods' },
+    { label: 'Notification Settings', icon: Bell, color: '#0a0a0a', path: '/user/notifications' },
+    { label: 'My Orders', icon: ShoppingBag, color: '#737373', path: '/user/orders' },
+    { label: 'Support Center', icon: Mail, color: '#525252', path: '/user/support' },
   ];
 
   return (
@@ -438,7 +438,7 @@ export default function Profile() {
                   background: colors.gradientPrimary, color: '#fff',
                   fontSize: '12px', fontWeight: '600', cursor: 'pointer',
                   display: 'flex', alignItems: 'center', gap: '5px',
-                  boxShadow: '0 2px 8px rgba(102,126,234,0.3)', transition: 'all 0.2s',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.12)', transition: 'all 0.2s',
                 }}
                   onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
@@ -462,7 +462,7 @@ export default function Profile() {
             border: `1px solid ${colors.border}`,
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: '#262626', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Edit3 size={18} color="#fff" />
               </div>
               <div>

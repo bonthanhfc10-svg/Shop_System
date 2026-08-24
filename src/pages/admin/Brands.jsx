@@ -4,12 +4,12 @@ import { Plus, Package, TrendingUp, ChevronRight } from 'lucide-react';
 import { formatCurrency } from '../../utils/formatCurrency';
 
 const brands = [
-  { id: 1, name: 'Apple', products: 45, revenue: 28450, color: '#A2AAAD' },
-  { id: 2, name: 'Samsung', products: 38, revenue: 22320, color: '#1428A0' },
+  { id: 1, name: 'Apple', products: 45, revenue: 28450, color: '#a3a3a3' },
+  { id: 2, name: 'Samsung', products: 38, revenue: 22320, color: '#171717' },
   { id: 3, name: 'Sony', products: 32, revenue: 18680, color: '#000000' },
-  { id: 4, name: 'Nike', products: 28, revenue: 15240, color: '#F97316' },
+  { id: 4, name: 'Nike', products: 28, revenue: 15240, color: '#525252' },
   { id: 5, name: 'Adidas', products: 24, revenue: 12870, color: '#1a1a1a' },
-  { id: 6, name: 'Logitech', products: 20, revenue: 9650, color: '#00B4F1' },
+  { id: 6, name: 'Logitech', products: 20, revenue: 9650, color: '#737373' },
 ];
 
 export default function Brands() {
@@ -24,7 +24,7 @@ export default function Brands() {
         </div>
         <Link to="/admin/brands/add" style={{
           display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 20px',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          background: '#000000',
           color: '#fff', borderRadius: '10px', fontSize: '13px', fontWeight: '600', textDecoration: 'none',
         }}>
           <Plus size={16} /> Add Brand
@@ -70,8 +70,8 @@ export default function Brands() {
                 </div>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#ecfdf5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <TrendingUp size={15} color="#059669" />
+                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#e8e8e8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <TrendingUp size={15} color="#171717" />
                 </div>
                 <div>
                   <p style={{ margin: 0, fontSize: '11px', color: colors.textSubtle }}>Revenue</p>

@@ -14,9 +14,9 @@ export default function OrderSuccess() {
     }}>
       <div style={{
         width: '80px', height: '80px', borderRadius: '50%',
-        background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
+        background: '#0a0a0a',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        margin: '0 auto 24px', boxShadow: '0 8px 24px rgba(16,185,129,0.3)',
+        margin: '0 auto 24px', boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
         animation: 'scaleIn 0.5s ease',
       }}>
         <CheckCircle2 size={40} color="#fff" />
@@ -65,7 +65,7 @@ export default function OrderSuccess() {
           padding: '12px 24px', borderRadius: '10px', textDecoration: 'none',
           background: colors.gradientPrimary, color: '#fff',
           fontSize: '14px', fontWeight: '600',
-          boxShadow: '0 4px 16px rgba(102,126,234,0.3)',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
         }}>
           View My Orders <ArrowRight size={16} />
         </Link>

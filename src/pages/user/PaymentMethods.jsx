@@ -59,7 +59,7 @@ export default function PaymentMethods() {
           <div style={{ display: 'flex', gap: '10px', marginTop: '14px' }}>
             <button onClick={() => setShowForm(false)} style={{
               padding: '10px 20px', borderRadius: '10px', border: 'none',
-              background: colors.accent, color: '#fff', fontSize: '13px', fontWeight: '600', cursor: 'pointer',
+              background: colors.accent, color: colors.bg, fontSize: '13px', fontWeight: '600', cursor: 'pointer',
             }}>Save Card</button>
             <button onClick={() => setShowForm(false)} style={{
               padding: '10px 20px', borderRadius: '10px',
@@ -88,7 +88,7 @@ export default function PaymentMethods() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span style={{ fontSize: '15px', fontWeight: '600', color: colors.text }}>{card.type}</span>
                 {card.isDefault && (
-                  <span style={{ padding: '2px 8px', borderRadius: '4px', background: '#dcfce7', color: '#166534', fontSize: '11px', fontWeight: '600' }}>Default</span>
+                  <span style={{ padding: '2px 8px', borderRadius: '4px', background: '#e5e5e5', color: '#0a0a0a', fontSize: '11px', fontWeight: '600' }}>Default</span>
                 )}
               </div>
               <p style={{ margin: '2px 0 0', fontSize: '13px', color: colors.textMuted }}>

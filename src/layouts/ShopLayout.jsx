@@ -110,7 +110,7 @@ export default function ShopLayout() {
               <span style={{
                 position: 'absolute', top: '2px', right: '2px',
                 width: '16px', height: '16px', borderRadius: '50%',
-                background: colors.danger, color: '#fff',
+                background: colors.danger, color: colors.bg,
                 fontSize: '10px', fontWeight: '700',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>{cartCount || 0}</span>
@@ -128,7 +128,7 @@ export default function ShopLayout() {
                 >
                   <div style={{
                     width: '32px', height: '32px', borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    background: '#000000',
                     color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: '13px', fontWeight: '600',
                   }}>

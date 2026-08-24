@@ -15,29 +15,29 @@ const statsCards = [
     label: 'Total Revenue',
     value: 45231.89,
     icon: DollarSign,
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    shadowColor: 'rgba(102,126,234,0.3)',
+    gradient: '#000000',
+    shadowColor: 'rgba(0,0,0,0.12)',
   },
   {
     label: 'This Month',
     value: 8420.50,
     icon: TrendingUp,
-    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
-    shadowColor: 'rgba(17,153,142,0.3)',
+    gradient: '#262626',
+    shadowColor: 'rgba(0,0,0,0.3)',
   },
   {
     label: 'Pending',
     value: 2340.00,
     icon: Clock,
-    gradient: 'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)',
-    shadowColor: 'rgba(245,158,11,0.3)',
+    gradient: 'linear-gradient(135deg, #0a0a0a 0%, #fafafa 100%)',
+    shadowColor: 'rgba(0,0,0,0.3)',
   },
   {
     label: 'Refunded',
     value: 890.00,
     icon: RotateCcw,
-    gradient: 'linear-gradient(135deg, #ef4444 0%, #f87171 100%)',
-    shadowColor: 'rgba(239,68,68,0.3)',
+    gradient: '#0a0a0a',
+    shadowColor: 'rgba(0,0,0,0.3)',
   },
 ];
 
@@ -51,9 +51,9 @@ const payments = [
 ];
 
 const statusConfig = {
-  completed: { bg: '#ecfdf5', text: '#047857', icon: CheckCircle2, color: '#10b981' },
-  pending: { bg: '#fffbeb', text: '#b45309', icon: AlertCircle, color: '#f59e0b' },
-  refunded: { bg: '#fef2f2', text: '#b91c1c', icon: XCircle, color: '#ef4444' },
+  completed: { bg: '#e8e8e8', text: '#0a0a0a', icon: CheckCircle2, color: '#171717' },
+  pending: { bg: '#f5f5f5', text: '#525252', icon: AlertCircle, color: '#0a0a0a' },
+  refunded: { bg: '#f0f0f0', text: '#737373', icon: XCircle, color: '#0a0a0a' },
 };
 
 const methodIcons = {

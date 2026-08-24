@@ -95,8 +95,8 @@ export default function Categories() {
         {
           id: Date.now(),
           emoji: '🏷️',
-          bg: '#eef2ff',
-          color: '#6366f1',
+          bg: '#eeeeee',
+          color: '#0a0a0a',
           products: 0,
           createdAt: new Date().toISOString().slice(0, 10),
           ...formData,
@@ -140,7 +140,7 @@ export default function Categories() {
             display: 'flex', alignItems: 'center', gap: '8px', padding: '11px 20px',
             background: colors.gradientPrimary, color: '#fff', border: 'none',
             borderRadius: '10px', fontSize: '13.5px', fontWeight: '600',
-            cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 4px 14px rgba(102,126,234,0.3)',
+            cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 4px 14px rgba(0,0,0,0.12)',
           }}
         >
           <Plus size={16} />

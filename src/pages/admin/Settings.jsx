@@ -323,7 +323,7 @@ export default function Settings() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
           <div style={{
             width: '40px', height: '40px', borderRadius: '12px',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: '#000000',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>
             <ShieldCheck size={20} color="#fff" />
@@ -345,7 +345,7 @@ export default function Settings() {
 
         <SectionCard
           icon={Store}
-          iconBg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+          iconBg="#000000"
           title="Store Information"
           subtitle="Basic store details and contact"
         >
@@ -422,7 +422,7 @@ export default function Settings() {
 
         <SectionCard
           icon={DollarSign}
-          iconBg="linear-gradient(135deg, #11998e 0%, #38ef7d 100%)"
+          iconBg="#262626"
           title="Currency & Tax"
           subtitle="Financial configuration"
         >
@@ -541,7 +541,7 @@ export default function Settings() {
 
         <SectionCard
           icon={Bell}
-          iconBg="linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+          iconBg="#404040"
           title="Notification Settings"
           subtitle="Manage alert preferences"
         >
@@ -614,7 +614,7 @@ export default function Settings() {
 
         <SectionCard
           icon={Shield}
-          iconBg="linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+          iconBg="#404040"
           title="Security"
           subtitle="Protect your account"
         >

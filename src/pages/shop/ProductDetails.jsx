@@ -64,7 +64,7 @@ export default function ProductDetails() {
             <span style={{
               position: 'absolute', top: '16px', left: '16px',
               padding: '6px 14px', borderRadius: '8px',
-              background: product.badge === 'Sale' ? '#ef4444' : product.badge === 'New' ? '#6366f1' : '#10b981',
+              background: product.badge === 'Sale' ? '#0a0a0a' : product.badge === 'New' ? '#0a0a0a' : '#171717',
               color: '#fff', fontSize: '12px', fontWeight: '700',
             }}>
               {product.badge}
@@ -87,7 +87,7 @@ export default function ProductDetails() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
             <div style={{ display: 'flex', gap: '2px' }}>
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={16} fill={i < Math.floor(product.rating) ? '#f59e0b' : 'none'} color={i < Math.floor(product.rating) ? '#f59e0b' : colors.borderInput} />
+                <Star key={i} size={16} fill={i < Math.floor(product.rating) ? '#737373' : 'none'} color={i < Math.floor(product.rating) ? '#737373' : colors.borderInput} />
               ))}
             </div>
             <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text }}>{product.rating}</span>
@@ -99,7 +99,7 @@ export default function ProductDetails() {
             {product.originalPrice && (
               <>
                 <span style={{ fontSize: '18px', color: colors.textSubtle, textDecoration: 'line-through' }}>{formatCurrency(product.originalPrice)}</span>
-                <span style={{ padding: '4px 10px', borderRadius: '6px', background: '#fef2f2', color: '#dc2626', fontSize: '13px', fontWeight: '700' }}>
+                <span style={{ padding: '4px 10px', borderRadius: '6px', background: '#f0f0f0', color: '#0a0a0a', fontSize: '13px', fontWeight: '700' }}>
                   -{discount}%
                 </span>
               </>
@@ -146,7 +146,7 @@ export default function ProductDetails() {
                 background: product.stock === 0 ? colors.textSubtle : colors.gradientPrimary,
                 color: '#fff', fontSize: '15px', fontWeight: '700', cursor: product.stock === 0 ? 'not-allowed' : 'pointer',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-                boxShadow: product.stock === 0 ? 'none' : '0 4px 16px rgba(102,126,234,0.3)',
+                boxShadow: product.stock === 0 ? 'none' : '0 4px 16px rgba(0,0,0,0.12)',
                 transition: 'all 0.25s',
               }}
               onMouseEnter={(e) => { if (product.stock > 0) e.currentTarget.style.transform = 'translateY(-2px)'; }}
@@ -160,7 +160,7 @@ export default function ProductDetails() {
               style={{
                 width: '52px', height: '52px', borderRadius: '12px',
                 border: `1px solid ${inWishlist ? colors.danger : colors.border}`,
-                background: inWishlist ? '#fef2f2' : colors.bgCard,
+                background: inWishlist ? '#f0f0f0' : colors.bgCard,
                 color: inWishlist ? colors.danger : colors.textMuted,
                 cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: 'all 0.2s',

@@ -21,8 +21,8 @@ const statsCards = [
     change: '+20.1%',
     changeType: 'positive',
     icon: DollarSign,
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    shadowColor: 'rgba(102,126,234,0.3)',
+    gradient: '#000000',
+    shadowColor: 'rgba(0,0,0,0.12)',
     sparkline: [30, 45, 35, 55, 48, 62, 58, 72],
   },
   {
@@ -31,8 +31,8 @@ const statsCards = [
     change: '+12.5%',
     changeType: 'positive',
     icon: ShoppingCart,
-    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
-    shadowColor: 'rgba(17,153,142,0.3)',
+    gradient: '#262626',
+    shadowColor: 'rgba(0,0,0,0.3)',
     sparkline: [20, 35, 28, 42, 38, 50, 45, 58],
   },
   {
@@ -41,8 +41,8 @@ const statsCards = [
     change: '+8.2%',
     changeType: 'positive',
     icon: Package,
-    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    shadowColor: 'rgba(79,172,254,0.3)',
+    gradient: '#404040',
+    shadowColor: 'rgba(0,0,0,0.3)',
     sparkline: [40, 38, 42, 45, 50, 48, 55, 52],
   },
   {
@@ -51,8 +51,8 @@ const statsCards = [
     change: '-2.1%',
     changeType: 'negative',
     icon: Users,
-    gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-    shadowColor: 'rgba(250,112,154,0.3)',
+    gradient: '#404040',
+    shadowColor: 'rgba(0,0,0,0.3)',
     sparkline: [50, 52, 48, 45, 47, 42, 44, 40],
   },
 ];
@@ -86,20 +86,20 @@ const orderStatusCounts = {
 };
 
 const statusConfig = {
-  pending: { bg: '#fffbeb', text: '#b45309', icon: AlertCircle, color: '#f59e0b' },
-  processing: { bg: '#eef2ff', text: '#4338ca', icon: Clock, color: '#6366f1' },
-  shipped: { bg: '#ecfdf5', text: '#047857', icon: Truck, color: '#10b981' },
-  delivered: { bg: '#f0fdf4', text: '#15803d', icon: CheckCircle2, color: '#22c55e' },
-  cancelled: { bg: '#fef2f2', text: '#b91c1c', icon: XCircle, color: '#ef4444' },
+  pending: { bg: '#f5f5f5', text: '#525252', icon: AlertCircle, color: '#0a0a0a' },
+  processing: { bg: '#eeeeee', text: '#262626', icon: Clock, color: '#0a0a0a' },
+  shipped: { bg: '#e8e8e8', text: '#0a0a0a', icon: Truck, color: '#171717' },
+  delivered: { bg: '#e8e8e8', text: '#0a0a0a', icon: CheckCircle2, color: '#171717' },
+  cancelled: { bg: '#f0f0f0', text: '#737373', icon: XCircle, color: '#0a0a0a' },
 };
 
 const topCategories = [
-  { name: 'Electronics', sold: 1248, revenue: 28450, icon: Smartphone, color: '#6366f1', bg: '#eef2ff' },
-  { name: 'Fashion', sold: 986, revenue: 19320, icon: Shirt, color: '#ec4899', bg: '#fdf2f8' },
-  { name: 'Headphones', sold: 754, revenue: 14680, icon: Headphones, color: '#f59e0b', bg: '#fffbeb' },
-  { name: 'Furniture', sold: 532, revenue: 11240, icon: Armchair, color: '#10b981', bg: '#ecfdf5' },
-  { name: 'Computers', sold: 421, revenue: 9870, icon: Laptop, color: '#3b82f6', bg: '#eff6ff' },
-  { name: 'Gaming', sold: 318, revenue: 7650, icon: Gamepad2, color: '#8b5cf6', bg: '#f5f3ff' },
+  { name: 'Electronics', sold: 1248, revenue: 28450, icon: Smartphone, color: '#0a0a0a', bg: '#eeeeee' },
+  { name: 'Fashion', sold: 986, revenue: 19320, icon: Shirt, color: '#525252', bg: '#f4f4f4' },
+  { name: 'Headphones', sold: 754, revenue: 14680, icon: Headphones, color: '#0a0a0a', bg: '#f5f5f5' },
+  { name: 'Furniture', sold: 532, revenue: 11240, icon: Armchair, color: '#171717', bg: '#e8e8e8' },
+  { name: 'Computers', sold: 421, revenue: 9870, icon: Laptop, color: '#404040', bg: '#f2f2f2' },
+  { name: 'Gaming', sold: 318, revenue: 7650, icon: Gamepad2, color: '#737373', bg: '#f0f0f0' },
 ];
 
 const topProducts = [
@@ -114,10 +114,10 @@ const topProducts = [
 ];
 
 const quickActions = [
-  { label: 'Add Product', icon: Plus, path: '/admin/products/create', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
-  { label: 'View Orders', icon: ShoppingCart, path: '/admin/orders', gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' },
-  { label: 'Manage Users', icon: Users, path: '/admin/users', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' },
-  { label: 'Analytics', icon: BarChart3, path: '/admin/payments', gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)' },
+  { label: 'Add Product', icon: Plus, path: '/admin/products/create', gradient: '#000000' },
+  { label: 'View Orders', icon: ShoppingCart, path: '/admin/orders', gradient: '#262626' },
+  { label: 'Manage Users', icon: Users, path: '/admin/users', gradient: '#404040' },
+  { label: 'Analytics', icon: BarChart3, path: '/admin/payments', gradient: '#404040' },
 ];
 
 function Sparkline({ data, color, width = 80, height = 32 }) {
@@ -180,14 +180,14 @@ function WelcomeBanner() {
 
   return (
     <div style={{
-      background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4f46e5 60%, #7c3aed 100%)',
+      background: '#0a0a0a',
       borderRadius: '20px', padding: 'clamp(24px, 3vw, 36px)',
       position: 'relative', overflow: 'hidden',
     }}>
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-            <Sparkles size={18} color="#fbbf24" />
+            <Sparkles size={18} color="#fafafa" />
             <span style={{ fontSize: '12px', fontWeight: '600', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Dashboard Overview</span>
           </div>
           <h1 style={{ margin: 0, fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: '800', color: '#fff', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
@@ -212,7 +212,7 @@ function WelcomeBanner() {
             <Link to="/admin/products/create" style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               padding: '10px 20px', borderRadius: '10px', background: '#fff',
-              color: '#4f46e5', fontSize: '13px', fontWeight: '600', textDecoration: 'none',
+              color: '#0a0a0a', fontSize: '13px', fontWeight: '600', textDecoration: 'none',
               transition: 'all 0.2s',
             }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.2)'; }}
@@ -279,16 +279,16 @@ function StatCard({ stat, index }) {
         <div style={{
           display: 'flex', alignItems: 'center', gap: '4px',
           padding: '4px 10px', borderRadius: '20px',
-          background: stat.changeType === 'positive' ? '#ecfdf5' : '#fef2f2',
+          background: stat.changeType === 'positive' ? '#e8e8e8' : '#f0f0f0',
         }}>
           {stat.changeType === 'positive' ? (
-            <ArrowUpRight size={13} color="#059669" />
+            <ArrowUpRight size={13} color="#171717" />
           ) : (
-            <ArrowDownRight size={13} color="#dc2626" />
+            <ArrowDownRight size={13} color="#0a0a0a" />
           )}
           <span style={{
             fontSize: '12px', fontWeight: '600',
-            color: stat.changeType === 'positive' ? '#059669' : '#dc2626',
+            color: stat.changeType === 'positive' ? '#171717' : '#0a0a0a',
           }}>
             {stat.change}
           </span>
@@ -304,7 +304,7 @@ function StatCard({ stat, index }) {
           </p>
         </div>
         <div style={{ opacity: 0.6 }}>
-          <Sparkline data={stat.sparkline} color={stat.changeType === 'positive' ? '#059669' : '#dc2626'} />
+          <Sparkline data={stat.sparkline} color={stat.changeType === 'positive' ? '#171717' : '#0a0a0a'} />
         </div>
       </div>
     </div>
@@ -370,9 +370,9 @@ function RevenueChart() {
 
       <div style={{ display: 'flex', gap: '12px', marginBottom: '24px', flexWrap: 'wrap' }}>
         {[
-          { label: 'Total Revenue', value: totalRevenue, prefix: '$', icon: DollarSign, gradient: 'linear-gradient(135deg,#667eea,#764ba2)' },
-          { label: 'Avg. Monthly', value: avgRevenue, prefix: '$', icon: BarChart3, gradient: 'linear-gradient(135deg,#11998e,#38ef7d)' },
-          { label: 'Best Month', value: maxRevenue, prefix: '$', icon: TrendingUp, gradient: 'linear-gradient(135deg,#4facfe,#00f2fe)' },
+          { label: 'Total Revenue', value: totalRevenue, prefix: '$', icon: DollarSign, gradient: '#000000' },
+          { label: 'Avg. Monthly', value: avgRevenue, prefix: '$', icon: BarChart3, gradient: '#262626' },
+          { label: 'Best Month', value: maxRevenue, prefix: '$', icon: TrendingUp, gradient: '#404040' },
         ].map((s, si) => {
           const SIcon = s.icon;
           return (
@@ -433,7 +433,7 @@ function RevenueChart() {
               >
                 <rect x={x} y={y} width={barW} height={barH}
                   rx="4" ry="4"
-                  fill={isHovered ? '#6366f1' : '#818cf8'}
+                  fill={isHovered ? '#525252' : '#a3a3a3'}
                   opacity={isHovered ? 1 : 0.8}
                   style={{ transition: 'all 0.2s' }}
                 />
@@ -690,7 +690,7 @@ function TopSellingProducts() {
           <tbody>
             {topProducts.map((product, index) => {
               const pct = ((product.sold / maxSold) * 100).toFixed(0);
-              const rankColors = ['#6366f1', '#8b5cf6', '#a78bfa'];
+              const rankColors = ['#0a0a0a', '#737373', '#737373'];
               const isTop3 = index < 3;
               return (
                 <tr key={product.name} style={{

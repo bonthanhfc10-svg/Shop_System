@@ -102,7 +102,7 @@ export default function AdminSidebar({ expanded, onClose }) {
               width: '36px', height: '36px', borderRadius: '10px',
               background: colors.gradientPrimary,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 2px 8px rgba(99,102,241,0.3)',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
               flexShrink: 0,
             }}>
               <TrendingUp size={18} color="#fff" strokeWidth={2.5} />

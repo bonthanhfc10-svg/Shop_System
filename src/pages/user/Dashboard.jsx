@@ -11,10 +11,10 @@ import {
 } from 'lucide-react';
 
 const statsCards = [
-  { label: 'Total Orders', value: '23', icon: ShoppingCart, gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', shadowColor: 'rgba(102,126,234,0.3)' },
-  { label: 'Total Spent', value: '$1,432.50', icon: Tag, gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)', shadowColor: 'rgba(17,153,142,0.3)' },
-  { label: 'Wishlist Items', value: '8', icon: Heart, gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', shadowColor: 'rgba(250,112,154,0.3)' },
-  { label: 'Pending Orders', value: '3', icon: Clock, gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', shadowColor: 'rgba(79,172,254,0.3)' },
+  { label: 'Total Orders', value: '23', icon: ShoppingCart, gradient: '#000000', shadowColor: 'rgba(0,0,0,0.12)' },
+  { label: 'Total Spent', value: '$1,432.50', icon: Tag, gradient: '#262626', shadowColor: 'rgba(0,0,0,0.3)' },
+  { label: 'Wishlist Items', value: '8', icon: Heart, gradient: '#404040', shadowColor: 'rgba(0,0,0,0.3)' },
+  { label: 'Pending Orders', value: '3', icon: Clock, gradient: '#404040', shadowColor: 'rgba(0,0,0,0.3)' },
 ];
 
 const recentOrders = [
@@ -26,20 +26,20 @@ const recentOrders = [
 ];
 
 const statusConfig = {
-  pending: { bg: '#fffbeb', text: '#b45309', icon: AlertCircle, color: '#f59e0b' },
-  processing: { bg: '#eef2ff', text: '#4338ca', icon: Clock, color: '#6366f1' },
-  shipped: { bg: '#ecfdf5', text: '#047857', icon: Truck, color: '#10b981' },
-  delivered: { bg: '#f0fdf4', text: '#15803d', icon: CheckCircle2, color: '#22c55e' },
-  cancelled: { bg: '#fef2f2', text: '#b91c1c', icon: null, color: '#ef4444' },
+  pending: { bg: '#f5f5f5', text: '#525252', icon: AlertCircle, color: '#0a0a0a' },
+  processing: { bg: '#eeeeee', text: '#262626', icon: Clock, color: '#0a0a0a' },
+  shipped: { bg: '#e8e8e8', text: '#0a0a0a', icon: Truck, color: '#171717' },
+  delivered: { bg: '#e8e8e8', text: '#0a0a0a', icon: CheckCircle2, color: '#171717' },
+  cancelled: { bg: '#f0f0f0', text: '#737373', icon: null, color: '#0a0a0a' },
 };
 
 const quickLinks = [
-  { label: 'Continue Shopping', icon: ShoppingCart, path: '/shop', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
-  { label: 'View All Orders', icon: Package, path: '/user/orders', gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' },
-  { label: 'My Wishlist', icon: Heart, path: '/user/wishlist', gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)' },
-  { label: 'Update Profile', icon: User, path: '/user/profile', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' },
-  { label: 'My Addresses', icon: MapPin, path: '/user/addresses', gradient: 'linear-gradient(135deg, #a855f7 0%, #6366f1 100%)' },
-  { label: 'Get Support', icon: Headphones, path: '/user/support', gradient: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)' },
+  { label: 'Continue Shopping', icon: ShoppingCart, path: '/shop', gradient: '#000000' },
+  { label: 'View All Orders', icon: Package, path: '/user/orders', gradient: '#262626' },
+  { label: 'My Wishlist', icon: Heart, path: '/user/wishlist', gradient: '#404040' },
+  { label: 'Update Profile', icon: User, path: '/user/profile', gradient: '#404040' },
+  { label: 'My Addresses', icon: MapPin, path: '/user/addresses', gradient: '#171717' },
+  { label: 'Get Support', icon: Headphones, path: '/user/support', gradient: '#404040' },
 ];
 
 const recommendedProducts = [
@@ -57,9 +57,9 @@ const recentNotifications = [
 ];
 
 const notificationColors = {
-  success: { bg: '#f0fdf4', icon: '#22c55e', border: '#bbf7d0' },
-  info: { bg: '#eff6ff', icon: '#3b82f6', border: '#bfdbfe' },
-  promo: { bg: '#fffbeb', icon: '#f59e0b', border: '#fde68a' },
+  success: { bg: '#e8e8e8', icon: '#171717', border: '#e5e5e5' },
+  info: { bg: '#f2f2f2', icon: '#404040', border: '#e5e5e5' },
+  promo: { bg: '#f5f5f5', icon: '#0a0a0a', border: '#e5e5e5' },
 };
 
 const orderStatusCounts = { delivered: 15, shipped: 4, processing: 2, pending: 2 };
@@ -117,7 +117,7 @@ function WelcomeBanner({ user }) {
 
   return (
     <div style={{
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      background: '#000000',
       borderRadius: '16px', padding: 'clamp(24px, 3vw, 36px)',
       color: '#fff', position: 'relative', overflow: 'hidden',
     }}>
@@ -132,7 +132,7 @@ function WelcomeBanner({ user }) {
           <Link to="/shop" style={{
             display: 'inline-flex', alignItems: 'center', gap: '6px',
             padding: '10px 22px', borderRadius: '10px', background: '#fff',
-            color: '#4f46e5', fontSize: '13px', fontWeight: '600', textDecoration: 'none',
+            color: '#0a0a0a', fontSize: '13px', fontWeight: '600', textDecoration: 'none',
             transition: 'all 0.2s',
           }}
             onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)'; }}
@@ -480,7 +480,7 @@ function RecommendedProducts() {
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '6px' }}>
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={11} color={i < Math.floor(product.rating) ? '#f59e0b' : colors.border} fill={i < Math.floor(product.rating) ? '#f59e0b' : 'none'} />
+                <Star key={i} size={11} color={i < Math.floor(product.rating) ? '#737373' : colors.border} fill={i < Math.floor(product.rating) ? '#737373' : 'none'} />
               ))}
               <span style={{ fontSize: '11px', color: colors.textSubtle, marginLeft: '2px' }}>{product.rating}</span>
             </div>

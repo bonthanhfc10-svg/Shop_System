@@ -79,8 +79,8 @@ export default function ProductVariants() {
                   <td style={{ padding: '14px 18px' }}>
                     <span style={{
                       padding: '4px 10px', borderRadius: '20px', fontSize: '12px', fontWeight: '600',
-                      background: v.status === 'active' ? '#dcfce7' : '#fef2f2',
-                      color: v.status === 'active' ? '#166534' : '#991b1b',
+                      background: v.status === 'active' ? '#e5e5e5' : '#f0f0f0',
+                      color: v.status === 'active' ? '#0a0a0a' : '#737373',
                     }}>
                       {v.status === 'active' ? 'Active' : 'Out of Stock'}
                     </span>

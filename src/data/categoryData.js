@@ -18,42 +18,42 @@ export const STATUS_OPTIONS = [
 
 export const initialCategories = [
   {
-    id: 1, name: 'Fashion', slug: 'fashion', emoji: '👗', bg: '#fdf2f8', color: '#ec4899',
+    id: 1, name: 'Fashion', slug: 'fashion', emoji: '👗', bg: '#f4f4f4', color: '#525252',
     description: 'Clothing, dresses and seasonal outfits',
     parentId: null, products: 120, status: 'active', createdAt: '2025-11-04',
   },
   {
-    id: 2, name: 'Shoes', slug: 'shoes', emoji: '👟', bg: '#eff6ff', color: '#3b82f6',
+    id: 2, name: 'Shoes', slug: 'shoes', emoji: '👟', bg: '#f2f2f2', color: '#404040',
     description: 'Sneakers, boots, heels and sandals',
     parentId: null, products: 85, status: 'active', createdAt: '2025-11-18',
   },
   {
-    id: 3, name: 'Bags & Accessories', slug: 'bags-accessories', emoji: '👜', bg: '#fffbeb', color: '#d97706',
+    id: 3, name: 'Bags & Accessories', slug: 'bags-accessories', emoji: '👜', bg: '#f5f5f5', color: '#404040',
     description: 'Handbags, wallets and everyday carry',
     parentId: null, products: 64, status: 'active', createdAt: '2025-12-02',
   },
   {
-    id: 4, name: 'Beauty', slug: 'beauty', emoji: '💄', bg: '#fdf2f8', color: '#db2777',
+    id: 4, name: 'Beauty', slug: 'beauty', emoji: '💄', bg: '#f4f4f4', color: '#737373',
     description: 'Skincare, makeup and personal care',
     parentId: null, products: 45, status: 'active', createdAt: '2025-12-20',
   },
   {
-    id: 5, name: 'Electronics', slug: 'electronics', emoji: '🎧', bg: '#eef2ff', color: '#6366f1',
+    id: 5, name: 'Electronics', slug: 'electronics', emoji: '🎧', bg: '#eeeeee', color: '#0a0a0a',
     description: 'Audio, gadgets and smart devices',
     parentId: null, products: 78, status: 'active', createdAt: '2026-01-09',
   },
   {
-    id: 6, name: 'Home & Living', slug: 'home-living', emoji: '🛋️', bg: '#ecfdf5', color: '#059669',
+    id: 6, name: 'Home & Living', slug: 'home-living', emoji: '🛋️', bg: '#e8e8e8', color: '#171717',
     description: 'Furniture, decor and kitchen essentials',
     parentId: null, products: 52, status: 'active', createdAt: '2026-01-27',
   },
   {
-    id: 7, name: 'Gaming', slug: 'gaming', emoji: '🎮', bg: '#f5f3ff', color: '#8b5cf6',
+    id: 7, name: 'Gaming', slug: 'gaming', emoji: '🎮', bg: '#f0f0f0', color: '#737373',
     description: 'Consoles, accessories and peripherals',
     parentId: null, products: 32, status: 'active', createdAt: '2026-02-14',
   },
   {
-    id: 8, name: 'Sale', slug: 'sale', emoji: '🔥', bg: '#fef2f2', color: '#dc2626',
+    id: 8, name: 'Sale', slug: 'sale', emoji: '🔥', bg: '#f0f0f0', color: '#0a0a0a',
     description: 'Discounted items and clearance deals',
     parentId: null, products: 18, status: 'hidden', createdAt: '2026-03-03',
   },

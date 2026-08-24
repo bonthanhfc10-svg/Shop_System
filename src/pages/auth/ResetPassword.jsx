@@ -46,10 +46,10 @@ export default function ResetPassword() {
         <div style={{ textAlign: 'center' }}>
           <div style={{
             width: '56px', height: '56px', borderRadius: '50%',
-            background: '#ecfdf5', display: 'flex', alignItems: 'center',
+            background: '#e8e8e8', display: 'flex', alignItems: 'center',
             justifyContent: 'center', margin: '0 auto 16px',
           }}>
-            <CheckCircle2 size={24} color="#059669" />
+            <CheckCircle2 size={24} color="#171717" />
           </div>
           <p style={{ margin: '0 0 8px', fontSize: '14px', fontWeight: '600', color: colors.text }}>
             Password Reset Successfully!
@@ -60,7 +60,7 @@ export default function ResetPassword() {
           <Link to="/auth/login" style={{
             display: 'inline-flex', alignItems: 'center', gap: '6px',
             padding: '10px 24px', borderRadius: '8px', textDecoration: 'none',
-            background: colors.accent, color: '#fff', fontSize: '14px', fontWeight: '600',
+            background: colors.accent, color: colors.bg, fontSize: '14px', fontWeight: '600',
           }}>
             Go to Login
           </Link>
@@ -68,7 +68,7 @@ export default function ResetPassword() {
       ) : (
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {error && (
-            <p style={{ margin: 0, padding: '10px', borderRadius: '8px', fontSize: '13px', color: '#dc2626', background: '#fef2f2', textAlign: 'center' }}>
+            <p style={{ margin: 0, padding: '10px', borderRadius: '8px', fontSize: '13px', color: '#0a0a0a', background: '#f0f0f0', textAlign: 'center' }}>
               {error}
             </p>
           )}
@@ -87,7 +87,7 @@ export default function ResetPassword() {
             </div>
           </div>
           <button type="submit" disabled={loading} style={{
-            padding: '10px', background: colors.accent, color: '#fff', border: 'none',
+            padding: '10px', background: colors.accent, color: colors.bg, border: 'none',
             borderRadius: '8px', fontSize: '14px', fontWeight: '600',
             cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1,
           }}>

@@ -251,10 +251,10 @@ export default function Checkout() {
                 </button>
                 <button onClick={handleSubmit} style={{
                   flex: 2, padding: '14px', borderRadius: '10px', border: 'none',
-                  background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)', color: '#fff',
+                  background: '#0a0a0a', color: '#fff',
                   fontSize: '15px', fontWeight: '700', cursor: 'pointer',
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-                  boxShadow: '0 4px 16px rgba(16,185,129,0.3)',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
                 }}>
                   <Shield size={16} /> Place Order &mdash; {formatCurrency(total)}
                 </button>

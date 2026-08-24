@@ -26,9 +26,9 @@ export default function Support() {
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', marginBottom: '24px' }}>
         {[
-          { icon: MessageSquare, label: 'Live Chat', desc: 'Chat with us', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
-          { icon: Phone, label: 'Call Us', desc: '+855 12 345 6789', gradient: 'linear-gradient(135deg, #10b981 0%, #38ef7d 100%)' },
-          { icon: Mail, label: 'Email', desc: 'support@khshop.com', gradient: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)' },
+          { icon: MessageSquare, label: 'Live Chat', desc: 'Chat with us', gradient: '#000000' },
+          { icon: Phone, label: 'Call Us', desc: '+855 12 345 6789', gradient: '#262626' },
+          { icon: Mail, label: 'Email', desc: 'support@khshop.com', gradient: '#404040' },
         ].map((item) => {
           const Icon = item.icon;
           return (

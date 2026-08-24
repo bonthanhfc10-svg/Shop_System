@@ -11,46 +11,46 @@ const statsCards = [
     label: 'Total Users',
     value: '2,890',
     icon: UsersIcon,
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    shadowColor: 'rgba(102,126,234,0.3)',
+    gradient: '#000000',
+    shadowColor: 'rgba(0,0,0,0.12)',
   },
   {
     label: 'Active',
     value: '2,456',
     icon: UserCheck,
-    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
-    shadowColor: 'rgba(17,153,142,0.3)',
+    gradient: '#262626',
+    shadowColor: 'rgba(0,0,0,0.3)',
   },
   {
     label: 'New This Month',
     value: '156',
     icon: UserPlus,
-    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    shadowColor: 'rgba(79,172,254,0.3)',
+    gradient: '#404040',
+    shadowColor: 'rgba(0,0,0,0.3)',
   },
   {
     label: 'Admins',
     value: '3',
     icon: Shield,
-    gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-    shadowColor: 'rgba(250,112,154,0.3)',
+    gradient: '#404040',
+    shadowColor: 'rgba(0,0,0,0.3)',
   },
 ];
 
 const initialUsers = [
-  { id: 1, name: 'John Doe', email: 'john@example.com', role: 'user', orders: 12, joined: '2026-01-15', color: '#6366f1' },
-  { id: 2, name: 'Jane Smith', email: 'jane@example.com', role: 'user', orders: 8, joined: '2026-02-20', color: '#ec4899' },
-  { id: 3, name: 'Bob Wilson', email: 'bob@example.com', role: 'user', orders: 23, joined: '2025-11-10', color: '#f59e0b' },
-  { id: 4, name: 'Alice Brown', email: 'alice@example.com', role: 'user', orders: 5, joined: '2026-05-01', color: '#10b981' },
-  { id: 5, name: 'Charlie Davis', email: 'charlie@example.com', role: 'admin', orders: 0, joined: '2025-06-15', color: '#8b5cf6' },
-  { id: 6, name: 'Diana Evans', email: 'diana@example.com', role: 'user', orders: 15, joined: '2026-03-12', color: '#ef4444' },
-  { id: 7, name: 'Edward Hall', email: 'edward@example.com', role: 'user', orders: 7, joined: '2026-04-25', color: '#3b82f6' },
-  { id: 8, name: 'Fiona Clark', email: 'fiona@example.com', role: 'user', orders: 3, joined: '2026-07-08', color: '#14b8a6' },
+  { id: 1, name: 'John Doe', email: 'john@example.com', role: 'user', orders: 12, joined: '2026-01-15', color: '#0a0a0a' },
+  { id: 2, name: 'Jane Smith', email: 'jane@example.com', role: 'user', orders: 8, joined: '2026-02-20', color: '#525252' },
+  { id: 3, name: 'Bob Wilson', email: 'bob@example.com', role: 'user', orders: 23, joined: '2025-11-10', color: '#0a0a0a' },
+  { id: 4, name: 'Alice Brown', email: 'alice@example.com', role: 'user', orders: 5, joined: '2026-05-01', color: '#171717' },
+  { id: 5, name: 'Charlie Davis', email: 'charlie@example.com', role: 'admin', orders: 0, joined: '2025-06-15', color: '#737373' },
+  { id: 6, name: 'Diana Evans', email: 'diana@example.com', role: 'user', orders: 15, joined: '2026-03-12', color: '#0a0a0a' },
+  { id: 7, name: 'Edward Hall', email: 'edward@example.com', role: 'user', orders: 7, joined: '2026-04-25', color: '#404040' },
+  { id: 8, name: 'Fiona Clark', email: 'fiona@example.com', role: 'user', orders: 3, joined: '2026-07-08', color: '#a3a3a3' },
 ];
 
 const roleConfig = {
-  admin: { bg: '#f5f3ff', text: '#7c3aed', border: '#ddd6fe' },
-  user: { bg: '#eff6ff', text: '#2563eb', border: '#bfdbfe' },
+  admin: { bg: '#f0f0f0', text: '#525252', border: '#e5e5e5' },
+  user: { bg: '#f2f2f2', text: '#0a0a0a', border: '#e5e5e5' },
 };
 
 function StatCard({ stat }) {
@@ -132,7 +132,7 @@ export default function Users() {
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
             padding: '10px 20px', borderRadius: '10px',
-            background: colors.accent, color: '#fff',
+            background: colors.accent, color: colors.bg,
             fontSize: '14px', fontWeight: 600, textDecoration: 'none',
             transition: 'all 0.2s',
           }}
@@ -254,11 +254,11 @@ export default function Users() {
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                             cursor: 'pointer', transition: 'all 0.15s',
                           }}
-                          onMouseEnter={(e) => { e.currentTarget.style.background = '#fef2f2'; e.currentTarget.style.borderColor = '#fecaca'; }}
+                          onMouseEnter={(e) => { e.currentTarget.style.background = '#f0f0f0'; e.currentTarget.style.borderColor = '#e5e5e5'; }}
                           onMouseLeave={(e) => { e.currentTarget.style.background = colors.bgCard; e.currentTarget.style.borderColor = colors.border; }}
                           title="Block"
                         >
-                          <Ban size={14} color="#ef4444" />
+                          <Ban size={14} color="#0a0a0a" />
                         </button>
                       </div>
                     </td>

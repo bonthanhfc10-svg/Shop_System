@@ -20,9 +20,9 @@ const fakeProducts = [
 const categories = ['All', 'Electronics', 'Accessories', 'Furniture'];
 
 const statusStyles = {
-  active: { bg: '#dcfce7', text: '#166534', dot: '#22c55e' },
-  'out of stock': { bg: '#fef2f2', text: '#991b1b', dot: '#ef4444' },
-  draft: { bg: '#fef9c3', text: '#854d0e', dot: '#eab308' },
+  active: { bg: '#e5e5e5', text: '#0a0a0a', dot: '#171717' },
+  'out of stock': { bg: '#f0f0f0', text: '#737373', dot: '#0a0a0a' },
+  draft: { bg: '#f5f5f5', text: '#737373', dot: '#a3a3a3' },
 };
 
 const ITEMS_PER_PAGE = 5;
@@ -70,11 +70,11 @@ export default function Products() {
           padding: '12px 24px', borderRadius: '12px',
           background: colors.gradientPrimary, color: '#fff',
           fontSize: '14px', fontWeight: '600', textDecoration: 'none',
-          boxShadow: '0 4px 14px rgba(79,70,229,0.35)',
+          boxShadow: '0 4px 14px rgba(0,0,0,0.35)',
           transition: 'all 0.2s',
         }}
-          onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(79,70,229,0.45)'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(79,70,229,0.35)'; }}
+          onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.45)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(0,0,0,0.35)'; }}
         >
           <Plus size={18} /> Add Product
         </Link>

@@ -81,7 +81,7 @@ export default function ProductCreate() {
               background: colors.gradientPrimary, color: '#fff',
               fontSize: '13px', fontWeight: '600', cursor: 'pointer',
               display: 'flex', alignItems: 'center', gap: '6px',
-              boxShadow: '0 4px 12px rgba(102,126,234,0.3)',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.12)',
             }}>
               <Save size={16} /> Create Product
             </button>

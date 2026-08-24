@@ -9,9 +9,9 @@ import {
 } from 'lucide-react';
 
 const notifications = [
-  { id: 1, icon: ShoppingCart, title: 'New order #2841 received', detail: 'Wireless Headphones × 2 · $159.98', time: '2 min ago', color: '#059669', bg: '#ecfdf5' },
-  { id: 2, icon: Package, title: 'Low stock alert', detail: 'Wireless Mouse — only 4 left', time: '26 min ago', color: '#d97706', bg: '#fffbeb' },
-  { id: 3, icon: UserPlus, title: 'New customer registered', detail: 'fiona@example.com just signed up', time: '1 hr ago', color: '#4f46e5', bg: '#eef2ff' },
+  { id: 1, icon: ShoppingCart, title: 'New order #2841 received', detail: 'Wireless Headphones × 2 · $159.98', time: '2 min ago', color: '#171717', bg: '#e8e8e8' },
+  { id: 2, icon: Package, title: 'Low stock alert', detail: 'Wireless Mouse — only 4 left', time: '26 min ago', color: '#404040', bg: '#f5f5f5' },
+  { id: 3, icon: UserPlus, title: 'New customer registered', detail: 'fiona@example.com just signed up', time: '1 hr ago', color: '#0a0a0a', bg: '#eeeeee' },
 ];
 
 export default function AdminNavbar({ onToggleSidebar }) {
@@ -209,7 +209,7 @@ export default function AdminNavbar({ onToggleSidebar }) {
               background: colors.gradientPrimary, color: '#fff',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: '13.5px', fontWeight: '700', letterSpacing: '-0.02em',
-              boxShadow: '0 2px 8px rgba(99,102,241,0.25)', flexShrink: 0,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.25)', flexShrink: 0,
             }}>
               {user?.name?.charAt(0) || 'A'}
             </div>
