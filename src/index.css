@@ -1,0 +1,222 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f8fafc;
+  color: #0f172a;
+  transition: background 0.2s ease, color 0.2s ease;
+  line-height: 1.5;
+}
+
+[data-theme="dark"] body {
+  background: #0b1120;
+  color: #f1f5f9;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+input, textarea, select {
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  font-family: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #4f46e5 !important;
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+}
+
+/* Sidebar overlay - hidden by default, shown on mobile */
+.sidebar-overlay {
+  display: none;
+}
+
+/* Sidebar responsive transition */
+.sidebar-responsive {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Layout content margin reset on mobile */
+.layout-content {
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hide on mobile */
+.hide-mobile {
+  display: flex;
+}
+
+/* Show only on mobile */
+.show-mobile {
+  display: none !important;
+}
+
+/* Show on mobile, hide on desktop */
+.show-on-mobile {
+  display: none !important;
+}
+
+/* News ticker marquee */
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.news-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tickerScroll 32s linear infinite;
+}
+
+.news-ticker:hover .news-ticker-track {
+  animation-play-state: paused;
+}
+
+/* Stat card animation */
+.dash-stat-card {
+  animation: fadeIn 0.4s ease both;
+}
+
+.dash-stat-card:nth-child(1) { animation-delay: 0.05s; }
+.dash-stat-card:nth-child(2) { animation-delay: 0.1s; }
+.dash-stat-card:nth-child(3) { animation-delay: 0.15s; }
+.dash-stat-card:nth-child(4) { animation-delay: 0.2s; }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+/* Sidebar tooltip */
+.sidebar-tooltip-wrap:hover .sidebar-tooltip {
+  opacity: 1 !important;
+}
+
+.sidebar-tooltip-wrap:hover {
+  background: var(--bgHover, #f1f5f9);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   768px = tablet and below
+   480px = mobile small
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Sidebar overlay visible on mobile */
+  .sidebar-overlay {
+    display: block;
+  }
+
+  /* Layout content no margin on mobile */
+  .layout-content {
+    margin-left: 0 !important;
+  }
+
+  /* Hide desktop-only elements */
+  .hide-mobile {
+    display: none !important;
+  }
+
+  /* Show mobile-only elements */
+  .show-mobile {
+    display: flex !important;
+  }
+
+  .show-on-mobile {
+    display: block !important;
+  }
+
+  /* Sidebar tooltip hidden on mobile */
+  .sidebar-tooltip {
+    display: none !important;
+  }
+
+  /* Grid responsive: 2fr 1fr → 1fr */
+  .grid-2col-responsive {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Grid responsive: 1fr 1fr → 1fr */
+  .grid-1fr-1fr-responsive {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer responsive: brand + 3 link columns → stacked */
+  .footer-grid-responsive {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Responsive padding for main content */
+  .responsive-padding {
+    padding: 16px !important;
+  }
+
+  /* Responsive table scroll */
+  .responsive-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-padding-sm {
+    padding: 12px !important;
+  }
+}

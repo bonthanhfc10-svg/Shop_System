@@ -1,0 +1,28 @@
+import { Outlet } from 'react-router-dom';
+import { useTheme } from '../hooks/useTheme';
+
+export default function AuthLayout() {
+  const { colors } = useTheme();
+
+  return (
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      padding: '16px',
+    }}>
+      <div style={{
+        width: '100%',
+        maxWidth: '420px',
+        background: colors.bgCard,
+        borderRadius: '16px',
+        padding: 'clamp(24px, 5vw, 40px)',
+        boxShadow: colors.shadow,
+      }}>
+        <Outlet />
+      </div>
+    </div>
+  );
+}
