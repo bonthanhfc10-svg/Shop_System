@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '../../hooks/useTheme';
 import { Store } from 'lucide-react';
 
-function SocialIcon({ path, size = 18 }) {
+function SocialIcon({ path, size = 14 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d={path} />
@@ -62,27 +62,27 @@ export default function Footer() {
   const { colors } = useTheme();
 
   return (
-    <footer className="mt-12 sm:mt-16" style={{ background: colors.bgSidebar }}>
+    <footer className="mt-8 sm:mt-10" style={{ background: colors.bgSidebar }}>
       {/* Main Content */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
         {/* Brand */}
-        <div className="mb-8 sm:mb-10">
-          <Link to="/" className="inline-flex items-center gap-2.5 no-underline">
+        <div className="mb-4 sm:mb-5">
+          <Link to="/" className="inline-flex items-center gap-2 no-underline">
             <div
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0"
+              className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
               style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
             >
-              <Store size={18} color="#fff" />
+              <Store size={14} color="#fff" />
             </div>
-            <span className="text-lg sm:text-xl font-bold" style={{ color: colors.text }}>KH Shop</span>
+            <span className="text-sm font-bold" style={{ color: colors.text }}>KH Shop</span>
           </Link>
           <p
-            className="text-xs sm:text-sm leading-relaxed mt-3 sm:mt-4 max-w-[400px]"
+            className="text-[11px] leading-relaxed mt-2 max-w-[320px]"
             style={{ color: colors.textMuted }}
           >
-            Your one-stop shop for shirts, pants, and shoes. Quality fashion at unbeatable prices with fast delivery.
+            Quality fashion at unbeatable prices with fast delivery.
           </p>
-          <div className="flex gap-2 sm:gap-2.5 mt-4 sm:mt-5">
+          <div className="flex gap-1.5 mt-2.5">
             {socials.map((social) => (
               <a
                 key={social.label}
@@ -90,7 +90,7 @@ export default function Footer() {
                 aria-label={social.label}
                 title={social.label}
                 onClick={(e) => e.preventDefault()}
-                className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center no-underline transition-all duration-200 hover:scale-110"
+                className="w-7 h-7 rounded-md flex items-center justify-center no-underline transition-all duration-200 hover:scale-110"
                 style={{
                   background: colors.bgAccent,
                   color: colors.textMuted,
@@ -111,21 +111,21 @@ export default function Footer() {
         </div>
 
         {/* Link Columns - always 3 columns */}
-        <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-10">
+        <div className="grid grid-cols-3 gap-3 sm:gap-5 lg:gap-8">
           {footerLinks.map((column) => (
             <div key={column.title}>
               <h4
-                className="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase m-0 mb-2.5 sm:mb-4"
+                className="text-[9px] sm:text-[10px] font-bold tracking-widest uppercase m-0 mb-1.5 sm:mb-2.5"
                 style={{ color: colors.textSecondary }}
               >
                 {column.title}
               </h4>
-              <ul className="list-none m-0 p-0 flex flex-col gap-1.5 sm:gap-2.5">
+              <ul className="list-none m-0 p-0 flex flex-col gap-1 sm:gap-1.5">
                 {column.links.map((link) => (
                   <li key={link.path}>
                     <Link
                       to={link.path}
-                      className="text-[11px] sm:text-xs no-underline transition-colors duration-200"
+                      className="text-[10px] sm:text-[11px] no-underline transition-colors duration-200"
                       style={{ color: colors.textMuted }}
                       onMouseEnter={(e) => { e.currentTarget.style.color = '#667eea'; }}
                       onMouseLeave={(e) => { e.currentTarget.style.color = colors.textMuted; }}
@@ -142,16 +142,16 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t" style={{ borderColor: colors.border }}>
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-            <p className="text-[11px] sm:text-xs m-0 text-center sm:text-left" style={{ color: colors.textSubtle }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
+            <p className="text-[10px] sm:text-[11px] m-0 text-center sm:text-left" style={{ color: colors.textSubtle }}>
               &copy; {new Date().getFullYear()} KH Shop. All rights reserved.
             </p>
-            <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
+            <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center">
               {payments.map((payment) => (
                 <span
                   key={payment}
-                  className="text-[11px] sm:text-xs font-medium rounded-md sm:rounded-lg py-1 sm:py-1.5 px-2 sm:px-3"
+                  className="text-[10px] sm:text-[11px] font-medium rounded py-0.5 px-1.5 sm:px-2"
                   style={{
                     color: colors.textMuted,
                     background: colors.bgAccent,
