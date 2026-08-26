@@ -216,7 +216,7 @@ export default function Home() {
         }}
       >
         <div
-          className="shrink-0 z-[2] flex items-center gap-1.5 px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-white"
+          className="shrink-0 z-2 flex items-center gap-1.5 px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-white"
           style={{
             background: '#000000',
             clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%)',
@@ -245,8 +245,8 @@ export default function Home() {
           background: `linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.55)), url(${bannerImg}) center / cover no-repeat`,
         }}
       >
-        <div className="max-w-[1280px] mx-auto relative z-[1] flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10">
-          <div className="w-full lg:max-w-[600px] text-center lg:text-left">
+        <div className="max-w-7xl mx-auto relative z-1 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10">
+          <div className="w-full lg:max-w-150 text-center lg:text-left">
             <span
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-3 sm:mb-4"
               style={{ background: 'rgba(255,255,255,0.12)', color: '#fafafa', backdropFilter: 'blur(8px)' }}
@@ -259,7 +259,7 @@ export default function Home() {
                 Best Deals
               </span>
             </h1>
-            <p className="m-0 mt-3 sm:mt-4 mb-4 sm:mb-6 max-w-[480px] mx-auto lg:mx-0 text-xs sm:text-sm lg:text-[15px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
+            <p className="m-0 mt-3 sm:mt-4 mb-4 sm:mb-6 max-w-120 mx-auto lg:mx-0 text-xs sm:text-sm lg:text-[15px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
               Shop the latest shirts, pants, and shoes at unbeatable prices. Quality fashion delivered to your doorstep.
             </p>
             <div className="flex gap-2.5 justify-center lg:justify-start flex-wrap">
@@ -274,7 +274,7 @@ export default function Home() {
 
           {/* Cover carousel */}
           <div
-            className="w-full max-w-[340px] sm:max-w-[380px] lg:max-w-none lg:w-[36%] shrink-0"
+            className="w-full max-w-85 sm:max-w-95 lg:max-w-none lg:w-[36%] shrink-0"
             onMouseEnter={() => setCoverPaused(true)}
             onMouseLeave={() => setCoverPaused(false)}
           >
@@ -314,10 +314,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute -bottom-20 right-[200px] w-[250px] h-[250px] rounded-full bg-white/5" />
+        <div className="absolute -bottom-20 right-50 w-62.5 h-62.5 rounded-full bg-white/5" />
       </section>
 
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {features.map((f) => {
             const Icon = f.icon;
@@ -326,7 +326,7 @@ export default function Home() {
                 onMouseEnter={(e) => { e.currentTarget.style.boxShadow = colors.shadowMd; }}
                 onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none'; }}
               >
-                <div className="w-[38px] h-[38px] rounded-[10px] flex items-center justify-center shrink-0" style={{ background: f.gradient }}>
+                <div className="w-9.5 h-9.5 rounded-[10px] flex items-center justify-center shrink-0" style={{ background: f.gradient }}>
                   <Icon size={18} color="#fff" />
                 </div>
                 <div>
@@ -339,11 +339,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pb-9">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-9">
         <div className="flex justify-between items-center mb-4 sm:mb-5">
           <div>
             <h2 className="m-0 text-lg sm:text-xl font-bold" style={{ color: colors.text }}>Browse Categories</h2>
-            <p className="m-1 0 0 text-[13px]" style={{ color: colors.textMuted }}>Find what you need</p>
+            <p className="mt-1 text-[13px]" style={{ color: colors.textMuted }}>Find what you need</p>
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -353,11 +353,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pb-9">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-9">
         <div className="flex justify-between items-center mb-4 sm:mb-5">
           <div>
             <h2 className="m-0 text-lg sm:text-xl font-bold" style={{ color: colors.text }}>Featured Products</h2>
-            <p className="m-1 0 0 text-[13px]" style={{ color: colors.textMuted }}>Hand-picked for you</p>
+            <p className="mt-1 text-[13px]" style={{ color: colors.textMuted }}>Hand-picked for you</p>
           </div>
           <Link to="/shop" className="inline-flex items-center gap-1 text-[13px] font-semibold no-underline transition-opacity hover:opacity-80" style={{ color: colors.accent }}>
             View All <ChevronRight size={15} />
@@ -370,14 +370,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
         <div className="bg-[#000000] rounded-2xl p-6 sm:p-8 lg:p-10 text-center relative overflow-hidden">
-          <div className="relative z-[1]">
+            <div className="relative z-1">
             <h2 className="m-0 text-xl sm:text-[28px] font-extrabold text-white tracking-tight">Join Our Newsletter</h2>
-            <p className="m-2.5 auto 5.5 text-[13px] max-w-[460px]" style={{ color: 'rgba(255,255,255,0.85)' }}>
+            <p className="mt-2.5 mb-5 mx-auto text-[13px] max-w-115" style={{ color: 'rgba(255,255,255,0.85)' }}>
               Subscribe to get exclusive offers, new arrivals, and insider-only discounts.
             </p>
-            <div className="flex gap-2 max-w-[420px] mx-auto flex-wrap justify-center">
+            <div className="flex gap-2 max-w-105 mx-auto flex-wrap justify-center">
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -389,7 +389,7 @@ export default function Home() {
             </div>
           </div>
           <div className="absolute -top-15 -right-15 w-40 h-40 rounded-full bg-white/5" />
-          <div className="absolute -bottom-10 -left-10 w-[120px] h-[120px] rounded-full bg-white/5" />
+          <div className="absolute -bottom-10 -left-10 w-30 h-30 rounded-full bg-white/5" />
         </div>
       </section>
     </div>
