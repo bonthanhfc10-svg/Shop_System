@@ -11,10 +11,10 @@ import {
 } from 'lucide-react';
 
 const statsCards = [
-  { label: 'Total Orders', value: '23', icon: ShoppingCart, gradient: '#000000', shadowColor: 'rgba(0,0,0,0.12)' },
-  { label: 'Total Spent', value: '$1,432.50', icon: Tag, gradient: '#262626', shadowColor: 'rgba(0,0,0,0.3)' },
-  { label: 'Wishlist Items', value: '8', icon: Heart, gradient: '#404040', shadowColor: 'rgba(0,0,0,0.3)' },
-  { label: 'Pending Orders', value: '3', icon: Clock, gradient: '#404040', shadowColor: 'rgba(0,0,0,0.3)' },
+  { label: 'Total Orders', value: '23', icon: ShoppingCart, gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', shadowColor: 'rgba(102,126,234,0.2)' },
+  { label: 'Total Spent', value: '$1,432.50', icon: Tag, gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', shadowColor: 'rgba(245,87,108,0.2)' },
+  { label: 'Wishlist Items', value: '8', icon: Heart, gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', shadowColor: 'rgba(79,172,254,0.2)' },
+  { label: 'Pending Orders', value: '3', icon: Clock, gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', shadowColor: 'rgba(67,233,123,0.2)' },
 ];
 
 const recentOrders = [
@@ -34,12 +34,12 @@ const statusConfig = {
 };
 
 const quickLinks = [
-  { label: 'Continue Shopping', icon: ShoppingCart, path: '/shop', gradient: '#000000' },
-  { label: 'View All Orders', icon: Package, path: '/user/orders', gradient: '#262626' },
-  { label: 'My Wishlist', icon: Heart, path: '/user/wishlist', gradient: '#404040' },
-  { label: 'Update Profile', icon: User, path: '/user/profile', gradient: '#404040' },
-  { label: 'My Addresses', icon: MapPin, path: '/user/addresses', gradient: '#171717' },
-  { label: 'Get Support', icon: Headphones, path: '/user/support', gradient: '#404040' },
+  { label: 'Continue Shopping', icon: ShoppingCart, path: '/shop', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
+  { label: 'View All Orders', icon: Package, path: '/user/orders', gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' },
+  { label: 'My Wishlist', icon: Heart, path: '/user/wishlist', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' },
+  { label: 'Update Profile', icon: User, path: '/user/profile', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)' },
+  { label: 'My Addresses', icon: MapPin, path: '/user/addresses', gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)' },
+  { label: 'Get Support', icon: Headphones, path: '/user/support', gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)' },
 ];
 
 const recommendedProducts = [
@@ -64,23 +64,57 @@ const notificationColors = {
 
 const orderStatusCounts = { delivered: 15, shipped: 4, processing: 2, pending: 2 };
 
-function StatCard({ stat, index }) {
+function WelcomeBanner({ user }) {
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+
+  return (
+    <div
+      className="relative overflow-hidden rounded-2xl p-6 sm:p-8 lg:p-9 text-white"
+      style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
+    >
+      <div className="relative z-10">
+        <h1 className="text-xl sm:text-2xl lg:text-[26px] font-bold tracking-tight m-0">
+          {greeting}, {user?.name || 'Customer'}!
+        </h1>
+        <p className="text-xs sm:text-sm lg:text-[15px] mt-2 sm:mt-3 mb-5 sm:mb-6 opacity-90 max-w-[520px]">
+          Welcome to your personal dashboard. Track your orders, manage your wishlist, and discover new products.
+        </p>
+        <div className="flex gap-3 flex-wrap">
+          <Link
+            to="/shop"
+            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold no-underline transition-all duration-200"
+            style={{ background: '#fff', color: '#0a0a0a' }}
+            onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+          >
+            <ShoppingCart size={15} /> Start Shopping
+          </Link>
+          <Link
+            to="/user/orders"
+            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold no-underline transition-all duration-200"
+            style={{ background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.15)', backdropFilter: 'blur(4px)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.3)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; }}
+          >
+            <Eye size={15} /> View Orders
+          </Link>
+        </div>
+      </div>
+      <div className="absolute -top-10 -right-10 w-44 h-44 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
+      <div className="absolute -bottom-12 right-20 w-32 h-32 rounded-full" style={{ background: 'rgba(255,255,255,0.05)' }} />
+      <div className="absolute top-5 right-48 w-20 h-20 rounded-full" style={{ background: 'rgba(255,255,255,0.04)' }} />
+    </div>
+  );
+}
+
+function StatCard({ stat }) {
   const { colors } = useTheme();
   const Icon = stat.icon;
   return (
     <div
-      className="dash-stat-card"
-      style={{
-        background: colors.bgCard,
-        borderRadius: '16px',
-        padding: '24px',
-        border: `1px solid ${colors.border}`,
-        flex: '1 1 200px',
-        position: 'relative',
-        overflow: 'hidden',
-        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-        cursor: 'default',
-      }}
+      className="dash-stat-card rounded-2xl p-4 sm:p-6 border relative overflow-hidden transition-all duration-300 cursor-default"
+      style={{ background: colors.bgCard, borderColor: colors.border }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = 'translateY(-4px)';
         e.currentTarget.style.boxShadow = `0 20px 40px ${stat.shadowColor}`;
@@ -90,20 +124,20 @@ function StatCard({ stat, index }) {
         e.currentTarget.style.boxShadow = 'none';
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
-        <div style={{
-          width: '52px', height: '52px', borderRadius: '14px',
-          background: stat.gradient, display: 'flex', alignItems: 'center',
-          justifyContent: 'center', boxShadow: `0 8px 20px ${stat.shadowColor}`,
-        }}>
-          <Icon size={24} color="#fff" strokeWidth={2} />
+      <div className="flex justify-between items-start mb-3 sm:mb-4">
+        <div
+          className="w-11 h-11 sm:w-[52px] sm:h-[52px] rounded-[12px] sm:rounded-[14px] flex items-center justify-center shrink-0"
+          style={{ background: stat.gradient, boxShadow: `0 8px 20px ${stat.shadowColor}` }}
+        >
+          <Icon size={20} className="sm:hidden" color="#fff" strokeWidth={2} />
+          <Icon size={24} className="hidden sm:block" color="#fff" strokeWidth={2} />
         </div>
       </div>
       <div>
-        <p style={{ margin: 0, fontSize: '13px', color: colors.textMuted, fontWeight: '500', marginBottom: '4px' }}>
+        <p className="m-0 text-[12px] sm:text-[13px] mb-1 font-medium" style={{ color: colors.textMuted }}>
           {stat.label}
         </p>
-        <p style={{ margin: 0, fontSize: '28px', fontWeight: '700', color: colors.text, letterSpacing: '-0.02em', lineHeight: '1.2' }}>
+        <p className="m-0 text-xl sm:text-[28px] font-bold tracking-tight leading-tight" style={{ color: colors.text }}>
           {stat.value}
         </p>
       </div>
@@ -111,86 +145,27 @@ function StatCard({ stat, index }) {
   );
 }
 
-function WelcomeBanner({ user }) {
-  const hour = new Date().getHours();
-  const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
-
-  return (
-    <div style={{
-      background: '#000000',
-      borderRadius: '16px', padding: 'clamp(24px, 3vw, 36px)',
-      color: '#fff', position: 'relative', overflow: 'hidden',
-    }}>
-      <div style={{ position: 'relative', zIndex: 1 }}>
-        <h1 style={{ margin: 0, fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '700', letterSpacing: '-0.01em' }}>
-          {greeting}, {user?.name || 'Customer'}!
-        </h1>
-        <p style={{ margin: '8px 0 20px', fontSize: 'clamp(13px, 2vw, 15px)', opacity: 0.9, maxWidth: '520px' }}>
-          Welcome to your personal dashboard. Track your orders, manage your wishlist, and discover new products.
-        </p>
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-          <Link to="/shop" style={{
-            display: 'inline-flex', alignItems: 'center', gap: '6px',
-            padding: '10px 22px', borderRadius: '10px', background: '#fff',
-            color: '#0a0a0a', fontSize: '13px', fontWeight: '600', textDecoration: 'none',
-            transition: 'all 0.2s',
-          }}
-            onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
-          >
-            <ShoppingCart size={15} /> Start Shopping
-          </Link>
-          <Link to="/user/orders" style={{
-            display: 'inline-flex', alignItems: 'center', gap: '6px',
-            padding: '10px 22px', borderRadius: '10px', background: 'rgba(255,255,255,0.2)',
-            color: '#fff', fontSize: '13px', fontWeight: '600', textDecoration: 'none',
-            backdropFilter: 'blur(4px)', border: '1px solid rgba(255,255,255,0.15)',
-            transition: 'all 0.2s',
-          }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.3)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; }}
-          >
-            <Eye size={15} /> View Orders
-          </Link>
-        </div>
-      </div>
-      <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '180px', height: '180px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }} />
-      <div style={{ position: 'absolute', bottom: '-50px', right: '80px', width: '130px', height: '130px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
-      <div style={{ position: 'absolute', top: '20px', right: '200px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)' }} />
-    </div>
-  );
-}
-
 function RecentOrders() {
   const { colors } = useTheme();
   return (
-    <div style={{
-      background: colors.bgCard, borderRadius: '16px', padding: '24px',
-      border: `1px solid ${colors.border}`,
-    }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+    <div className="rounded-2xl p-4 sm:p-6 border" style={{ background: colors.bgCard, borderColor: colors.border }}>
+      <div className="flex justify-between items-center mb-4 sm:mb-5">
         <div>
-          <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.01em' }}>Recent Orders</h3>
-          <p style={{ margin: '4px 0 0', fontSize: '13px', color: colors.textSubtle }}>Your latest purchases</p>
+          <h3 className="m-0 text-sm sm:text-base font-bold tracking-tight" style={{ color: colors.text }}>Recent Orders</h3>
+          <p className="mt-1 m-0 text-xs" style={{ color: colors.textSubtle }}>Your latest purchases</p>
         </div>
-        <Link to="/user/orders" style={{
-          fontSize: '13px', color: colors.accent, textDecoration: 'none', fontWeight: '600',
-          display: 'flex', alignItems: 'center', gap: '4px',
-        }}>
+        <Link to="/user/orders" className="text-xs sm:text-[13px] font-semibold no-underline flex items-center gap-1" style={{ color: colors.accent }}>
           View All <ChevronRight size={14} />
         </Link>
       </div>
-      <div style={{ overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13.5px', minWidth: '500px' }}>
+
+      {/* Desktop Table */}
+      <div className="hidden sm:block overflow-x-auto">
+        <table className="w-full border-collapse text-[13px]">
           <thead>
             <tr>
               {['Order', 'Date', 'Items', 'Amount', 'Status'].map((h) => (
-                <th key={h} style={{
-                  textAlign: 'left', padding: '10px 14px',
-                  fontSize: '11.5px', fontWeight: '600', color: colors.textSubtle,
-                  textTransform: 'uppercase', letterSpacing: '0.06em',
-                  borderBottom: `1px solid ${colors.border}`,
-                }}>
+                <th key={h} className="text-left py-2.5 px-3.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: colors.textSubtle, borderBottom: `1px solid ${colors.border}` }}>
                   {h}
                 </th>
               ))}
@@ -202,22 +177,14 @@ function RecentOrders() {
               const StatusIcon = cfg.icon;
               return (
                 <tr key={order.id} style={{ borderBottom: `1px solid ${colors.borderLight}` }}>
-                  <td style={{ padding: '14px', fontWeight: '600', color: colors.accent, fontSize: '13px' }}>
-                    {order.id}
-                  </td>
-                  <td style={{ padding: '14px', color: colors.textMuted }}>{formatDate(order.date)}</td>
-                  <td style={{ padding: '14px', color: colors.textSecondary, fontWeight: '500' }}>
+                  <td className="py-3.5 px-3.5 font-semibold" style={{ color: colors.accent }}>{order.id}</td>
+                  <td className="py-3.5 px-3.5" style={{ color: colors.textMuted }}>{formatDate(order.date)}</td>
+                  <td className="py-3.5 px-3.5 font-medium" style={{ color: colors.textSecondary }}>
                     {order.items} item{order.items > 1 ? 's' : ''}
                   </td>
-                  <td style={{ padding: '14px', fontWeight: '600', color: colors.text }}>
-                    {formatCurrency(order.total)}
-                  </td>
-                  <td style={{ padding: '14px' }}>
-                    <span style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '5px',
-                      padding: '5px 12px', borderRadius: '8px', fontSize: '12px', fontWeight: '600',
-                      background: cfg.bg, color: cfg.text, textTransform: 'capitalize',
-                    }}>
+                  <td className="py-3.5 px-3.5 font-semibold" style={{ color: colors.text }}>{formatCurrency(order.total)}</td>
+                  <td className="py-3.5 px-3.5">
+                    <span className="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-lg text-xs font-semibold capitalize" style={{ background: cfg.bg, color: cfg.text }}>
                       {StatusIcon && <StatusIcon size={12} />}
                       {order.status}
                     </span>
@@ -227,6 +194,35 @@ function RecentOrders() {
             })}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Cards */}
+      <div className="flex flex-col gap-2.5 sm:hidden">
+        {recentOrders.map((order) => {
+          const cfg = statusConfig[order.status] || statusConfig.pending;
+          const StatusIcon = cfg.icon;
+          return (
+            <div
+              key={order.id}
+              className="flex items-center gap-3 p-3 rounded-xl transition-all"
+              style={{ background: colors.bgHover, border: `1px solid ${colors.borderLight}` }}
+            >
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-semibold" style={{ color: colors.accent }}>{order.id}</span>
+                  <span className="inline-flex items-center gap-1 py-0.5 px-2 rounded text-[10px] font-semibold capitalize" style={{ background: cfg.bg, color: cfg.text }}>
+                    {StatusIcon && <StatusIcon size={10} />}
+                    {order.status}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between mt-1.5">
+                  <span className="text-[11px]" style={{ color: colors.textMuted }}>{formatDate(order.date)}</span>
+                  <span className="text-xs font-semibold" style={{ color: colors.text }}>{formatCurrency(order.total)}</span>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -241,25 +237,19 @@ function OrderStatusOverview() {
   let cumulativeOffset = 0;
 
   return (
-    <div style={{
-      background: colors.bgCard, borderRadius: '16px', padding: '24px',
-      border: `1px solid ${colors.border}`,
-    }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+    <div className="rounded-2xl p-4 sm:p-6 border" style={{ background: colors.bgCard, borderColor: colors.border }}>
+      <div className="flex justify-between items-center mb-5 sm:mb-6">
         <div>
-          <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.01em' }}>Order Status</h3>
-          <p style={{ margin: '4px 0 0', fontSize: '13px', color: colors.textSubtle }}>{total} total orders</p>
+          <h3 className="m-0 text-sm sm:text-base font-bold tracking-tight" style={{ color: colors.text }}>Order Status</h3>
+          <p className="mt-1 m-0 text-xs" style={{ color: colors.textSubtle }}>{total} total orders</p>
         </div>
-        <Link to="/user/orders" style={{
-          fontSize: '13px', color: colors.accent, textDecoration: 'none', fontWeight: '600',
-          display: 'flex', alignItems: 'center', gap: '4px',
-        }}>
+        <Link to="/user/orders" className="text-xs sm:text-[13px] font-semibold no-underline flex items-center gap-1" style={{ color: colors.accent }}>
           Details <ChevronRight size={14} />
         </Link>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
-        <div style={{ position: 'relative', width: '180px', height: '180px', flexShrink: 0 }}>
-          <svg viewBox="0 0 200 200" style={{ width: '100%', height: '100%', transform: 'rotate(-90deg)' }}>
+      <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
+        <div className="relative w-36 h-36 sm:w-44 sm:h-44 shrink-0">
+          <svg viewBox="0 0 200 200" className="w-full h-full" style={{ transform: 'rotate(-90deg)' }}>
             <circle cx={cx} cy={cy} r={r} fill="none" stroke={colors.bgHover} strokeWidth={stroke} />
             {statusOrder.map((status) => {
               const count = orderStatusCounts[status];
@@ -282,51 +272,41 @@ function OrderStatusOverview() {
               );
             })}
           </svg>
-          <div style={{
-            position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column',
-            alignItems: 'center', justifyContent: 'center',
-          }}>
-            <span style={{ fontSize: '28px', fontWeight: '800', color: colors.text, lineHeight: '1' }}>{total}</span>
-            <span style={{ fontSize: '11px', color: colors.textSubtle, fontWeight: '500', marginTop: '2px' }}>orders</span>
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <span className="text-2xl sm:text-[28px] font-extrabold leading-none" style={{ color: colors.text }}>{total}</span>
+            <span className="text-[10px] sm:text-[11px] font-medium mt-0.5" style={{ color: colors.textSubtle }}>orders</span>
           </div>
         </div>
-        <div style={{ flex: 1, minWidth: '180px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <div className="flex-1 w-full sm:w-auto flex flex-col gap-2.5">
           {statusOrder.map((status) => {
             const cfg = statusConfig[status];
             const StatusIcon = cfg.icon;
             const count = orderStatusCounts[status];
             const pct = ((count / total) * 100).toFixed(1);
             return (
-              <div key={status} style={{
-                display: 'flex', alignItems: 'center', gap: '10px',
-                padding: '10px 12px', borderRadius: '10px',
-                background: colors.bgHover, border: `1px solid ${colors.borderLight}`,
-                transition: 'all 0.15s',
-              }}
+              <div
+                key={status}
+                className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-xl transition-all"
+                style={{ background: colors.bgHover, border: `1px solid ${colors.borderLight}` }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgAccent; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = colors.bgHover; }}
               >
-                <div style={{
-                  width: '32px', height: '32px', borderRadius: '8px',
-                  background: cfg.bg, display: 'flex', alignItems: 'center',
-                  justifyContent: 'center', flexShrink: 0,
-                }}>
-                  <StatusIcon size={15} color={cfg.color} />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: cfg.bg }}>
+                  <StatusIcon size={14} color={cfg.color} />
                 </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '12.5px', color: colors.textSecondary, textTransform: 'capitalize', fontWeight: '500' }}>{status}</span>
-                    <span style={{ fontSize: '13px', fontWeight: '700', color: colors.text }}>{count}</span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[11px] sm:text-xs capitalize font-medium" style={{ color: colors.textSecondary }}>{status}</span>
+                    <span className="text-xs sm:text-[13px] font-bold" style={{ color: colors.text }}>{count}</span>
                   </div>
-                  <div style={{ height: '4px', background: colors.border, borderRadius: '2px', overflow: 'hidden', marginTop: '5px' }}>
-                    <div style={{
-                      height: '100%', borderRadius: '2px',
-                      width: `${pct}%`, background: cfg.color,
-                      transition: 'width 0.6s cubic-bezier(0.4,0,0.2,1)',
-                    }} />
+                  <div className="h-1 rounded-full mt-1.5 overflow-hidden" style={{ background: colors.border }}>
+                    <div
+                      className="h-full rounded-full transition-all duration-500"
+                      style={{ width: `${pct}%`, background: cfg.color }}
+                    />
                   </div>
                 </div>
-                <span style={{ fontSize: '11px', fontWeight: '600', color: colors.textMuted, minWidth: '36px', textAlign: 'right' }}>{pct}%</span>
+                <span className="text-[10px] sm:text-[11px] font-semibold min-w-[36px] text-right" style={{ color: colors.textMuted }}>{pct}%</span>
               </div>
             );
           })}
@@ -339,23 +319,17 @@ function OrderStatusOverview() {
 function QuickLinks() {
   const { colors } = useTheme();
   return (
-    <div style={{
-      background: colors.bgCard, borderRadius: '16px', padding: '24px',
-      border: `1px solid ${colors.border}`,
-    }}>
-      <h3 style={{ margin: '0 0 20px', fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.01em' }}>Quick Links</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '10px' }}>
+    <div className="rounded-2xl p-4 sm:p-6 border" style={{ background: colors.bgCard, borderColor: colors.border }}>
+      <h3 className="m-0 mb-4 sm:mb-5 text-sm sm:text-base font-bold tracking-tight" style={{ color: colors.text }}>Quick Links</h3>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3">
         {quickLinks.map((link) => {
           const Icon = link.icon;
           return (
             <Link
               key={link.label}
               to={link.path}
-              style={{
-                display: 'flex', alignItems: 'center', gap: '12px',
-                padding: '14px', borderRadius: '12px', textDecoration: 'none',
-                border: `1px solid ${colors.border}`, transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-              }}
+              className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-3.5 rounded-xl no-underline transition-all duration-250"
+              style={{ border: `1px solid ${colors.border}` }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-2px)';
                 e.currentTarget.style.boxShadow = colors.shadowMd;
@@ -365,14 +339,11 @@ function QuickLinks() {
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              <div style={{
-                width: '40px', height: '40px', borderRadius: '10px',
-                background: link.gradient, display: 'flex',
-                alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-              }}>
-                <Icon size={18} color="#fff" strokeWidth={2} />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[10px] flex items-center justify-center shrink-0" style={{ background: link.gradient }}>
+                <Icon size={16} className="sm:hidden" color="#fff" strokeWidth={2} />
+                <Icon size={18} className="hidden sm:block" color="#fff" strokeWidth={2} />
               </div>
-              <span style={{ fontSize: '13px', fontWeight: '600', color: colors.textSecondary }}>{link.label}</span>
+              <span className="text-[11px] sm:text-[13px] font-semibold leading-tight" style={{ color: colors.textSecondary }}>{link.label}</span>
             </Link>
           );
         })}
@@ -384,46 +355,34 @@ function QuickLinks() {
 function Notifications() {
   const { colors } = useTheme();
   return (
-    <div style={{
-      background: colors.bgCard, borderRadius: '16px', padding: '24px',
-      border: `1px solid ${colors.border}`,
-    }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+    <div className="rounded-2xl p-4 sm:p-6 border" style={{ background: colors.bgCard, borderColor: colors.border }}>
+      <div className="flex justify-between items-center mb-4 sm:mb-5">
         <div>
-          <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.01em' }}>Recent Notifications</h3>
-          <p style={{ margin: '4px 0 0', fontSize: '13px', color: colors.textSubtle }}>Stay updated on your orders</p>
+          <h3 className="m-0 text-sm sm:text-base font-bold tracking-tight" style={{ color: colors.text }}>Recent Notifications</h3>
+          <p className="mt-1 m-0 text-xs" style={{ color: colors.textSubtle }}>Stay updated on your orders</p>
         </div>
-        <Link to="/user/notifications" style={{
-          fontSize: '13px', color: colors.accent, textDecoration: 'none', fontWeight: '600',
-          display: 'flex', alignItems: 'center', gap: '4px',
-        }}>
+        <Link to="/user/notifications" className="text-xs sm:text-[13px] font-semibold no-underline flex items-center gap-1" style={{ color: colors.accent }}>
           View All <ChevronRight size={14} />
         </Link>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <div className="flex flex-col gap-2.5">
         {recentNotifications.map((notif, i) => {
           const nColors = notificationColors[notif.type] || notificationColors.info;
           const NotifIcon = notif.icon;
           return (
-            <div key={i} style={{
-              display: 'flex', gap: '12px', padding: '12px 14px',
-              borderRadius: '10px', background: nColors.bg,
-              border: `1px solid ${nColors.border}`, alignItems: 'flex-start',
-              transition: 'all 0.15s',
-            }}
+            <div
+              key={i}
+              className="flex gap-3 p-3 sm:p-3.5 rounded-xl transition-all duration-150"
+              style={{ background: nColors.bg, border: `1px solid ${nColors.border}` }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateX(2px)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateX(0)'; }}
             >
-              <div style={{
-                width: '32px', height: '32px', borderRadius: '8px',
-                background: `${nColors.icon}18`, display: 'flex', alignItems: 'center',
-                justifyContent: 'center', flexShrink: 0,
-              }}>
-                <NotifIcon size={15} color={nColors.icon} />
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: `${nColors.icon}18` }}>
+                <NotifIcon size={14} color={nColors.icon} />
               </div>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <p style={{ margin: 0, fontSize: '13px', color: colors.textSecondary, fontWeight: '500' }}>{notif.message}</p>
-                <span style={{ fontSize: '11px', color: colors.textSubtle, marginTop: '4px', display: 'block' }}>{notif.time}</span>
+              <div className="flex-1 min-w-0">
+                <p className="m-0 text-xs sm:text-[13px] font-medium" style={{ color: colors.textSecondary }}>{notif.message}</p>
+                <span className="text-[10px] sm:text-[11px] mt-1 block" style={{ color: colors.textSubtle }}>{notif.time}</span>
               </div>
             </div>
           );
@@ -436,33 +395,23 @@ function Notifications() {
 function RecommendedProducts() {
   const { colors } = useTheme();
   return (
-    <div style={{
-      background: colors.bgCard, borderRadius: '16px', padding: '24px',
-      border: `1px solid ${colors.border}`,
-    }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+    <div className="rounded-2xl p-4 sm:p-6 border" style={{ background: colors.bgCard, borderColor: colors.border }}>
+      <div className="flex justify-between items-center mb-4 sm:mb-5">
         <div>
-          <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.01em' }}>Recommended For You</h3>
-          <p style={{ margin: '4px 0 0', fontSize: '13px', color: colors.textSubtle }}>Based on your browsing history</p>
+          <h3 className="m-0 text-sm sm:text-base font-bold tracking-tight" style={{ color: colors.text }}>Recommended For You</h3>
+          <p className="mt-1 m-0 text-xs" style={{ color: colors.textSubtle }}>Based on your browsing history</p>
         </div>
-        <Link to="/shop" style={{
-          fontSize: '13px', color: colors.accent, textDecoration: 'none', fontWeight: '600',
-          display: 'flex', alignItems: 'center', gap: '4px',
-        }}>
+        <Link to="/shop" className="text-xs sm:text-[13px] font-semibold no-underline flex items-center gap-1" style={{ color: colors.accent }}>
           Browse Shop <ChevronRight size={14} />
         </Link>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '14px' }}>
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-3.5">
         {recommendedProducts.map((product) => (
           <Link
             key={product.id}
             to={`/shop/products/${product.id}`}
-            style={{
-              display: 'flex', flexDirection: 'column', alignItems: 'center',
-              padding: '20px 16px', borderRadius: '12px', textDecoration: 'none',
-              border: `1px solid ${colors.border}`, transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-              textAlign: 'center',
-            }}
+            className="flex flex-col items-center p-4 sm:p-5 rounded-xl no-underline text-center transition-all duration-250"
+            style={{ border: `1px solid ${colors.border}` }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-4px)';
               e.currentTarget.style.boxShadow = colors.shadowLg;
@@ -474,17 +423,20 @@ function RecommendedProducts() {
               e.currentTarget.style.borderColor = colors.border;
             }}
           >
-            <span style={{ fontSize: '40px', marginBottom: '12px' }}>{product.image}</span>
-            <p style={{ margin: '0 0 6px', fontSize: '13px', fontWeight: '600', color: colors.text, lineHeight: '1.3' }}>
+            <span className="text-3xl sm:text-[40px] mb-2.5 sm:mb-3">{product.image}</span>
+            <p className="m-0 mb-1.5 text-[11px] sm:text-[13px] font-semibold leading-snug" style={{ color: colors.text }}>
               {product.name}
             </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '6px' }}>
+            <div className="flex items-center gap-0.5 mb-1.5">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={11} color={i < Math.floor(product.rating) ? '#737373' : colors.border} fill={i < Math.floor(product.rating) ? '#737373' : 'none'} />
+                <Star key={i} size={10} className="sm:hidden" color={i < Math.floor(product.rating) ? '#737373' : colors.border} fill={i < Math.floor(product.rating) ? '#737373' : 'none'} />
               ))}
-              <span style={{ fontSize: '11px', color: colors.textSubtle, marginLeft: '2px' }}>{product.rating}</span>
+              {[...Array(5)].map((_, i) => (
+                <Star key={`lg-${i}`} size={11} className="hidden sm:block" color={i < Math.floor(product.rating) ? '#737373' : colors.border} fill={i < Math.floor(product.rating) ? '#737373' : 'none'} />
+              ))}
+              <span className="text-[10px] sm:text-[11px] ml-0.5" style={{ color: colors.textSubtle }}>{product.rating}</span>
             </div>
-            <span style={{ fontSize: '15px', fontWeight: '700', color: colors.accent }}>
+            <span className="text-sm sm:text-[15px] font-bold" style={{ color: colors.accent }}>
               {formatCurrency(product.price)}
             </span>
           </Link>
@@ -501,23 +453,23 @@ export default function UserDashboard() {
     <div>
       <WelcomeBanner user={user} />
 
-      <div style={{ marginTop: '28px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
-        {statsCards.map((stat, index) => (
-          <StatCard key={stat.label} stat={stat} index={index} />
+      <div className="mt-6 sm:mt-7 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        {statsCards.map((stat) => (
+          <StatCard key={stat.label} stat={stat} />
         ))}
       </div>
 
-      <div className="grid-2col-responsive" style={{ marginTop: '28px' }}>
+      <div className="mt-6 sm:mt-7 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
         <RecentOrders />
         <OrderStatusOverview />
       </div>
 
-      <div className="grid-2col-responsive" style={{ marginTop: '28px' }}>
+      <div className="mt-6 sm:mt-7 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
         <RecommendedProducts />
         <Notifications />
       </div>
 
-      <div style={{ marginTop: '28px' }}>
+      <div className="mt-6 sm:mt-7">
         <QuickLinks />
       </div>
     </div>

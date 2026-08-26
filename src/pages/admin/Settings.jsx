@@ -271,8 +271,8 @@ export default function Settings() {
   const [saving, setSaving] = useState(null);
 
   const [storeInfo, setStoreInfo] = useState({
-    storeName: 'Kh-Shop',
-    email: 'admin@khshop.com',
+    storeName: 'KH Shop',
+    email: 'admin@vibeshop.com',
     phone: '+1 555 123 4567',
     street: '123 Commerce Street',
     city: 'New York',

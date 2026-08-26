@@ -51,15 +51,15 @@ export default function ShopLayout() {
               }}>
                 <Store size={18} color="#fff" />
               </div>
-              <span style={{ fontSize: '20px', fontWeight: '700', color: colors.text }}>Kh-Shop</span>
+              <span style={{ fontSize: '20px', fontWeight: '700', color: colors.text }}>KH Shop</span>
             </Link>
             <nav className="hide-mobile" style={{ display: 'flex', gap: '4px' }}>
               {navLinks.map((link) => (
                 <Link key={link.path} to={link.path} style={{
                   padding: '8px 16px', borderRadius: '8px', textDecoration: 'none',
                   fontSize: '14px', fontWeight: '500',
-                  color: location.pathname === link.path ? colors.accent : colors.textMuted,
-                  background: location.pathname === link.path ? colors.bgAccent : 'transparent',
+                  color: location.pathname === link.path ? '#ffffff' : colors.textMuted,
+                  background: location.pathname === link.path ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'transparent',
                   transition: 'all 0.15s',
                 }}>
                   {link.label}
@@ -110,7 +110,7 @@ export default function ShopLayout() {
               <span style={{
                 position: 'absolute', top: '2px', right: '2px',
                 width: '16px', height: '16px', borderRadius: '50%',
-                background: colors.danger, color: colors.bg,
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: '#fff',
                 fontSize: '10px', fontWeight: '700',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>{cartCount || 0}</span>
@@ -128,7 +128,7 @@ export default function ShopLayout() {
                 >
                   <div style={{
                     width: '32px', height: '32px', borderRadius: '50%',
-                    background: '#000000',
+                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                     color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: '13px', fontWeight: '600',
                   }}>
@@ -166,7 +166,7 @@ export default function ShopLayout() {
                 <Link to="/auth/register" style={{
                   padding: '8px 16px', borderRadius: '8px', textDecoration: 'none',
                   fontSize: '13px', fontWeight: '600', color: '#fff',
-                  background: colors.gradientPrimary, transition: 'all 0.15s',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', transition: 'all 0.15s',
                 }}>
                   Register
                 </Link>
@@ -213,8 +213,9 @@ export default function ShopLayout() {
             {navLinks.map((link) => (
               <Link key={link.path} to={link.path} onClick={() => setMenuOpen(false)} style={{
                 padding: '10px 14px', borderRadius: '8px', textDecoration: 'none',
-                fontSize: '14px', fontWeight: '500', color: colors.textSecondary,
-                background: location.pathname === link.path ? colors.bgAccent : 'transparent',
+                fontSize: '14px', fontWeight: '500',
+                color: location.pathname === link.path ? '#ffffff' : colors.textSecondary,
+                background: location.pathname === link.path ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'transparent',
               }}>
                 <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <link.icon size={16} />
@@ -231,6 +232,15 @@ export default function ShopLayout() {
                     padding: '10px 14px', borderRadius: '8px', textDecoration: 'none',
                     fontSize: '14px', fontWeight: '500', color: colors.textSecondary,
                     display: 'flex', alignItems: 'center', gap: '10px',
+                    transition: 'all 0.15s',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'linear-gradient(135deg, #667eea15 0%, #764ba215 100%)';
+                    e.currentTarget.style.color = colors.text;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.color = colors.textSecondary;
                   }}
                 >
                   <User size={16} />
@@ -256,15 +266,25 @@ export default function ShopLayout() {
                   padding: '10px 14px', borderRadius: '8px', textDecoration: 'none',
                   fontSize: '14px', fontWeight: '500', color: colors.textSecondary,
                   display: 'flex', alignItems: 'center', gap: '10px',
-                }}>
+                  transition: 'all 0.15s',
+                }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'linear-gradient(135deg, #667eea15 0%, #764ba215 100%)';
+                    e.currentTarget.style.color = colors.text;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.color = colors.textSecondary;
+                  }}
+                >
                   Login
                 </Link>
                 <Link to="/auth/register" onClick={() => setMenuOpen(false)} style={{
                   padding: '10px 14px', borderRadius: '8px', textDecoration: 'none',
                   fontSize: '14px', fontWeight: '500', color: '#fff',
-                  background: colors.gradientPrimary,
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                   display: 'flex', alignItems: 'center', gap: '10px', textAlign: 'center',
-                  justifyContent: 'center',
+                  justifyContent: 'center', transition: 'all 0.15s',
                 }}>
                   Register
                 </Link>

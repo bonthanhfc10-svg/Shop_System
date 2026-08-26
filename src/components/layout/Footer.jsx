@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../hooks/useTheme';
-import { Store, CreditCard, ShieldCheck, Truck, RotateCcw } from 'lucide-react';
+import { Store } from 'lucide-react';
 
-function BrandIcon({ path, size = 14 }) {
+function SocialIcon({ path, size = 18 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d={path} />
@@ -10,11 +10,10 @@ function BrandIcon({ path, size = 14 }) {
   );
 }
 
-const columns = [
+const footerLinks = [
   {
     title: 'Shop',
     links: [
-      { label: 'Home', path: '/' },
       { label: 'All Products', path: '/shop' },
       { label: 'Cart', path: '/cart' },
       { label: 'Checkout', path: '/checkout' },
@@ -23,8 +22,6 @@ const columns = [
   {
     title: 'Account',
     links: [
-      { label: 'Login', path: '/auth/login' },
-      { label: 'Register', path: '/auth/register' },
       { label: 'My Orders', path: '/user/orders' },
       { label: 'Wishlist', path: '/user/wishlist' },
       { label: 'Profile', path: '/user/profile' },
@@ -34,18 +31,10 @@ const columns = [
     title: 'Support',
     links: [
       { label: 'Help Center', path: '/user/support' },
-      { label: 'Coupons', path: '/user/coupons' },
       { label: 'Reviews', path: '/user/reviews' },
-      { label: 'Notifications', path: '/user/notifications' },
+      { label: 'Coupons', path: '/user/coupons' },
     ],
   },
-];
-
-const perks = [
-  { icon: Truck, label: 'Free Shipping', sub: 'On orders over $50' },
-  { icon: RotateCcw, label: 'Easy Returns', sub: '30-day return policy' },
-  { icon: ShieldCheck, label: 'Secure Payment', sub: '100% protected' },
-  { icon: CreditCard, label: 'Flexible Pay', sub: 'Cards & wallets' },
 ];
 
 const socials = [
@@ -73,113 +62,72 @@ export default function Footer() {
   const { colors } = useTheme();
 
   return (
-    <footer style={{
-      background: colors.bgSidebar,
-      borderTop: `1px solid ${colors.border}`,
-      marginTop: '48px',
-    }}>
-      <div style={{
-        background: colors.bgCard,
-        borderBottom: `1px solid ${colors.border}`,
-        padding: '20px clamp(16px, 3vw, 32px)',
-      }}>
-        <div style={{
-          maxWidth: '1280px', margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '24px',
-        }}>
-          {perks.map((perk) => (
-            <div key={perk.label} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{
-                width: '40px', height: '40px', borderRadius: '10px',
-                background: colors.bgAccent, flexShrink: 0,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>
-                <perk.icon size={18} color={colors.accent} />
-              </div>
-              <div>
-                <p style={{ margin: 0, fontSize: '13px', fontWeight: '600', color: colors.text }}>{perk.label}</p>
-                <p style={{ margin: '2px 0 0', fontSize: '12px', color: colors.textSubtle }}>{perk.sub}</p>
-              </div>
+    <footer className="mt-12 sm:mt-16" style={{ background: colors.bgSidebar }}>
+      {/* Main Content */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        {/* Brand */}
+        <div className="mb-8 sm:mb-10">
+          <Link to="/" className="inline-flex items-center gap-2.5 no-underline">
+            <div
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0"
+              style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
+            >
+              <Store size={18} color="#fff" />
             </div>
-          ))}
-        </div>
-      </div>
-
-      <div style={{ padding: '40px clamp(16px, 3vw, 32px) 32px' }}>
-        <div style={{
-          maxWidth: '1280px', margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'minmax(240px, 1.4fr) repeat(3, 1fr)',
-          gap: 'clamp(24px, 4vw, 48px)',
-        }} className="footer-grid-responsive">
-          <div>
-            <Link to="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{
-                width: '36px', height: '36px', borderRadius: '10px',
-                background: colors.gradientPrimary, display: 'flex',
-                alignItems: 'center', justifyContent: 'center',
-              }}>
-                <Store size={18} color="#fff" />
-              </div>
-              <span style={{ fontSize: '20px', fontWeight: '700', color: colors.text }}>Kh-Shop</span>
-            </Link>
-            <p style={{
-              margin: '14px 0 0', fontSize: '13px', lineHeight: 1.6,
-              color: colors.textMuted, maxWidth: '280px',
-            }}>
-              Your one-stop shop for everything. Quality products, great prices and fast delivery across Cambodia.
-            </p>
-            <div style={{ display: 'flex', gap: '8px', marginTop: '18px' }}>
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href="#"
-                  aria-label={social.label}
-                  title={social.label}
-                  onClick={(e) => e.preventDefault()}
-                  style={{
-                    width: '34px', height: '34px', borderRadius: '8px',
-                    border: `1px solid ${colors.border}`,
-                    color: colors.textMuted, textDecoration: 'none',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    transition: 'all 0.15s',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = colors.bgAccent;
-                    e.currentTarget.style.color = colors.accent;
-                    e.currentTarget.style.borderColor = colors.accentLight;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'transparent';
-                    e.currentTarget.style.color = colors.textMuted;
-                    e.currentTarget.style.borderColor = colors.border;
-                  }}
-                >
-                  <BrandIcon path={social.path} />
-                </a>
-              ))}
-            </div>
+            <span className="text-lg sm:text-xl font-bold" style={{ color: colors.text }}>KH Shop</span>
+          </Link>
+          <p
+            className="text-xs sm:text-sm leading-relaxed mt-3 sm:mt-4 max-w-[400px]"
+            style={{ color: colors.textMuted }}
+          >
+            Your one-stop shop for shirts, pants, and shoes. Quality fashion at unbeatable prices with fast delivery.
+          </p>
+          <div className="flex gap-2 sm:gap-2.5 mt-4 sm:mt-5">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href="#"
+                aria-label={social.label}
+                title={social.label}
+                onClick={(e) => e.preventDefault()}
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center no-underline transition-all duration-200 hover:scale-110"
+                style={{
+                  background: colors.bgAccent,
+                  color: colors.textMuted,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = colors.bgAccent;
+                  e.currentTarget.style.color = colors.textMuted;
+                }}
+              >
+                <SocialIcon path={social.path} />
+              </a>
+            ))}
           </div>
+        </div>
 
-          {columns.map((column) => (
-            <nav key={column.title} aria-label={column.title}>
-              <h3 style={{
-                margin: '4px 0 14px', fontSize: '13px', fontWeight: '700',
-                letterSpacing: '0.06em', textTransform: 'uppercase',
-                color: colors.textSecondary,
-              }}>
+        {/* Link Columns - always 3 columns */}
+        <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-10">
+          {footerLinks.map((column) => (
+            <div key={column.title}>
+              <h4
+                className="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase m-0 mb-2.5 sm:mb-4"
+                style={{ color: colors.textSecondary }}
+              >
                 {column.title}
-              </h3>
-              <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              </h4>
+              <ul className="list-none m-0 p-0 flex flex-col gap-1.5 sm:gap-2.5">
                 {column.links.map((link) => (
                   <li key={link.path}>
-                    <Link to={link.path} style={{
-                      fontSize: '13px', color: colors.textMuted,
-                      textDecoration: 'none', transition: 'color 0.15s',
-                    }}
-                      onMouseEnter={(e) => { e.currentTarget.style.color = colors.accent; }}
+                    <Link
+                      to={link.path}
+                      className="text-[11px] sm:text-xs no-underline transition-colors duration-200"
+                      style={{ color: colors.textMuted }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = '#667eea'; }}
                       onMouseLeave={(e) => { e.currentTarget.style.color = colors.textMuted; }}
                     >
                       {link.label}
@@ -187,30 +135,33 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </nav>
+            </div>
           ))}
         </div>
       </div>
 
-      <div style={{ borderTop: `1px solid ${colors.border}`, padding: '18px clamp(16px, 3vw, 32px)' }}>
-        <div style={{
-          maxWidth: '1280px', margin: '0 auto',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          flexWrap: 'wrap', gap: '12px',
-        }}>
-          <p style={{ margin: 0, fontSize: '12px', color: colors.textSubtle }}>
-            &copy; {new Date().getFullYear()} Kh-Shop. All rights reserved.
-          </p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
-            {payments.map((payment) => (
-              <span key={payment} style={{
-                fontSize: '11px', fontWeight: '600', color: colors.textMuted,
-                background: colors.bgBadge, border: `1px solid ${colors.border}`,
-                borderRadius: '6px', padding: '4px 10px',
-              }}>
-                {payment}
-              </span>
-            ))}
+      {/* Bottom Bar */}
+      <div className="border-t" style={{ borderColor: colors.border }}>
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+            <p className="text-[11px] sm:text-xs m-0 text-center sm:text-left" style={{ color: colors.textSubtle }}>
+              &copy; {new Date().getFullYear()} KH Shop. All rights reserved.
+            </p>
+            <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
+              {payments.map((payment) => (
+                <span
+                  key={payment}
+                  className="text-[11px] sm:text-xs font-medium rounded-md sm:rounded-lg py-1 sm:py-1.5 px-2 sm:px-3"
+                  style={{
+                    color: colors.textMuted,
+                    background: colors.bgAccent,
+                    border: `1px solid ${colors.border}`,
+                  }}
+                >
+                  {payment}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>

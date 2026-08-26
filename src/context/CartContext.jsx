@@ -3,23 +3,28 @@ import { createContext, useState, useCallback } from 'react';
 export const CartContext = createContext(null);
 
 const DEMO_PRODUCTS = {
-  1: { id: 1, name: 'Wireless Bluetooth Headphones', price: 79.99, emoji: '🎧', category: 'Electronics' },
-  2: { id: 2, name: 'Smart Watch Pro', price: 199.99, emoji: '⌚', category: 'Electronics' },
-  3: { id: 3, name: 'USB-C Hub Adapter', price: 34.99, emoji: '🔌', category: 'Accessories' },
-  4: { id: 4, name: 'Laptop Stand Adjustable', price: 45.99, emoji: '🖥️', category: 'Furniture' },
-  5: { id: 5, name: 'Wireless Mouse Ergonomic', price: 39.99, emoji: '🖱️', category: 'Electronics' },
-  6: { id: 6, name: '4K Webcam HD', price: 69.99, emoji: '📷', category: 'Electronics' },
-  7: { id: 7, name: 'Portable SSD 1TB', price: 99.99, emoji: '💾', category: 'Accessories' },
-  8: { id: 8, name: 'Mechanical Keyboard RGB', price: 89.99, emoji: '⌨️', category: 'Electronics' },
-  9: { id: 9, name: 'Desk Lamp LED', price: 29.99, emoji: '💡', category: 'Furniture' },
-  10: { id: 10, name: 'Noise Cancelling Earbuds', price: 129.99, emoji: '🎵', category: 'Electronics' },
-  11: { id: 11, name: 'Webcam Tripod Stand', price: 19.99, emoji: '📷', category: 'Accessories' },
-  12: { id: 12, name: 'Monitor Light Bar', price: 49.99, emoji: '💡', category: 'Electronics' },
+  1: { id: 1, name: 'Classic White T-Shirt', price: 19.99, emoji: '👕', category: 'Shirts' },
+  2: { id: 2, name: 'Slim Fit Blue Jeans', price: 39.99, emoji: '👖', category: 'Pants' },
+  3: { id: 3, name: 'White Running Sneakers', price: 59.99, emoji: '👟', category: 'Shoes' },
+  4: { id: 4, name: 'Polo Shirt Navy', price: 24.99, emoji: '👔', category: 'Shirts' },
+  5: { id: 5, name: 'Cargo Pants Olive', price: 34.99, emoji: '👖', category: 'Pants' },
+  6: { id: 6, name: 'Casual Canvas Shoes', price: 29.99, emoji: '👞', category: 'Shoes' },
+  7: { id: 7, name: 'Long Sleeve Flannel', price: 32.99, emoji: '👕', category: 'Shirts' },
+  8: { id: 8, name: 'Summer Shorts Khaki', price: 22.99, emoji: '🩳', category: 'Pants' },
+  9: { id: 9, name: 'Black Graphic Tee', price: 17.99, emoji: '👕', category: 'Shirts' },
+  10: { id: 10, name: 'Leather Sandals Brown', price: 35.99, emoji: '🩴', category: 'Shoes' },
+  11: { id: 11, name: 'Casual Linen Shirt', price: 28.99, emoji: '👔', category: 'Shirts' },
+  12: { id: 12, name: 'Sports Running Shoes', price: 64.99, emoji: '👟', category: 'Shoes' },
+  13: { id: 13, name: 'Regular Fit Chinos', price: 27.99, emoji: '👖', category: 'Pants' },
+  14: { id: 14, name: 'Striped V-Neck Tee', price: 15.99, emoji: '👕', category: 'Shirts' },
+  15: { id: 15, name: 'Denim Jacket Blue', price: 49.99, emoji: '🧥', category: 'Shirts' },
+  16: { id: 16, name: 'Athletic Shorts Black', price: 18.99, emoji: '🩳', category: 'Pants' },
+  17: { id: 17, name: 'Formal Oxford Shoes', price: 74.99, emoji: '👞', category: 'Shoes' },
+  18: { id: 18, name: 'Plaid Button Down', price: 36.99, emoji: '👔', category: 'Shirts' },
 };
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const addToCart = useCallback((productId, quantity = 1) => {
     setItems((prev) => {
@@ -64,7 +69,6 @@ export function CartProvider({ children }) {
     <CartContext.Provider value={{
       cart: { items, totalAmount: cartTotal },
       items,
-      loading,
       addToCart,
       removeFromCart,
       updateQuantity,

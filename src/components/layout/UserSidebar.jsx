@@ -33,8 +33,8 @@ export default function UserSidebar({ mobileOpen, onClose }) {
     textDecoration: 'none',
     fontSize: '14px',
     fontWeight: isActive ? '600' : '400',
-    color: isActive ? colors.textOnAccent : colors.textMuted,
-    background: isActive ? colors.bgNavActive : 'transparent',
+    color: isActive ? '#ffffff' : colors.textMuted,
+    background: isActive ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'transparent',
     transition: 'all 0.2s',
   });
 
@@ -67,7 +67,7 @@ export default function UserSidebar({ mobileOpen, onClose }) {
       >
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 8px', marginBottom: '16px' }}>
           <h1 style={{ margin: 0, fontSize: '20px', fontWeight: '700', color: colors.text }}>
-            🏪 Kh-Shop
+            🏪 Kh Shop
           </h1>
           <button
             onClick={onClose}
@@ -90,13 +90,19 @@ export default function UserSidebar({ mobileOpen, onClose }) {
             border: `1px solid ${colors.accent}20`,
             marginBottom: '20px', transition: 'all 0.2s',
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = `linear-gradient(135deg, ${colors.accent}18 0%, ${colors.accent}08 100%)`; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = `linear-gradient(135deg, ${colors.accent}10 0%, ${colors.accent}05 100%)`; }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            e.currentTarget.style.color = '#ffffff';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = `linear-gradient(135deg, ${colors.accent}10 0%, ${colors.accent}05 100%)`;
+            e.currentTarget.style.color = '';
+          }}
           onClick={onClose}
         >
           <div style={{
             width: '48px', height: '48px', borderRadius: '50%',
-            background: '#000000',
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: '#fff', fontSize: '18px', fontWeight: '700', flexShrink: 0,
             boxShadow: '0 4px 12px rgba(0,0,0,0.12)',
@@ -123,6 +129,20 @@ export default function UserSidebar({ mobileOpen, onClose }) {
                 to={item.path}
                 end={item.path === '/user'}
                 style={linkStyle}
+                onMouseEnter={(e) => {
+                  const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
+                  if (!isActive) {
+                    e.currentTarget.style.background = 'linear-gradient(135deg, #667eea15 0%, #764ba215 100%)';
+                    e.currentTarget.style.color = colors.text;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
+                  if (!isActive) {
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.color = colors.textMuted;
+                  }
+                }}
                 onClick={onClose}
               >
                 <Icon size={18} />

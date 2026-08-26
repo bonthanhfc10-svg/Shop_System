@@ -10,21 +10,33 @@ import {
 } from 'lucide-react';
 
 const productsData = {
-  1: { id: 1, name: 'Wireless Bluetooth Headphones', category: 'Electronics', price: 79.99, originalPrice: 99.99, stock: 124, rating: 4.5, reviews: 128, emoji: '🎧', badge: 'Best Seller', description: 'Premium wireless headphones with active noise cancellation, 30-hour battery life, and crystal-clear audio quality. Perfect for music lovers and professionals alike.' },
-  2: { id: 2, name: 'Smart Watch Pro', category: 'Electronics', price: 199.99, originalPrice: 249.99, stock: 56, rating: 4.8, reviews: 95, emoji: '⌚', badge: 'New', description: 'Advanced smartwatch with health monitoring, GPS tracking, and seamless smartphone integration. Water-resistant up to 50 meters.' },
-  3: { id: 3, name: 'USB-C Hub Adapter', category: 'Accessories', price: 34.99, originalPrice: null, stock: 230, rating: 4.3, reviews: 67, emoji: '🔌', badge: null, description: '7-in-1 USB-C hub with HDMI, USB 3.0, SD card reader, and PD charging. Compatible with all USB-C devices.' },
-  4: { id: 4, name: 'Laptop Stand Adjustable', category: 'Furniture', price: 45.99, originalPrice: 59.99, stock: 89, rating: 4.6, reviews: 43, emoji: '🖥️', badge: 'Sale', description: 'Ergonomic aluminum laptop stand with adjustable height and angle. Improves posture and airflow for your laptop.' },
-  5: { id: 5, name: 'Wireless Mouse Ergonomic', category: 'Electronics', price: 39.99, originalPrice: null, stock: 145, rating: 4.4, reviews: 89, emoji: '🖱️', badge: null, description: 'Ergonomic wireless mouse with adjustable DPI, quiet clicks, and long battery life. Designed for all-day comfort.' },
-  6: { id: 6, name: '4K Webcam HD', category: 'Electronics', price: 69.99, originalPrice: 89.99, stock: 34, rating: 4.7, reviews: 56, emoji: '📷', badge: 'Popular', description: 'Ultra HD 4K webcam with auto-focus, low-light correction, and built-in microphone. Perfect for video calls and streaming.' },
-  7: { id: 7, name: 'Portable SSD 1TB', category: 'Accessories', price: 99.99, originalPrice: null, stock: 67, rating: 4.9, reviews: 201, emoji: '💾', badge: 'Top Rated', description: 'Ultra-fast portable SSD with 1TB capacity, USB 3.2 interface, and shock-resistant design. Transfer speeds up to 1050MB/s.' },
-  8: { id: 8, name: 'Mechanical Keyboard RGB', category: 'Electronics', price: 89.99, originalPrice: 119.99, stock: 0, rating: 4.5, reviews: 134, emoji: '⌨️', badge: 'Sale', description: 'Premium mechanical keyboard with customizable RGB backlighting, hot-swappable switches, and solid aluminum frame.' },
+  1: { id: 1, name: 'Classic White T-Shirt', category: 'Shirts', sub: 'T-Shirts', price: 19.99, originalPrice: 29.99, stock: 124, rating: 4.7, reviews: 234, emoji: '👕', badge: 'Best Seller', description: 'A timeless classic made from 100% premium cotton. Features a comfortable regular fit, crew neck design, and pre-shrunk fabric that maintains its shape wash after wash. Perfect for everyday wear.' },
+  2: { id: 2, name: 'Slim Fit Blue Jeans', category: 'Pants', sub: 'Jeans', price: 39.99, originalPrice: 54.99, stock: 87, rating: 4.8, reviews: 189, emoji: '👖', badge: 'New', description: 'Premium slim-fit jeans crafted from stretch denim for all-day comfort. Features a modern tapered leg, classic five-pocket styling, and a mid-rise waist. Available in authentic blue wash.' },
+  3: { id: 3, name: 'White Running Sneakers', category: 'Shoes', sub: 'Sneakers', price: 59.99, originalPrice: null, stock: 201, rating: 4.6, reviews: 312, emoji: '👟', badge: null, description: 'Lightweight performance sneakers designed for both running and casual wear. Features responsive cushioning, breathable mesh upper, and durable rubber outsole for superior traction.' },
+  4: { id: 4, name: 'Polo Shirt Navy', category: 'Shirts', sub: 'Polo Shirts', price: 24.99, originalPrice: 34.99, stock: 65, rating: 4.5, reviews: 145, emoji: '👔', badge: 'Sale', description: 'Classic polo shirt in rich navy blue. Made from breathable pique cotton with a two-button placket, ribbed collar, and side vents for a relaxed yet polished look.' },
+  5: { id: 5, name: 'Cargo Pants Olive', category: 'Pants', sub: 'Cargo Pants', price: 34.99, originalPrice: null, stock: 98, rating: 4.4, reviews: 98, emoji: '👖', badge: null, description: 'Versatile cargo pants in military olive green. Features multiple utility pockets, adjustable ankle cuffs, and a comfortable relaxed fit. Made from durable cotton twill.' },
+  6: { id: 6, name: 'Casual Canvas Shoes', category: 'Shoes', sub: 'Casual Shoes', price: 29.99, originalPrice: 44.99, stock: 45, rating: 4.7, reviews: 167, emoji: '👞', badge: 'Popular', description: 'Everyday canvas sneakers with a minimalist design. Features canvas upper, cushioned insole for comfort, and vulcanized rubber sole. Available in multiple colors.' },
+  7: { id: 7, name: 'Long Sleeve Flannel', category: 'Shirts', sub: 'Long Sleeve Shirts', price: 32.99, originalPrice: null, stock: 112, rating: 4.9, reviews: 89, emoji: '👕', badge: 'Top Rated', description: 'Cozy flannel shirt in classic plaid pattern. Made from soft brushed cotton with a relaxed fit, button-down collar, and dual chest pockets. Perfect for cooler weather.' },
+  8: { id: 8, name: 'Summer Shorts Khaki', category: 'Pants', sub: 'Shorts', price: 22.99, originalPrice: 29.99, stock: 0, rating: 4.3, reviews: 201, emoji: '🩳', badge: 'Sale', description: 'Lightweight chino shorts ideal for warm weather. Features a flat front, side pockets, and a comfortable 7-inch inseam. Made from breathable cotton blend fabric.' },
+  9: { id: 9, name: 'Black Graphic Tee', category: 'Shirts', sub: 'T-Shirts', price: 17.99, originalPrice: null, stock: 156, rating: 4.2, reviews: 78, emoji: '👕', badge: null, description: 'Bold graphic t-shirt featuring original artwork. Made from soft cotton jersey with a modern regular fit. Machine washable for easy care.' },
+  10: { id: 10, name: 'Leather Sandals Brown', category: 'Shoes', sub: 'Sandals', price: 35.99, originalPrice: 49.99, stock: 92, rating: 4.7, reviews: 156, emoji: '🩴', badge: 'New', description: 'Handcrafted genuine leather sandals with adjustable straps. Features a cushioned footbed and durable rubber sole for all-day comfort. Perfect for beach or casual outings.' },
+  11: { id: 11, name: 'Casual Linen Shirt', category: 'Shirts', sub: 'Casual Shirts', price: 28.99, originalPrice: null, stock: 78, rating: 4.5, reviews: 67, emoji: '👔', badge: null, description: 'Breathable linen shirt perfect for warm days. Features a relaxed fit, spread collar, and roll-up sleeve tabs. Made from 100% natural linen for ultimate comfort.' },
+  12: { id: 12, name: 'Sports Running Shoes', category: 'Shoes', sub: 'Sports Shoes', price: 64.99, originalPrice: 79.99, stock: 34, rating: 4.8, reviews: 245, emoji: '👟', badge: 'Best Seller', description: 'High-performance running shoes with advanced energy-return technology. Features a lightweight knit upper, supportive heel counter, and high-traction rubber outsole.' },
+  13: { id: 13, name: 'Regular Fit Chinos', category: 'Pants', sub: 'Casual Pants', price: 27.99, originalPrice: null, stock: 143, rating: 4.3, reviews: 112, emoji: '👖', badge: null, description: 'Classic chino pants with a regular fit and straight leg. Made from soft cotton twill with a clean finish. Versatile enough for work or weekend wear.' },
+  14: { id: 14, name: 'Striped V-Neck Tee', category: 'Shirts', sub: 'T-Shirts', price: 15.99, originalPrice: 22.99, stock: 189, rating: 4.1, reviews: 56, emoji: '👕', badge: 'Sale', description: 'Casual striped v-neck t-shirt made from soft cotton blend. Features a flattering v-neckline and relaxed fit. Great layering piece or standalone wear.' },
+  15: { id: 15, name: 'Denim Jacket Blue', category: 'Shirts', sub: 'Casual Shirts', price: 49.99, originalPrice: 69.99, stock: 42, rating: 4.6, reviews: 134, emoji: '🧥', badge: 'Popular', description: 'Classic denim jacket in vintage blue wash. Features button-front closure, chest pockets, and adjustable button cuffs. A wardrobe essential that never goes out of style.' },
+  16: { id: 16, name: 'Athletic Shorts Black', category: 'Pants', sub: 'Shorts', price: 18.99, originalPrice: null, stock: 167, rating: 4.4, reviews: 89, emoji: '🩳', badge: null, description: 'Performance athletic shorts with moisture-wicking fabric. Features an elastic waistband with drawcord, side pockets, and a 5-inch inseam for freedom of movement.' },
+  17: { id: 17, name: 'Formal Oxford Shoes', category: 'Shoes', sub: 'Casual Shoes', price: 74.99, originalPrice: 99.99, stock: 28, rating: 4.9, reviews: 78, emoji: '👞', badge: 'Top Rated', description: 'Elegant Oxford dress shoes crafted from polished leather. Features a Goodyear welted construction, leather lining, and rubber sole for lasting comfort and sophistication.' },
+  18: { id: 18, name: 'Plaid Button Down', category: 'Shirts', sub: 'Long Sleeve Shirts', price: 36.99, originalPrice: null, stock: 95, rating: 4.5, reviews: 102, emoji: '👔', badge: null, description: 'Stylish plaid button-down shirt in warm autumn tones. Made from soft flannel cotton with a regular fit, button-down collar, and back box pleat for easy movement.' },
 };
 
 const relatedProducts = [
-  { id: 5, name: 'Wireless Mouse Ergonomic', price: 39.99, emoji: '🖱️', rating: 4.4 },
-  { id: 3, name: 'USB-C Hub Adapter', price: 34.99, emoji: '🔌', rating: 4.3 },
-  { id: 9, name: 'Desk Lamp LED', price: 29.99, emoji: '💡', rating: 4.2 },
+  { id: 5, name: 'Cargo Pants Olive', price: 34.99, emoji: '👖', rating: 4.4 },
+  { id: 3, name: 'White Running Sneakers', price: 59.99, emoji: '👟', rating: 4.6 },
+  { id: 9, name: 'Black Graphic Tee', price: 17.99, emoji: '👕', rating: 4.2 },
 ];
+
+const sizeOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -32,6 +44,7 @@ export default function ProductDetails() {
   const { addToCart } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
   const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState('M');
   const [activeTab, setActiveTab] = useState('description');
 
   const product = productsData[id] || productsData[1];
@@ -78,7 +91,7 @@ export default function ProductDetails() {
             background: colors.bgAccent, color: colors.accent,
             fontSize: '12px', fontWeight: '600', marginBottom: '12px',
           }}>
-            {product.category}
+            {product.sub}
           </span>
           <h1 style={{ margin: '0 0 12px', fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: '700', color: colors.text, lineHeight: '1.2' }}>
             {product.name}
@@ -109,6 +122,28 @@ export default function ProductDetails() {
           <p style={{ margin: '0 0 24px', fontSize: '15px', color: colors.textSecondary, lineHeight: '1.7' }}>
             {product.description}
           </p>
+
+          <div style={{ marginBottom: '20px' }}>
+            <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text, marginBottom: '10px', display: 'block' }}>Size:</span>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              {sizeOptions.map((size) => (
+                <button
+                  key={size}
+                  onClick={() => setSelectedSize(size)}
+                  style={{
+                    width: '44px', height: '44px', borderRadius: '10px',
+                    border: `2px solid ${selectedSize === size ? colors.accent : colors.border}`,
+                    background: selectedSize === size ? colors.bgAccent : colors.bgCard,
+                    color: selectedSize === size ? colors.accent : colors.text,
+                    fontSize: '13px', fontWeight: '600', cursor: 'pointer',
+                    transition: 'all 0.15s',
+                  }}
+                >
+                  {size}
+                </button>
+              ))}
+            </div>
+          </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
             <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text }}>Quantity:</span>
@@ -214,9 +249,11 @@ export default function ProductDetails() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px' }}>
               {[
                 { label: 'Category', value: product.category },
+                { label: 'Subcategory', value: product.sub },
                 { label: 'Stock', value: `${product.stock} units` },
                 { label: 'Rating', value: `${product.rating}/5` },
                 { label: 'Reviews', value: product.reviews },
+                { label: 'Sizes Available', value: 'XS - XXL' },
               ].map((spec) => (
                 <div key={spec.label} style={{ padding: '12px', borderRadius: '8px', background: colors.bgHover }}>
                   <p style={{ margin: 0, fontSize: '12px', color: colors.textSubtle }}>{spec.label}</p>

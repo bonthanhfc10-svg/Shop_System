@@ -9,9 +9,9 @@ import {
 } from 'lucide-react';
 
 const demoItems = [
-  { id: 1, name: 'Wireless Bluetooth Headphones', price: 79.99, quantity: 2, emoji: '🎧' },
-  { id: 2, name: 'Smart Watch Pro', price: 199.99, quantity: 1, emoji: '⌚' },
-  { id: 3, name: 'USB-C Hub Adapter', price: 34.99, quantity: 3, emoji: '🔌' },
+  { id: 1, name: 'Classic White T-Shirt', price: 19.99, quantity: 2, emoji: '👕' },
+  { id: 2, name: 'Slim Fit Blue Jeans', price: 39.99, quantity: 1, emoji: '👖' },
+  { id: 3, name: 'White Running Sneakers', price: 59.99, quantity: 1, emoji: '👟' },
 ];
 
 const paymentMethods = [

@@ -1,3 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: var(--bg);
+  --color-bg-card: var(--bgCard);
+  --color-bg-hover: var(--bgHover);
+  --color-bg-sidebar: var(--bgSidebar);
+  --color-bg-navbar: var(--bgNavbar);
+  --color-bg-input: var(--bgInput);
+  --color-bg-modal: var(--bgModal);
+  --color-bg-overlay: var(--bgOverlay);
+  --color-bg-table-row: var(--bgTableRow);
+  --color-bg-badge: var(--bgBadge);
+  --color-bg-accent: var(--bgAccent);
+  --color-bg-accent-hover: var(--bgAccentHover);
+  --color-bg-danger: var(--bgDanger);
+  --color-bg-success: var(--bgSuccess);
+  --color-bg-warning: var(--bgWarning);
+  --color-bg-pink: var(--bgPink);
+  --color-bg-nav-active: var(--bgNavActive);
+  --color-text: var(--text);
+  --color-text-secondary: var(--textSecondary);
+  --color-text-muted: var(--textMuted);
+  --color-text-subtle: var(--textSubtle);
+  --color-text-on-accent: var(--textOnAccent);
+  --color-border: var(--border);
+  --color-border-light: var(--borderLight);
+  --color-border-input: var(--borderInput);
+  --color-border-danger: var(--borderDanger);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accentLight);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

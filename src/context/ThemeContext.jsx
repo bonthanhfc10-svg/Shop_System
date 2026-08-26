@@ -100,8 +100,13 @@ export function ThemeProvider({ children }) {
   });
 
   useEffect(() => {
-    localStorage.setItem('khshop-theme', theme);
+    localStorage.setItem('vibe-theme', theme);
     document.documentElement.setAttribute('data-theme', theme);
+    const root = document.documentElement;
+    const vars = theme === 'dark' ? darkTheme : lightTheme;
+    Object.entries(vars).forEach(([key, value]) => {
+      root.style.setProperty(`--${key}`, value);
+    });
   }, [theme]);
 
   const toggleTheme = () => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));

@@ -5,21 +5,27 @@ import { formatCurrency } from '../../utils/formatCurrency';
 import { Search, Grid, List, Star } from 'lucide-react';
 
 const allProducts = [
-  { id: 1, name: 'Wireless Bluetooth Headphones', category: 'Electronics', price: 79.99, originalPrice: 99.99, stock: 124, rating: 4.5, reviews: 128, emoji: '🎧', badge: 'Best Seller' },
-  { id: 2, name: 'Smart Watch Pro', category: 'Electronics', price: 199.99, originalPrice: 249.99, stock: 56, rating: 4.8, reviews: 95, emoji: '⌚', badge: 'New' },
-  { id: 3, name: 'USB-C Hub Adapter', category: 'Accessories', price: 34.99, originalPrice: null, stock: 230, rating: 4.3, reviews: 67, emoji: '🔌', badge: null },
-  { id: 4, name: 'Laptop Stand Adjustable', category: 'Furniture', price: 45.99, originalPrice: 59.99, stock: 89, rating: 4.6, reviews: 43, emoji: '🖥️', badge: 'Sale' },
-  { id: 5, name: 'Wireless Mouse Ergonomic', category: 'Electronics', price: 39.99, originalPrice: null, stock: 145, rating: 4.4, reviews: 89, emoji: '🖱️', badge: null },
-  { id: 6, name: '4K Webcam HD', category: 'Electronics', price: 69.99, originalPrice: 89.99, stock: 34, rating: 4.7, reviews: 56, emoji: '📷', badge: 'Popular' },
-  { id: 7, name: 'Portable SSD 1TB', category: 'Accessories', price: 99.99, originalPrice: null, stock: 67, rating: 4.9, reviews: 201, emoji: '💾', badge: 'Top Rated' },
-  { id: 8, name: 'Mechanical Keyboard RGB', category: 'Electronics', price: 89.99, originalPrice: 119.99, stock: 0, rating: 4.5, reviews: 134, emoji: '⌨️', badge: 'Sale' },
-  { id: 9, name: 'Desk Lamp LED', category: 'Furniture', price: 29.99, originalPrice: null, stock: 78, rating: 4.2, reviews: 45, emoji: '💡', badge: null },
-  { id: 10, name: 'Noise Cancelling Earbuds', category: 'Electronics', price: 129.99, originalPrice: 159.99, stock: 92, rating: 4.7, reviews: 178, emoji: '🎵', badge: 'New' },
-  { id: 11, name: 'Webcam Tripod Stand', category: 'Accessories', price: 19.99, originalPrice: null, stock: 156, rating: 4.1, reviews: 34, emoji: '📷', badge: null },
-  { id: 12, name: 'Monitor Light Bar', category: 'Electronics', price: 49.99, originalPrice: 69.99, stock: 43, rating: 4.6, reviews: 89, emoji: '💡', badge: 'Sale' },
+  { id: 1, name: 'Classic White T-Shirt', category: 'Shirts', sub: 'T-Shirts', price: 19.99, originalPrice: 29.99, stock: 124, rating: 4.7, reviews: 234, emoji: '👕', badge: 'Best Seller' },
+  { id: 2, name: 'Slim Fit Blue Jeans', category: 'Pants', sub: 'Jeans', price: 39.99, originalPrice: 54.99, stock: 87, rating: 4.8, reviews: 189, emoji: '👖', badge: 'New' },
+  { id: 3, name: 'White Running Sneakers', category: 'Shoes', sub: 'Sneakers', price: 59.99, originalPrice: null, stock: 201, rating: 4.6, reviews: 312, emoji: '👟', badge: null },
+  { id: 4, name: 'Polo Shirt Navy', category: 'Shirts', sub: 'Polo Shirts', price: 24.99, originalPrice: 34.99, stock: 65, rating: 4.5, reviews: 145, emoji: '👔', badge: 'Sale' },
+  { id: 5, name: 'Cargo Pants Olive', category: 'Pants', sub: 'Cargo Pants', price: 34.99, originalPrice: null, stock: 98, rating: 4.4, reviews: 98, emoji: '👖', badge: null },
+  { id: 6, name: 'Casual Canvas Shoes', category: 'Shoes', sub: 'Casual Shoes', price: 29.99, originalPrice: 44.99, stock: 45, rating: 4.7, reviews: 167, emoji: '👞', badge: 'Popular' },
+  { id: 7, name: 'Long Sleeve Flannel', category: 'Shirts', sub: 'Long Sleeve Shirts', price: 32.99, originalPrice: null, stock: 112, rating: 4.9, reviews: 89, emoji: '👕', badge: 'Top Rated' },
+  { id: 8, name: 'Summer Shorts Khaki', category: 'Pants', sub: 'Shorts', price: 22.99, originalPrice: 29.99, stock: 0, rating: 4.3, reviews: 201, emoji: '🩳', badge: 'Sale' },
+  { id: 9, name: 'Black Graphic Tee', category: 'Shirts', sub: 'T-Shirts', price: 17.99, originalPrice: null, stock: 156, rating: 4.2, reviews: 78, emoji: '👕', badge: null },
+  { id: 10, name: 'Leather Sandals Brown', category: 'Shoes', sub: 'Sandals', price: 35.99, originalPrice: 49.99, stock: 92, rating: 4.7, reviews: 156, emoji: '🩴', badge: 'New' },
+  { id: 11, name: 'Casual Linen Shirt', category: 'Shirts', sub: 'Casual Shirts', price: 28.99, originalPrice: null, stock: 78, rating: 4.5, reviews: 67, emoji: '👔', badge: null },
+  { id: 12, name: 'Sports Running Shoes', category: 'Shoes', sub: 'Sports Shoes', price: 64.99, originalPrice: 79.99, stock: 34, rating: 4.8, reviews: 245, emoji: '👟', badge: 'Best Seller' },
+  { id: 13, name: 'Regular Fit Chinos', category: 'Pants', sub: 'Casual Pants', price: 27.99, originalPrice: null, stock: 143, rating: 4.3, reviews: 112, emoji: '👖', badge: null },
+  { id: 14, name: 'Striped V-Neck Tee', category: 'Shirts', sub: 'T-Shirts', price: 15.99, originalPrice: 22.99, stock: 189, rating: 4.1, reviews: 56, emoji: '👕', badge: 'Sale' },
+  { id: 15, name: 'Denim Jacket Blue', category: 'Shirts', sub: 'Casual Shirts', price: 49.99, originalPrice: 69.99, stock: 42, rating: 4.6, reviews: 134, emoji: '🧥', badge: 'Popular' },
+  { id: 16, name: 'Athletic Shorts Black', category: 'Pants', sub: 'Shorts', price: 18.99, originalPrice: null, stock: 167, rating: 4.4, reviews: 89, emoji: '🩳', badge: null },
+  { id: 17, name: 'Formal Oxford Shoes', category: 'Shoes', sub: 'Casual Shoes', price: 74.99, originalPrice: 99.99, stock: 28, rating: 4.9, reviews: 78, emoji: '👞', badge: 'Top Rated' },
+  { id: 18, name: 'Plaid Button Down', category: 'Shirts', sub: 'Long Sleeve Shirts', price: 36.99, originalPrice: null, stock: 95, rating: 4.5, reviews: 102, emoji: '👔', badge: null },
 ];
 
-const categories = ['All', 'Electronics', 'Accessories', 'Furniture'];
+const categories = ['All', 'Shirts', 'Pants', 'Shoes'];
 const sortOptions = ['Featured', 'Price: Low to High', 'Price: High to Low', 'Rating', 'Newest'];
 
 export default function Shop() {
@@ -34,8 +40,9 @@ export default function Shop() {
   const [viewMode, setViewMode] = useState('grid');
   const filteredProducts = useMemo(() => {
     let result = allProducts.filter((p) => {
-      const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase());
-      const matchesCategory = category === 'All' || p.category === category;
+      const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase()) ||
+        p.sub.toLowerCase().includes(search.toLowerCase());
+      const matchesCategory = category === 'All' || p.category === category || p.sub === category;
       return matchesSearch && matchesCategory;
     });
 
@@ -193,7 +200,7 @@ export default function Shop() {
                     )}
                   </div>
                   <div style={{ padding: '16px', flex: 1 }}>
-                    <p style={{ margin: 0, fontSize: '12px', color: colors.textSubtle }}>{product.category}</p>
+                    <p style={{ margin: 0, fontSize: '12px', color: colors.textSubtle }}>{product.sub}</p>
                     <h3 style={{ margin: '4px 0 8px', fontSize: '15px', fontWeight: '600', color: colors.text }}>{product.name}</h3>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '8px' }}>
                       {[...Array(5)].map((_, i) => (

@@ -28,7 +28,7 @@ export default function Support() {
         {[
           { icon: MessageSquare, label: 'Live Chat', desc: 'Chat with us', gradient: '#000000' },
           { icon: Phone, label: 'Call Us', desc: '+855 12 345 6789', gradient: '#262626' },
-          { icon: Mail, label: 'Email', desc: 'support@khshop.com', gradient: '#404040' },
+          { icon: Mail, label: 'Email', desc: 'support@vibeshop.com', gradient: '#404040' },
         ].map((item) => {
           const Icon = item.icon;
           return (

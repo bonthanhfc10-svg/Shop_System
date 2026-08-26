@@ -18,44 +18,79 @@ export const STATUS_OPTIONS = [
 
 export const initialCategories = [
   {
-    id: 1, name: 'Fashion', slug: 'fashion', emoji: '👗', bg: '#f4f4f4', color: '#525252',
-    description: 'Clothing, dresses and seasonal outfits',
-    parentId: null, products: 120, status: 'active', createdAt: '2025-11-04',
+    id: 1, name: 'Shirts', slug: 'shirts', emoji: '👕', bg: '#f4f4f4', color: '#525252',
+    description: 'T-Shirts, Polo Shirts, Casual Shirts and Long Sleeve Shirts',
+    parentId: null, products: 8, status: 'active', createdAt: '2025-11-04',
   },
   {
-    id: 2, name: 'Shoes', slug: 'shoes', emoji: '👟', bg: '#f2f2f2', color: '#404040',
-    description: 'Sneakers, boots, heels and sandals',
-    parentId: null, products: 85, status: 'active', createdAt: '2025-11-18',
+    id: 2, name: 'Pants', slug: 'pants', emoji: '👖', bg: '#f2f2f2', color: '#404040',
+    description: 'Jeans, Cargo Pants, Casual Pants and Shorts',
+    parentId: null, products: 6, status: 'active', createdAt: '2025-11-18',
   },
   {
-    id: 3, name: 'Bags & Accessories', slug: 'bags-accessories', emoji: '👜', bg: '#f5f5f5', color: '#404040',
-    description: 'Handbags, wallets and everyday carry',
-    parentId: null, products: 64, status: 'active', createdAt: '2025-12-02',
+    id: 3, name: 'Shoes', slug: 'shoes', emoji: '👟', bg: '#f5f5f5', color: '#404040',
+    description: 'Sneakers, Casual Shoes, Sandals and Sports Shoes',
+    parentId: null, products: 4, status: 'active', createdAt: '2025-12-02',
   },
   {
-    id: 4, name: 'Beauty', slug: 'beauty', emoji: '💄', bg: '#f4f4f4', color: '#737373',
-    description: 'Skincare, makeup and personal care',
-    parentId: null, products: 45, status: 'active', createdAt: '2025-12-20',
+    id: 4, name: 'T-Shirts', slug: 't-shirts', emoji: '👕', bg: '#f4f4f4', color: '#737373',
+    description: 'Classic and graphic t-shirts for everyday wear',
+    parentId: 1, products: 4, status: 'active', createdAt: '2025-12-20',
   },
   {
-    id: 5, name: 'Electronics', slug: 'electronics', emoji: '🎧', bg: '#eeeeee', color: '#0a0a0a',
-    description: 'Audio, gadgets and smart devices',
-    parentId: null, products: 78, status: 'active', createdAt: '2026-01-09',
+    id: 5, name: 'Polo Shirts', slug: 'polo-shirts', emoji: '👔', bg: '#eeeeee', color: '#0a0a0a',
+    description: 'Smart casual polo shirts',
+    parentId: 1, products: 1, status: 'active', createdAt: '2026-01-09',
   },
   {
-    id: 6, name: 'Home & Living', slug: 'home-living', emoji: '🛋️', bg: '#e8e8e8', color: '#171717',
-    description: 'Furniture, decor and kitchen essentials',
-    parentId: null, products: 52, status: 'active', createdAt: '2026-01-27',
+    id: 6, name: 'Casual Shirts', slug: 'casual-shirts', emoji: '👔', bg: '#e8e8e8', color: '#171717',
+    description: 'Relaxed casual shirts for everyday style',
+    parentId: 1, products: 2, status: 'active', createdAt: '2026-01-27',
   },
   {
-    id: 7, name: 'Gaming', slug: 'gaming', emoji: '🎮', bg: '#f0f0f0', color: '#737373',
-    description: 'Consoles, accessories and peripherals',
-    parentId: null, products: 32, status: 'active', createdAt: '2026-02-14',
+    id: 7, name: 'Long Sleeve Shirts', slug: 'long-sleeve-shirts', emoji: '👕', bg: '#f0f0f0', color: '#737373',
+    description: 'Long sleeve shirts for cooler weather',
+    parentId: 1, products: 2, status: 'active', createdAt: '2026-02-14',
   },
   {
-    id: 8, name: 'Sale', slug: 'sale', emoji: '🔥', bg: '#f0f0f0', color: '#0a0a0a',
-    description: 'Discounted items and clearance deals',
-    parentId: null, products: 18, status: 'hidden', createdAt: '2026-03-03',
+    id: 8, name: 'Jeans', slug: 'jeans', emoji: '👖', bg: '#f0f0f0', color: '#0a0a0a',
+    description: 'Classic and slim fit denim jeans',
+    parentId: 2, products: 1, status: 'active', createdAt: '2026-03-03',
+  },
+  {
+    id: 9, name: 'Cargo Pants', slug: 'cargo-pants', emoji: '👖', bg: '#f4f4f4', color: '#525252',
+    description: 'Utility cargo pants with multiple pockets',
+    parentId: 2, products: 1, status: 'active', createdAt: '2026-03-10',
+  },
+  {
+    id: 10, name: 'Casual Pants', slug: 'casual-pants', emoji: '👖', bg: '#f2f2f2', color: '#404040',
+    description: 'Chinos and casual trousers',
+    parentId: 2, products: 1, status: 'active', createdAt: '2026-03-17',
+  },
+  {
+    id: 11, name: 'Shorts', slug: 'shorts', emoji: '🩳', bg: '#f5f5f5', color: '#404040',
+    description: 'Summer and athletic shorts',
+    parentId: 2, products: 2, status: 'active', createdAt: '2026-03-24',
+  },
+  {
+    id: 12, name: 'Sneakers', slug: 'sneakers', emoji: '👟', bg: '#f4f4f4', color: '#737373',
+    description: 'Running and lifestyle sneakers',
+    parentId: 3, products: 2, status: 'active', createdAt: '2026-04-01',
+  },
+  {
+    id: 13, name: 'Casual Shoes', slug: 'casual-shoes', emoji: '👞', bg: '#eeeeee', color: '#0a0a0a',
+    description: 'Canvas and oxford casual shoes',
+    parentId: 3, products: 2, status: 'active', createdAt: '2026-04-08',
+  },
+  {
+    id: 14, name: 'Sandals', slug: 'sandals', emoji: '🩴', bg: '#e8e8e8', color: '#171717',
+    description: 'Leather and sport sandals',
+    parentId: 3, products: 1, status: 'active', createdAt: '2026-04-15',
+  },
+  {
+    id: 15, name: 'Sports Shoes', slug: 'sports-shoes', emoji: '👟', bg: '#f0f0f0', color: '#737373',
+    description: 'Performance sports and running shoes',
+    parentId: 3, products: 1, status: 'active', createdAt: '2026-04-22',
   },
 ];
 

@@ -5,122 +5,134 @@ import { formatDate } from '../../utils/formatDate';
 import { useTheme } from '../../hooks/useTheme';
 import { useAuth } from '../../hooks/useAuth';
 import {
-  DollarSign, ShoppingCart, Package, Users, TrendingUp, TrendingDown,
+  DollarSign, ShoppingCart, Package, Users, TrendingUp,
   Eye, Plus, BarChart3, ArrowUpRight, ArrowDownRight,
-  Crown, Medal, Trophy, Activity,
-  Clock, CheckCircle2, Truck, XCircle, RefreshCw,
-  AlertCircle, ChevronRight, Zap, Target, Layers,
-  Tag, Smartphone, Headphones, Shirt, Armchair, Laptop, Gamepad2,
-  Calendar, Filter, Download, MoreHorizontal, Sparkles,
+  Crown, Medal, Trophy,
+  Clock, CheckCircle2, Truck, XCircle,
+  AlertCircle, ChevronRight,
+  Calendar, Sparkles,
 } from 'lucide-react';
+
+const warm = {
+  gradient: 'linear-gradient(135deg, #f97316 0%, #ec4899 100%)',
+  gradientSub: 'linear-gradient(135deg, #fb923c 0%, #f472b6 100%)',
+  gradientCard: 'linear-gradient(135deg, #fff7ed 0%, #fdf2f8 100%)',
+  orange: '#f97316',
+  coral: '#f87171',
+  pink: '#ec4899',
+  amber: '#f59e0b',
+  rose: '#f43f5e',
+  orangeLight: '#ffedd5',
+  pinkLight: '#fce7f3',
+  amberLight: '#fef3c7',
+  roseLight: '#ffe4e6',
+  warm50: '#fff7ed',
+  warm100: '#ffedd5',
+  warm200: '#fed7aa',
+  warm300: '#fdba74',
+  warm400: '#fb923c',
+  warm500: '#f97316',
+  warm600: '#ea580c',
+  warm700: '#c2410c',
+  rose500: '#f43f5e',
+  rose600: '#e11d48',
+  pink500: '#ec4899',
+  amber500: '#f59e0b',
+};
 
 const statsCards = [
   {
     label: 'Total Revenue',
-    value: '$45,231.89',
-    change: '+20.1%',
+    value: '$38,459',
+    change: '+18.2%',
     changeType: 'positive',
     icon: DollarSign,
-    gradient: '#000000',
-    shadowColor: 'rgba(0,0,0,0.12)',
-    sparkline: [30, 45, 35, 55, 48, 62, 58, 72],
+    gradient: warm.gradient,
+    sparkline: [28, 42, 35, 52, 46, 60, 55, 70],
   },
   {
     label: 'Total Orders',
-    value: '1,234',
-    change: '+12.5%',
+    value: '1,087',
+    change: '+14.7%',
     changeType: 'positive',
     icon: ShoppingCart,
-    gradient: '#262626',
-    shadowColor: 'rgba(0,0,0,0.3)',
-    sparkline: [20, 35, 28, 42, 38, 50, 45, 58],
+    gradient: 'linear-gradient(135deg, #f472b6 0%, #ec4899 100%)',
+    sparkline: [18, 32, 26, 40, 36, 48, 43, 56],
   },
   {
-    label: 'Total Products',
-    value: '567',
-    change: '+8.2%',
+    label: 'Products',
+    value: '156',
+    change: '+6.3%',
     changeType: 'positive',
     icon: Package,
-    gradient: '#404040',
-    shadowColor: 'rgba(0,0,0,0.3)',
-    sparkline: [40, 38, 42, 45, 50, 48, 55, 52],
+    gradient: 'linear-gradient(135deg, #fb923c 0%, #f97316 100%)',
+    sparkline: [36, 34, 38, 42, 47, 45, 50, 48],
   },
   {
-    label: 'Total Customers',
-    value: '2,890',
-    change: '-2.1%',
+    label: 'Customers',
+    value: '2,341',
+    change: '-1.8%',
     changeType: 'negative',
     icon: Users,
-    gradient: '#404040',
-    shadowColor: 'rgba(0,0,0,0.3)',
-    sparkline: [50, 52, 48, 45, 47, 42, 44, 40],
+    gradient: 'linear-gradient(135deg, #f43f5e 0%, #e11d48 100%)',
+    sparkline: [48, 50, 46, 43, 45, 40, 42, 38],
   },
 ];
 
 const recentOrders = [
-  { id: 'ORD-7891', customer: 'John Doe', date: '2026-08-16', total: 129.99, status: 'delivered' },
-  { id: 'ORD-7890', customer: 'Jane Smith', date: '2026-08-16', total: 89.50, status: 'processing' },
-  { id: 'ORD-7889', customer: 'Bob Wilson', date: '2026-08-15', total: 245.00, status: 'shipped' },
-  { id: 'ORD-7888', customer: 'Alice Brown', date: '2026-08-15', total: 67.25, status: 'pending' },
-  { id: 'ORD-7887', customer: 'Charlie Davis', date: '2026-08-14', total: 198.00, status: 'delivered' },
-  { id: 'ORD-7886', customer: 'Diana Evans', date: '2026-08-14', total: 312.75, status: 'cancelled' },
+  { id: 'ORD-4521', customer: 'Sok Vannak', date: '2026-08-24', total: 87.97, status: 'delivered', items: 'Classic White T-Shirt × 2, Slim Fit Blue Jeans × 1' },
+  { id: 'ORD-4520', customer: 'Dara Chantrea', date: '2026-08-24', total: 124.98, status: 'processing', items: 'White Running Sneakers × 1, Polo Shirt Navy × 2' },
+  { id: 'ORD-4519', customer: 'Bopha Kem', date: '2026-08-23', total: 62.98, status: 'shipped', items: 'Cargo Pants Olive × 1, Casual Canvas Shoes × 1' },
+  { id: 'ORD-4518', customer: 'Chantrea Min', date: '2026-08-23', total: 156.97, status: 'pending', items: 'Long Sleeve Flannel × 2, Summer Shorts Khaki × 1' },
+  { id: 'ORD-4517', customer: 'Makara Touch', date: '2026-08-22', total: 99.98, status: 'delivered', items: 'Sports Running Shoes × 1, Black Graphic Tee × 2' },
+  { id: 'ORD-4516', customer: 'Kosal Phan', date: '2026-08-22', total: 44.98, status: 'cancelled', items: 'Striped V-Neck Tee × 2, Athletic Shorts Black × 1' },
 ];
 
 const salesData = [
-  { month: 'Jan', revenue: 4000, orders: 120 },
-  { month: 'Feb', revenue: 3000, orders: 95 },
-  { month: 'Mar', revenue: 5000, orders: 155 },
-  { month: 'Apr', revenue: 4500, orders: 140 },
-  { month: 'May', revenue: 6000, orders: 185 },
-  { month: 'Jun', revenue: 5500, orders: 170 },
-  { month: 'Jul', revenue: 7000, orders: 215 },
-  { month: 'Aug', revenue: 8000, orders: 248 },
+  { month: 'Jan', revenue: 3200, orders: 95 },
+  { month: 'Feb', revenue: 2800, orders: 82 },
+  { month: 'Mar', revenue: 4100, orders: 124 },
+  { month: 'Apr', revenue: 3900, orders: 118 },
+  { month: 'May', revenue: 5200, orders: 158 },
+  { month: 'Jun', revenue: 4800, orders: 145 },
+  { month: 'Jul', revenue: 6100, orders: 189 },
+  { month: 'Aug', revenue: 7359, orders: 226 },
 ];
 
-const orderStatusCounts = {
-  pending: 12,
-  processing: 28,
-  shipped: 45,
-  delivered: 189,
-  cancelled: 8,
-};
 
 const statusConfig = {
-  pending: { bg: '#f5f5f5', text: '#525252', icon: AlertCircle, color: '#0a0a0a' },
-  processing: { bg: '#eeeeee', text: '#262626', icon: Clock, color: '#0a0a0a' },
-  shipped: { bg: '#e8e8e8', text: '#0a0a0a', icon: Truck, color: '#171717' },
-  delivered: { bg: '#e8e8e8', text: '#0a0a0a', icon: CheckCircle2, color: '#171717' },
-  cancelled: { bg: '#f0f0f0', text: '#737373', icon: XCircle, color: '#0a0a0a' },
+  pending: { bg: '#fef3c7', text: '#92400e', icon: AlertCircle },
+  processing: { bg: '#ffedd5', text: '#9a3412', icon: Clock },
+  shipped: { bg: '#fce7f3', text: '#9d174d', icon: Truck },
+  delivered: { bg: '#dcfce7', text: '#166534', icon: CheckCircle2 },
+  cancelled: { bg: '#ffe4e6', text: '#9f1239', icon: XCircle },
 };
 
 const topCategories = [
-  { name: 'Electronics', sold: 1248, revenue: 28450, icon: Smartphone, color: '#0a0a0a', bg: '#eeeeee' },
-  { name: 'Fashion', sold: 986, revenue: 19320, icon: Shirt, color: '#525252', bg: '#f4f4f4' },
-  { name: 'Headphones', sold: 754, revenue: 14680, icon: Headphones, color: '#0a0a0a', bg: '#f5f5f5' },
-  { name: 'Furniture', sold: 532, revenue: 11240, icon: Armchair, color: '#171717', bg: '#e8e8e8' },
-  { name: 'Computers', sold: 421, revenue: 9870, icon: Laptop, color: '#404040', bg: '#f2f2f2' },
-  { name: 'Gaming', sold: 318, revenue: 7650, icon: Gamepad2, color: '#737373', bg: '#f0f0f0' },
+  { name: 'Shirts', sold: 842, revenue: 18640, color: '#f97316', bg: '#ffedd5', emoji: '👕' },
+  { name: 'Pants', sold: 634, revenue: 14280, color: '#ec4899', bg: '#fce7f3', emoji: '👖' },
+  { name: 'Shoes', sold: 521, revenue: 12950, color: '#f43f5e', bg: '#ffe4e6', emoji: '👟' },
 ];
 
 const topProducts = [
-  { name: 'Wireless Bluetooth Headphones', sold: 234, revenue: 8190, img: '🎧' },
-  { name: 'Smart Watch Pro', sold: 189, revenue: 13230, img: '⌚' },
-  { name: 'USB-C Hub Adapter', sold: 156, revenue: 4680, img: '🔌' },
-  { name: 'Laptop Stand Adjustable', sold: 134, revenue: 5360, img: '💻' },
-  { name: 'Mechanical Keyboard RGB', sold: 112, revenue: 7840, img: '⌨️' },
-  { name: 'Wireless Mouse Ergonomic', sold: 98, revenue: 3430, img: '🖱️' },
-  { name: '4K Webcam HD', sold: 87, revenue: 6090, img: '📷' },
-  { name: 'Portable SSD 1TB', sold: 76, revenue: 7600, img: '💾' },
+  { name: 'Classic White T-Shirt', sold: 234, revenue: 4677, emoji: '👕', sub: 'T-Shirts' },
+  { name: 'Slim Fit Blue Jeans', sold: 189, revenue: 7559, emoji: '👖', sub: 'Jeans' },
+  { name: 'White Running Sneakers', sold: 156, revenue: 9359, emoji: '👟', sub: 'Sneakers' },
+  { name: 'Polo Shirt Navy', sold: 134, revenue: 3349, emoji: '👔', sub: 'Polo Shirts' },
+  { name: 'Long Sleeve Flannel', sold: 112, revenue: 3695, emoji: '👕', sub: 'Long Sleeve' },
+  { name: 'Sports Running Shoes', sold: 98, revenue: 6369, emoji: '👟', sub: 'Sports Shoes' },
+  { name: 'Casual Canvas Shoes', sold: 87, revenue: 2609, emoji: '👞', sub: 'Casual Shoes' },
+  { name: 'Cargo Pants Olive', sold: 76, revenue: 2659, emoji: '👖', sub: 'Cargo Pants' },
 ];
 
 const quickActions = [
-  { label: 'Add Product', icon: Plus, path: '/admin/products/create', gradient: '#000000' },
-  { label: 'View Orders', icon: ShoppingCart, path: '/admin/orders', gradient: '#262626' },
-  { label: 'Manage Users', icon: Users, path: '/admin/users', gradient: '#404040' },
-  { label: 'Analytics', icon: BarChart3, path: '/admin/payments', gradient: '#404040' },
+  { label: 'Add Product', icon: Plus, path: '/admin/products/create', gradient: 'linear-gradient(135deg, #f97316, #ec4899)' },
+  { label: 'View Orders', icon: ShoppingCart, path: '/admin/orders', gradient: 'linear-gradient(135deg, #ec4899, #f43f5e)' },
+  { label: 'Manage Users', icon: Users, path: '/admin/users', gradient: 'linear-gradient(135deg, #fb923c, #f59e0b)' },
+  { label: 'Analytics', icon: BarChart3, path: '/admin/payments', gradient: 'linear-gradient(135deg, #f43f5e, #e11d48)' },
 ];
 
-function Sparkline({ data, color, width = 80, height = 32 }) {
+function Sparkline({ data, color, width = 72, height = 28 }) {
   const max = Math.max(...data);
   const min = Math.min(...data);
   const range = max - min || 1;
@@ -141,12 +153,12 @@ function Sparkline({ data, color, width = 80, height = 32 }) {
         </linearGradient>
       </defs>
       <polygon points={areaPoints} fill={`url(#${gradId})`} />
-      <polyline points={points} fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <polyline points={points} fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-function AnimatedNumber({ value, prefix = '', suffix = '', duration = 1200, decimals = 0 }) {
+function AnimatedNumber({ value, prefix = '', suffix = '', duration = 1000, decimals = 0 }) {
   const [display, setDisplay] = useState(0);
   const ref = useRef(null);
 
@@ -173,75 +185,80 @@ function AnimatedNumber({ value, prefix = '', suffix = '', duration = 1200, deci
 }
 
 function WelcomeBanner() {
-  const { colors } = useTheme();
   const { user } = useAuth();
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
 
   return (
     <div style={{
-      background: '#0a0a0a',
-      borderRadius: '20px', padding: 'clamp(24px, 3vw, 36px)',
+      background: warm.gradient,
+      borderRadius: '20px', padding: 'clamp(24px, 3vw, 32px)',
       position: 'relative', overflow: 'hidden',
     }}>
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-            <Sparkles size={18} color="#fafafa" />
-            <span style={{ fontSize: '12px', fontWeight: '600', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Dashboard Overview</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+            <div style={{
+              width: '28px', height: '28px', borderRadius: '8px',
+              background: 'rgba(255,255,255,0.2)', display: 'flex',
+              alignItems: 'center', justifyContent: 'center',
+            }}>
+              <Sparkles size={14} color="#fff" />
+            </div>
+            <span style={{ fontSize: '11px', fontWeight: '600', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Dashboard</span>
           </div>
-          <h1 style={{ margin: 0, fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: '800', color: '#fff', letterSpacing: '-0.02em', lineHeight: '1.2' }}>
-            {greeting}, {user?.name || 'Admin'}
+          <h1 style={{ margin: 0, fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: '800', color: '#fff', letterSpacing: '-0.03em', lineHeight: '1.15' }}>
+            {greeting}, {user?.name?.split(' ')[0] || 'Admin'}
           </h1>
-          <p style={{ margin: '8px 0 0', fontSize: 'clamp(13px, 2vw, 15px)', color: 'rgba(255,255,255,0.7)', maxWidth: '480px', lineHeight: '1.5' }}>
-            Here's what's happening with your store today. Track sales, orders, and performance at a glance.
+          <p style={{ margin: '10px 0 0', fontSize: 'clamp(13px, 1.5vw, 14px)', color: 'rgba(255,255,255,0.8)', maxWidth: '440px', lineHeight: '1.6' }}>
+            Here's your store at a glance. Track sales, orders, and performance.
           </p>
-          <div style={{ display: 'flex', gap: '10px', marginTop: '20px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '8px', marginTop: '20px', flexWrap: 'wrap' }}>
             <Link to="/admin/orders" style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
-              padding: '10px 20px', borderRadius: '10px', background: 'rgba(255,255,255,0.15)',
-              color: '#fff', fontSize: '13px', fontWeight: '600', textDecoration: 'none',
-              backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.12)',
+              padding: '9px 18px', borderRadius: '10px', background: 'rgba(255,255,255,0.2)',
+              color: '#fff', fontSize: '12.5px', fontWeight: '600', textDecoration: 'none',
+              backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)',
               transition: 'all 0.2s',
             }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.25)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.32)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; }}
             >
-              <Eye size={15} /> View Orders
+              <Eye size={14} /> View Orders
             </Link>
             <Link to="/admin/products/create" style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
-              padding: '10px 20px', borderRadius: '10px', background: '#fff',
-              color: '#0a0a0a', fontSize: '13px', fontWeight: '600', textDecoration: 'none',
+              padding: '9px 18px', borderRadius: '10px', background: '#fff',
+              color: '#c2410c', fontSize: '12.5px', fontWeight: '600', textDecoration: 'none',
               transition: 'all 0.2s',
             }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.2)'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(249,115,22,0.3)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <Plus size={15} /> Add Product
+              <Plus size={14} /> Add Product
             </Link>
           </div>
         </div>
         <div style={{
-          display: 'flex', alignItems: 'center', gap: '8px',
-          padding: '8px 14px', borderRadius: '10px',
-          background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)',
+          display: 'flex', alignItems: 'center', gap: '6px',
+          padding: '7px 12px', borderRadius: '8px',
+          background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)',
           border: '1px solid rgba(255,255,255,0.1)',
         }}>
-          <Calendar size={14} color="rgba(255,255,255,0.7)" />
-          <span style={{ fontSize: '12.5px', fontWeight: '500', color: 'rgba(255,255,255,0.85)' }}>
-            {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' })}
+          <Calendar size={13} color="rgba(255,255,255,0.7)" />
+          <span style={{ fontSize: '12px', fontWeight: '500', color: 'rgba(255,255,255,0.9)' }}>
+            {new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })}
           </span>
         </div>
       </div>
-      <div style={{ position: 'absolute', top: '-60px', right: '-40px', width: '220px', height: '220px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
-      <div style={{ position: 'absolute', bottom: '-50px', right: '100px', width: '140px', height: '140px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)' }} />
-      <div style={{ position: 'absolute', top: '30px', right: '280px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)' }} />
+      <div style={{ position: 'absolute', top: '-50px', right: '-30px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }} />
+      <div style={{ position: 'absolute', bottom: '-40px', right: '120px', width: '120px', height: '120px', borderRadius: '50%', background: 'rgba(255,255,255,0.06)' }} />
+      <div style={{ position: 'absolute', top: '20px', right: '30%', width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
     </div>
   );
 }
 
-function StatCard({ stat, index }) {
+function StatCard({ stat }) {
   const { colors } = useTheme();
   const Icon = stat.icon;
 
@@ -250,61 +267,50 @@ function StatCard({ stat, index }) {
       className="dash-stat-card"
       style={{
         background: colors.bgCard,
-        borderRadius: '16px',
-        padding: '22px',
+        borderRadius: '14px',
+        padding: '14px 16px',
         border: `1px solid ${colors.border}`,
-        flex: '1 1 200px',
         position: 'relative',
         overflow: 'hidden',
         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         cursor: 'default',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'translateY(-4px)';
-        e.currentTarget.style.boxShadow = `0 20px 40px ${stat.shadowColor}`;
+        e.currentTarget.style.transform = 'translateY(-2px)';
+        e.currentTarget.style.boxShadow = colors.shadowLg;
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = 'translateY(0)';
         e.currentTarget.style.boxShadow = 'none';
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <div style={{
-          width: '48px', height: '48px', borderRadius: '14px',
+          width: '38px', height: '38px', borderRadius: '10px',
           background: stat.gradient, display: 'flex', alignItems: 'center',
-          justifyContent: 'center', boxShadow: `0 8px 20px ${stat.shadowColor}`,
+          justifyContent: 'center', flexShrink: 0,
+          boxShadow: `0 3px 10px ${stat.gradient.includes('#f97316') ? 'rgba(249,115,22,0.25)' : stat.gradient.includes('#ec4899') ? 'rgba(236,72,153,0.25)' : stat.gradient.includes('#fb923c') ? 'rgba(251,146,60,0.25)' : 'rgba(244,63,94,0.25)'}`,
         }}>
-          <Icon size={22} color="#fff" strokeWidth={2} />
+          <Icon size={17} color="#fff" strokeWidth={1.8} />
         </div>
-        <div style={{
-          display: 'flex', alignItems: 'center', gap: '4px',
-          padding: '4px 10px', borderRadius: '20px',
-          background: stat.changeType === 'positive' ? '#e8e8e8' : '#f0f0f0',
-        }}>
-          {stat.changeType === 'positive' ? (
-            <ArrowUpRight size={13} color="#171717" />
-          ) : (
-            <ArrowDownRight size={13} color="#0a0a0a" />
-          )}
-          <span style={{
-            fontSize: '12px', fontWeight: '600',
-            color: stat.changeType === 'positive' ? '#171717' : '#0a0a0a',
-          }}>
-            {stat.change}
-          </span>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <p style={{ margin: 0, fontSize: '11px', color: colors.textMuted, fontWeight: '500' }}>{stat.label}</p>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+            <p style={{ margin: 0, fontSize: '18px', fontWeight: '800', color: colors.text, letterSpacing: '-0.02em', lineHeight: '1.2' }}>
+              {stat.value}
+            </p>
+            <span style={{
+              fontSize: '10.5px', fontWeight: '600',
+              color: stat.changeType === 'positive' ? '#16a34a' : '#e11d48',
+              display: 'flex', alignItems: 'center', gap: '2px',
+            }}>
+              {stat.changeType === 'positive' ? <ArrowUpRight size={10} /> : <ArrowDownRight size={10} />}
+              {stat.change}
+            </span>
+          </div>
         </div>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-        <div>
-          <p style={{ margin: 0, fontSize: '12.5px', color: colors.textMuted, fontWeight: '500', marginBottom: '4px' }}>
-            {stat.label}
-          </p>
-          <p style={{ margin: 0, fontSize: '26px', fontWeight: '800', color: colors.text, letterSpacing: '-0.02em', lineHeight: '1.2' }}>
-            {stat.value}
-          </p>
-        </div>
-        <div style={{ opacity: 0.6 }}>
-          <Sparkline data={stat.sparkline} color={stat.changeType === 'positive' ? '#171717' : '#0a0a0a'} />
+        <div style={{ opacity: 0.5 }}>
+          <Sparkline data={stat.sparkline} color={stat.changeType === 'positive' ? warm.orange : warm.rose} width={56} height={22} />
         </div>
       </div>
     </div>
@@ -321,17 +327,17 @@ function RevenueChart() {
   const totalRevenue = salesData.reduce((sum, d) => sum + d.revenue, 0);
   const avgRevenue = Math.round(totalRevenue / salesData.length);
   const chartW = 600;
-  const chartH = 200;
+  const chartH = 180;
   const padX = 16;
-  const padY = 20;
+  const padY = 16;
   const plotW = chartW - padX * 2;
   const plotH = chartH - padY * 2;
-  const barW = plotW / salesData.length * 0.55;
+  const barW = plotW / salesData.length * 0.5;
   const gap = plotW / salesData.length;
 
   useEffect(() => {
     let start = null;
-    const duration = 1000;
+    const duration = 800;
     const draw = (ts) => {
       if (!start) start = ts;
       const progress = Math.min((ts - start) / duration, 1);
@@ -345,21 +351,21 @@ function RevenueChart() {
 
   return (
     <div style={{
-      background: colors.bgCard, borderRadius: '20px', padding: '24px',
+      background: colors.bgCard, borderRadius: '16px', padding: '22px',
       border: `1px solid ${colors.border}`,
     }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
         <div>
-          <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.01em' }}>Revenue Overview</h3>
-          <p style={{ margin: '4px 0 0', fontSize: '13px', color: colors.textSubtle }}>Monthly revenue breakdown</p>
+          <h3 style={{ margin: 0, fontSize: '15px', fontWeight: '700', color: colors.text }}>Revenue Overview</h3>
+          <p style={{ margin: '4px 0 0', fontSize: '12px', color: colors.textSubtle }}>Monthly revenue breakdown</p>
         </div>
-        <div style={{ display: 'flex', gap: '4px', background: colors.bgHover, borderRadius: '10px', padding: '3px' }}>
+        <div style={{ display: 'flex', gap: '2px', background: colors.bgHover, borderRadius: '8px', padding: '2px' }}>
           {['Week', 'Month', 'Year'].map((period, i) => (
             <button key={period} style={{
-              padding: '5px 12px', borderRadius: '7px', border: 'none',
-              background: i === 1 ? colors.accent : 'transparent',
+              padding: '4px 10px', borderRadius: '6px', border: 'none',
+              background: i === 1 ? warm.gradient : 'transparent',
               color: i === 1 ? '#fff' : colors.textMuted,
-              fontSize: '12px', cursor: 'pointer', fontWeight: '500',
+              fontSize: '11px', cursor: 'pointer', fontWeight: '500',
               transition: 'all 0.15s',
             }}>
               {period}
@@ -368,32 +374,32 @@ function RevenueChart() {
         </div>
       </div>
 
-      <div style={{ display: 'flex', gap: '12px', marginBottom: '24px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '20px', flexWrap: 'wrap' }}>
         {[
-          { label: 'Total Revenue', value: totalRevenue, prefix: '$', icon: DollarSign, gradient: '#000000' },
-          { label: 'Avg. Monthly', value: avgRevenue, prefix: '$', icon: BarChart3, gradient: '#262626' },
-          { label: 'Best Month', value: maxRevenue, prefix: '$', icon: TrendingUp, gradient: '#404040' },
+          { label: 'Total Revenue', value: totalRevenue, prefix: '$', icon: DollarSign, gradient: warm.gradient },
+          { label: 'Avg. Monthly', value: avgRevenue, prefix: '$', icon: BarChart3, gradient: 'linear-gradient(135deg, #ec4899, #f472b6)' },
+          { label: 'Best Month', value: maxRevenue, prefix: '$', icon: TrendingUp, gradient: 'linear-gradient(135deg, #fb923c, #f59e0b)' },
         ].map((s, si) => {
           const SIcon = s.icon;
           return (
             <div key={s.label} style={{
-              flex: 1, minWidth: '130px', display: 'flex', alignItems: 'center', gap: '12px',
-              padding: '14px 16px', borderRadius: '12px',
+              flex: 1, minWidth: '120px', display: 'flex', alignItems: 'center', gap: '10px',
+              padding: '12px 14px', borderRadius: '10px',
               background: colors.bgHover, border: `1px solid ${colors.borderLight}`,
-              opacity: anim, transform: `translateY(${(1 - anim) * 10}px)`,
-              transition: `opacity 0.4s ease ${si * 0.1}s, transform 0.4s ease ${si * 0.1}s`,
+              opacity: anim, transform: `translateY(${(1 - anim) * 8}px)`,
+              transition: `opacity 0.4s ease ${si * 0.08}s, transform 0.4s ease ${si * 0.08}s`,
             }}>
               <div style={{
-                width: '38px', height: '38px', borderRadius: '10px',
+                width: '34px', height: '34px', borderRadius: '9px',
                 background: s.gradient, display: 'flex', alignItems: 'center',
                 justifyContent: 'center', flexShrink: 0,
               }}>
-                <SIcon size={17} color="#fff" strokeWidth={2} />
+                <SIcon size={15} color="#fff" strokeWidth={1.8} />
               </div>
               <div>
-                <p style={{ margin: 0, fontSize: '11px', color: colors.textSubtle, fontWeight: '500' }}>{s.label}</p>
-                <p style={{ margin: '2px 0 0', fontSize: '17px', fontWeight: '700', color: colors.text, letterSpacing: '-0.02em' }}>
-                  <AnimatedNumber value={s.value} prefix={s.prefix} duration={1200} />
+                <p style={{ margin: 0, fontSize: '10.5px', color: colors.textSubtle, fontWeight: '500' }}>{s.label}</p>
+                <p style={{ margin: '2px 0 0', fontSize: '15px', fontWeight: '700', color: colors.text, letterSpacing: '-0.02em' }}>
+                  <AnimatedNumber value={s.value} prefix={s.prefix} duration={800} />
                 </p>
               </div>
             </div>
@@ -402,19 +408,29 @@ function RevenueChart() {
       </div>
 
       <div style={{
-        position: 'relative', background: colors.bgHover, borderRadius: '14px',
-        padding: '16px 8px', border: `1px solid ${colors.borderLight}`,
-        opacity: anim, transition: 'opacity 0.5s ease 0.2s',
+        position: 'relative', background: colors.bgHover, borderRadius: '12px',
+        padding: '14px 8px', border: `1px solid ${colors.borderLight}`,
+        opacity: anim, transition: 'opacity 0.5s ease 0.15s',
       }}>
         <svg viewBox={`0 0 ${chartW} ${chartH}`} style={{ width: '100%', height: 'auto', display: 'block' }}>
+          <defs>
+            <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={warm.orange} />
+              <stop offset="100%" stopColor={warm.pink} />
+            </linearGradient>
+            <linearGradient id="barGradHover" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={warm.warm600} />
+              <stop offset="100%" stopColor={warm.rose600} />
+            </linearGradient>
+          </defs>
           {[0, 0.25, 0.5, 0.75, 1].map((frac) => {
             const yy = padY + plotH - frac * plotH;
             return (
               <g key={frac}>
                 <line x1={padX} y1={yy} x2={chartW - padX} y2={yy}
-                  stroke={colors.border} strokeWidth="0.5" strokeDasharray="4 4"
-                  opacity={anim * 0.5} />
-                <text x={padX - 4} y={yy + 3.5} textAnchor="end" fontSize="9" fill={colors.textSubtle} fontWeight="500">
+                  stroke={colors.border} strokeWidth="0.5" strokeDasharray="3 3"
+                  opacity={anim * 0.4} />
+                <text x={padX - 4} y={yy + 3} textAnchor="end" fontSize="8.5" fill={colors.textSubtle} fontWeight="500">
                   ${(frac * maxRevenue / 1000).toFixed(0)}k
                 </text>
               </g>
@@ -433,20 +449,20 @@ function RevenueChart() {
               >
                 <rect x={x} y={y} width={barW} height={barH}
                   rx="4" ry="4"
-                  fill={isHovered ? '#525252' : '#a3a3a3'}
-                  opacity={isHovered ? 1 : 0.8}
+                  fill={isHovered ? 'url(#barGradHover)' : 'url(#barGrad)'}
+                  opacity={isHovered ? 1 : 0.85}
                   style={{ transition: 'all 0.2s' }}
                 />
                 {isHovered && (
                   <g>
-                    <rect x={x + barW / 2 - 30} y={y - 32} width="60" height="22" rx="6" fill={colors.text} />
-                    <text x={x + barW / 2} y={y - 17} textAnchor="middle" fontSize="10" fontWeight="600" fill="#fff">
+                    <rect x={x + barW / 2 - 28} y={y - 30} width="56" height="20" rx="5" fill={warm.warm700} />
+                    <text x={x + barW / 2} y={y - 16} textAnchor="middle" fontSize="9.5" fontWeight="600" fill="#fff">
                       ${(d.revenue / 1000).toFixed(1)}k
                     </text>
                   </g>
                 )}
-                <text x={x + barW / 2} y={padY + plotH + 16} textAnchor="middle"
-                  fontSize="10.5" fontWeight="500" fill={colors.textSubtle}>
+                <text x={x + barW / 2} y={padY + plotH + 14} textAnchor="middle"
+                  fontSize="10" fontWeight="500" fill={colors.textSubtle}>
                   {d.month}
                 </text>
               </g>
@@ -458,108 +474,6 @@ function RevenueChart() {
   );
 }
 
-function OrderStatus() {
-  const { colors } = useTheme();
-  const total = Object.values(orderStatusCounts).reduce((a, b) => a + b, 0);
-  const statusOrder = ['delivered', 'shipped', 'processing', 'pending', 'cancelled'];
-  const cx = 100, cy = 100, r = 72, stroke = 18;
-  const circumference = 2 * Math.PI * r;
-  let cumulativeOffset = 0;
-
-  return (
-    <div style={{
-      background: colors.bgCard, borderRadius: '20px', padding: '24px',
-      border: `1px solid ${colors.border}`,
-    }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-        <div>
-          <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.01em' }}>Order Status</h3>
-          <p style={{ margin: '4px 0 0', fontSize: '13px', color: colors.textSubtle }}>{total.toLocaleString()} total orders</p>
-        </div>
-        <Link to="/admin/orders" style={{
-          fontSize: '13px', color: colors.accent, textDecoration: 'none', fontWeight: '600',
-          display: 'flex', alignItems: 'center', gap: '4px',
-        }}>
-          Details <ChevronRight size={14} />
-        </Link>
-      </div>
-
-      <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
-        <div style={{ position: 'relative', width: '190px', height: '190px', flexShrink: 0 }}>
-          <svg viewBox="0 0 200 200" style={{ width: '100%', height: '100%', transform: 'rotate(-90deg)' }}>
-            <circle cx={cx} cy={cy} r={r} fill="none" stroke={colors.bgHover} strokeWidth={stroke} />
-            {statusOrder.map((status) => {
-              const count = orderStatusCounts[status];
-              const pct = count / total;
-              const dashLen = pct * circumference;
-              const dashOffset = -cumulativeOffset;
-              cumulativeOffset += dashLen;
-              return (
-                <circle key={status} cx={cx} cy={cy} r={r} fill="none"
-                  stroke={statusConfig[status].color}
-                  strokeWidth={stroke}
-                  strokeDasharray={`${dashLen} ${circumference - dashLen}`}
-                  strokeDashoffset={dashOffset}
-                  strokeLinecap="round"
-                  style={{ transition: 'stroke-dasharray 0.6s cubic-bezier(0.4,0,0.2,1)' }}
-                />
-              );
-            })}
-          </svg>
-          <div style={{
-            position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column',
-            alignItems: 'center', justifyContent: 'center',
-          }}>
-            <span style={{ fontSize: '28px', fontWeight: '800', color: colors.text, lineHeight: '1' }}>{total}</span>
-            <span style={{ fontSize: '11px', color: colors.textSubtle, fontWeight: '500', marginTop: '2px' }}>orders</span>
-          </div>
-        </div>
-
-        <div style={{ flex: 1, minWidth: '180px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          {statusOrder.map((status) => {
-            const cfg = statusConfig[status];
-            const StatusIcon = cfg.icon;
-            const count = orderStatusCounts[status];
-            const pct = ((count / total) * 100).toFixed(1);
-            return (
-              <div key={status} style={{
-                display: 'flex', alignItems: 'center', gap: '10px',
-                padding: '10px 12px', borderRadius: '10px',
-                background: colors.bgHover, border: `1px solid ${colors.borderLight}`,
-                transition: 'all 0.15s',
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgAccent; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = colors.bgHover; }}
-              >
-                <div style={{
-                  width: '32px', height: '32px', borderRadius: '8px',
-                  background: cfg.bg, display: 'flex', alignItems: 'center',
-                  justifyContent: 'center', flexShrink: 0,
-                }}>
-                  <StatusIcon size={15} color={cfg.color} />
-                </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '12.5px', color: colors.textSecondary, textTransform: 'capitalize', fontWeight: '500' }}>{status}</span>
-                    <span style={{ fontSize: '13px', fontWeight: '700', color: colors.text }}>{count}</span>
-                  </div>
-                  <div style={{ height: '4px', background: colors.border, borderRadius: '2px', overflow: 'hidden', marginTop: '5px' }}>
-                    <div style={{
-                      height: '100%', borderRadius: '2px',
-                      width: `${pct}%`, background: cfg.color,
-                      transition: 'width 0.6s cubic-bezier(0.4,0,0.2,1)',
-                    }} />
-                  </div>
-                </div>
-                <span style={{ fontSize: '11px', fontWeight: '600', color: colors.textMuted, minWidth: '36px', textAlign: 'right' }}>{pct}%</span>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function TopSellingCategories() {
   const { colors } = useTheme();
@@ -567,39 +481,38 @@ function TopSellingCategories() {
 
   return (
     <div style={{
-      background: colors.bgCard, borderRadius: '20px', padding: '24px',
+      background: colors.bgCard, borderRadius: '16px', padding: '22px',
       border: `1px solid ${colors.border}`,
     }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
         <div>
-          <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.01em' }}>Top Selling Categories</h3>
-          <p style={{ margin: '4px 0 0', fontSize: '13px', color: colors.textSubtle }}>Best performing product categories</p>
+          <h3 style={{ margin: 0, fontSize: '15px', fontWeight: '700', color: colors.text }}>Top Categories</h3>
+          <p style={{ margin: '4px 0 0', fontSize: '12px', color: colors.textSubtle }}>Best performing categories</p>
         </div>
         <Link to="/admin/categories" style={{
-          fontSize: '13px', color: colors.accent, textDecoration: 'none', fontWeight: '600',
-          display: 'flex', alignItems: 'center', gap: '4px',
+          fontSize: '12px', color: warm.orange, textDecoration: 'none', fontWeight: '600',
+          display: 'flex', alignItems: 'center', gap: '3px',
         }}>
-          View All <ChevronRight size={14} />
+          View All <ChevronRight size={13} />
         </Link>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '12px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '10px' }}>
         {topCategories.map((cat, index) => {
-          const Icon = cat.icon;
           const pct = ((cat.sold / maxSold) * 100).toFixed(0);
           const RankBadge = index === 0 ? Crown : index === 1 ? Medal : index === 2 ? Trophy : null;
           return (
             <div key={cat.name} style={{
-              display: 'flex', alignItems: 'center', gap: '14px',
-              padding: '16px', borderRadius: '14px',
-              background: index === 0 ? colors.bgAccent : colors.bgHover,
-              border: index === 0 ? `1px solid ${colors.border}` : `1px solid transparent`,
+              display: 'flex', alignItems: 'center', gap: '12px',
+              padding: '14px', borderRadius: '12px',
+              background: index === 0 ? cat.bg : colors.bgHover,
+              border: index === 0 ? `1px solid ${cat.color}22` : `1px solid transparent`,
               transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
               cursor: 'pointer',
             }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = colors.shadowMd;
+                e.currentTarget.style.boxShadow = `0 4px 16px ${cat.color}18`;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -607,36 +520,37 @@ function TopSellingCategories() {
               }}
             >
               <div style={{
-                width: '48px', height: '48px', borderRadius: '12px',
-                background: cat.bg, display: 'flex', alignItems: 'center',
+                width: '44px', height: '44px', borderRadius: '12px',
+                background: `${cat.color}15`, display: 'flex', alignItems: 'center',
                 justifyContent: 'center', flexShrink: 0, position: 'relative',
+                fontSize: '20px',
               }}>
-                <Icon size={22} color={cat.color} strokeWidth={1.8} />
+                {cat.emoji}
                 {RankBadge && (
                   <div style={{
-                    position: 'absolute', top: '-4px', right: '-4px',
-                    width: '18px', height: '18px', borderRadius: '50%',
+                    position: 'absolute', top: '-3px', right: '-3px',
+                    width: '16px', height: '16px', borderRadius: '50%',
                     background: cat.color, display: 'flex', alignItems: 'center',
-                    justifyContent: 'center',
+                    justifyContent: 'center', boxShadow: `0 2px 6px ${cat.color}40`,
                   }}>
-                    <RankBadge size={10} color="#fff" strokeWidth={2.5} />
+                    <RankBadge size={9} color="#fff" strokeWidth={2.5} />
                   </div>
                 )}
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                  <p style={{ margin: 0, fontSize: '14px', fontWeight: '600', color: colors.text }}>{cat.name}</p>
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: colors.success }}>{formatCurrency(cat.revenue)}</span>
+                  <p style={{ margin: 0, fontSize: '13px', fontWeight: '600', color: colors.text }}>{cat.name}</p>
+                  <span style={{ fontSize: '12px', fontWeight: '700', color: cat.color }}>{formatCurrency(cat.revenue)}</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <div style={{ flex: 1, height: '5px', background: colors.border, borderRadius: '3px', overflow: 'hidden' }}>
+                  <div style={{ flex: 1, height: '4px', background: `${cat.color}15`, borderRadius: '2px', overflow: 'hidden' }}>
                     <div style={{
-                      height: '100%', borderRadius: '3px',
-                      width: `${pct}%`, background: cat.color,
+                      height: '100%', borderRadius: '2px',
+                      width: `${pct}%`, background: `linear-gradient(90deg, ${cat.color}, ${cat.color}aa)`,
                       transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                     }} />
                   </div>
-                  <span style={{ fontSize: '11.5px', color: colors.textSubtle, fontWeight: '600', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontSize: '11px', color: colors.textSubtle, fontWeight: '600', whiteSpace: 'nowrap' }}>
                     {cat.sold.toLocaleString()} sold
                   </span>
                 </div>
@@ -655,30 +569,30 @@ function TopSellingProducts() {
 
   return (
     <div style={{
-      background: colors.bgCard, borderRadius: '20px', padding: '24px',
+      background: colors.bgCard, borderRadius: '16px', padding: '22px',
       border: `1px solid ${colors.border}`,
     }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
         <div>
-          <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.01em' }}>Top Selling Products</h3>
-          <p style={{ margin: '4px 0 0', fontSize: '13px', color: colors.textSubtle }}>Best performing products by units sold</p>
+          <h3 style={{ margin: 0, fontSize: '15px', fontWeight: '700', color: colors.text }}>Top Products</h3>
+          <p style={{ margin: '4px 0 0', fontSize: '12px', color: colors.textSubtle }}>Best by units sold</p>
         </div>
         <Link to="/admin/products" style={{
-          fontSize: '13px', color: colors.accent, textDecoration: 'none', fontWeight: '600',
-          display: 'flex', alignItems: 'center', gap: '4px',
+          fontSize: '12px', color: warm.orange, textDecoration: 'none', fontWeight: '600',
+          display: 'flex', alignItems: 'center', gap: '3px',
         }}>
-          View All <ChevronRight size={14} />
+          View All <ChevronRight size={13} />
         </Link>
       </div>
 
       <div style={{ overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13.5px', minWidth: '600px' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', minWidth: '580px' }}>
           <thead>
             <tr>
-              {['#', 'Product', 'Units Sold', 'Revenue', 'Performance'].map((h) => (
+              {['#', 'Product', 'Sold', 'Revenue', 'Performance'].map((h) => (
                 <th key={h} style={{
-                  textAlign: 'left', padding: '10px 14px',
-                  fontSize: '11.5px', fontWeight: '600', color: colors.textSubtle,
+                  textAlign: 'left', padding: '8px 12px',
+                  fontSize: '10.5px', fontWeight: '600', color: colors.textSubtle,
                   textTransform: 'uppercase', letterSpacing: '0.06em',
                   borderBottom: `1px solid ${colors.border}`,
                 }}>
@@ -690,51 +604,54 @@ function TopSellingProducts() {
           <tbody>
             {topProducts.map((product, index) => {
               const pct = ((product.sold / maxSold) * 100).toFixed(0);
-              const rankColors = ['#0a0a0a', '#737373', '#737373'];
+              const rankColors = [warm.orange, warm.pink, warm.rose];
               const isTop3 = index < 3;
               return (
                 <tr key={product.name} style={{
                   borderBottom: `1px solid ${colors.borderLight}`,
-                  background: index === 0 ? colors.bgAccent : 'transparent',
+                  background: index === 0 ? `${warm.orange}08` : 'transparent',
                   transition: 'background 0.15s',
                 }}
                   onMouseEnter={(e) => { if (index !== 0) e.currentTarget.style.background = colors.bgHover; }}
-                  onMouseLeave={(e) => { if (index !== 0) e.currentTarget.style.background = index === 0 ? colors.bgAccent : 'transparent'; }}
+                  onMouseLeave={(e) => { if (index !== 0) e.currentTarget.style.background = index === 0 ? `${warm.orange}08` : 'transparent'; }}
                 >
-                  <td style={{ padding: '14px' }}>
+                  <td style={{ padding: '12px' }}>
                     <div style={{
-                      width: '28px', height: '28px', borderRadius: '8px',
+                      width: '26px', height: '26px', borderRadius: '7px',
                       background: isTop3 ? rankColors[index] : colors.bgHover,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '12px', fontWeight: '700',
+                      fontSize: '11px', fontWeight: '700',
                       color: isTop3 ? '#fff' : colors.textMuted,
                     }}>
                       {index + 1}
                     </div>
                   </td>
-                  <td style={{ padding: '14px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                      <span style={{ fontSize: '22px' }}>{product.img}</span>
-                      <span style={{ fontWeight: '600', color: colors.text }}>{product.name}</span>
+                  <td style={{ padding: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <span style={{ fontSize: '20px' }}>{product.emoji}</span>
+                      <div>
+                        <span style={{ fontWeight: '600', color: colors.text, fontSize: '13px' }}>{product.name}</span>
+                        <p style={{ margin: '1px 0 0', fontSize: '11px', color: colors.textSubtle }}>{product.sub}</p>
+                      </div>
                     </div>
                   </td>
-                  <td style={{ padding: '14px', fontWeight: '600', color: colors.text }}>
+                  <td style={{ padding: '12px', fontWeight: '600', color: colors.text }}>
                     {product.sold.toLocaleString()}
                   </td>
-                  <td style={{ padding: '14px', fontWeight: '700', color: colors.success }}>
+                  <td style={{ padding: '12px', fontWeight: '700', color: colors.text }}>
                     {formatCurrency(product.revenue)}
                   </td>
-                  <td style={{ padding: '14px', minWidth: '160px' }}>
+                  <td style={{ padding: '12px', minWidth: '140px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <div style={{ flex: 1, height: '6px', background: colors.bgHover, borderRadius: '3px', overflow: 'hidden' }}>
+                      <div style={{ flex: 1, height: '5px', background: colors.bgHover, borderRadius: '3px', overflow: 'hidden' }}>
                         <div style={{
                           height: '100%', borderRadius: '3px',
                           width: `${pct}%`,
-                          background: isTop3 ? rankColors[index] : colors.accent,
+                          background: isTop3 ? `linear-gradient(90deg, ${rankColors[index]}, ${rankColors[index]}aa)` : warm.gradient,
                           transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                         }} />
                       </div>
-                      <span style={{ fontSize: '12px', fontWeight: '600', color: colors.textMuted, minWidth: '32px' }}>{pct}%</span>
+                      <span style={{ fontSize: '11px', fontWeight: '600', color: colors.textMuted, minWidth: '30px' }}>{pct}%</span>
                     </div>
                   </td>
                 </tr>
@@ -751,29 +668,29 @@ function RecentOrders() {
   const { colors } = useTheme();
   return (
     <div style={{
-      background: colors.bgCard, borderRadius: '20px', padding: '24px',
+      background: colors.bgCard, borderRadius: '16px', padding: '22px',
       border: `1px solid ${colors.border}`,
     }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
         <div>
-          <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.01em' }}>Recent Orders</h3>
-          <p style={{ margin: '4px 0 0', fontSize: '13px', color: colors.textSubtle }}>Latest customer orders</p>
+          <h3 style={{ margin: 0, fontSize: '15px', fontWeight: '700', color: colors.text }}>Recent Orders</h3>
+          <p style={{ margin: '4px 0 0', fontSize: '12px', color: colors.textSubtle }}>Latest customer orders</p>
         </div>
         <Link to="/admin/orders" style={{
-          fontSize: '13px', color: colors.accent, textDecoration: 'none', fontWeight: '600',
-          display: 'flex', alignItems: 'center', gap: '4px',
+          fontSize: '12px', color: warm.orange, textDecoration: 'none', fontWeight: '600',
+          display: 'flex', alignItems: 'center', gap: '3px',
         }}>
-          View All <ChevronRight size={14} />
+          View All <ChevronRight size={13} />
         </Link>
       </div>
       <div style={{ overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13.5px', minWidth: '520px' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', minWidth: '520px' }}>
           <thead>
             <tr>
               {['Order', 'Customer', 'Date', 'Amount', 'Status'].map((h) => (
                 <th key={h} style={{
-                  textAlign: 'left', padding: '10px 14px',
-                  fontSize: '11.5px', fontWeight: '600', color: colors.textSubtle,
+                  textAlign: 'left', padding: '8px 12px',
+                  fontSize: '10.5px', fontWeight: '600', color: colors.textSubtle,
                   textTransform: 'uppercase', letterSpacing: '0.06em',
                   borderBottom: `1px solid ${colors.border}`,
                 }}>
@@ -793,21 +710,21 @@ function RecentOrders() {
                   onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
                   onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
                 >
-                  <td style={{ padding: '14px', fontWeight: '600', color: colors.accent, fontSize: '13px' }}>
+                  <td style={{ padding: '12px', fontWeight: '600', color: warm.orange, fontSize: '12.5px' }}>
                     {order.id}
                   </td>
-                  <td style={{ padding: '14px', color: colors.textSecondary, fontWeight: '500' }}>{order.customer}</td>
-                  <td style={{ padding: '14px', color: colors.textMuted }}>{formatDate(order.date)}</td>
-                  <td style={{ padding: '14px', fontWeight: '600', color: colors.text }}>
+                  <td style={{ padding: '12px', color: colors.textSecondary, fontWeight: '500' }}>{order.customer}</td>
+                  <td style={{ padding: '12px', color: colors.textMuted, fontSize: '12px' }}>{formatDate(order.date)}</td>
+                  <td style={{ padding: '12px', fontWeight: '600', color: colors.text }}>
                     {formatCurrency(order.total)}
                   </td>
-                  <td style={{ padding: '14px' }}>
+                  <td style={{ padding: '12px' }}>
                     <span style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '5px',
-                      padding: '5px 12px', borderRadius: '8px', fontSize: '12px', fontWeight: '600',
+                      display: 'inline-flex', alignItems: 'center', gap: '4px',
+                      padding: '4px 10px', borderRadius: '6px', fontSize: '11px', fontWeight: '600',
                       background: cfg.bg, color: cfg.text, textTransform: 'capitalize',
                     }}>
-                      {(() => { const SIcon = cfg.icon; return <SIcon size={12} />; })()}
+                      {(() => { const SIcon = cfg.icon; return <SIcon size={11} />; })()}
                       {order.status}
                     </span>
                   </td>
@@ -825,11 +742,11 @@ function QuickActions() {
   const { colors } = useTheme();
   return (
     <div style={{
-      background: colors.bgCard, borderRadius: '20px', padding: '24px',
+      background: colors.bgCard, borderRadius: '16px', padding: '22px',
       border: `1px solid ${colors.border}`,
     }}>
-      <h3 style={{ margin: '0 0 16px', fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.01em' }}>Quick Actions</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '10px' }}>
+      <h3 style={{ margin: '0 0 14px', fontSize: '15px', fontWeight: '700', color: colors.text }}>Quick Actions</h3>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '8px' }}>
         {quickActions.map((action) => {
           const Icon = action.icon;
           return (
@@ -837,27 +754,30 @@ function QuickActions() {
               key={action.label}
               to={action.path}
               style={{
-                display: 'flex', alignItems: 'center', gap: '12px',
-                padding: '14px', borderRadius: '14px', textDecoration: 'none',
+                display: 'flex', alignItems: 'center', gap: '10px',
+                padding: '12px', borderRadius: '10px', textDecoration: 'none',
                 border: `1px solid ${colors.border}`, transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = colors.shadowMd;
+                e.currentTarget.style.boxShadow = `0 4px 12px rgba(249,115,22,0.15)`;
+                e.currentTarget.style.borderColor = `${warm.orange}40`;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.borderColor = colors.border;
               }}
             >
               <div style={{
-                width: '40px', height: '40px', borderRadius: '12px',
+                width: '36px', height: '36px', borderRadius: '10px',
                 background: action.gradient, display: 'flex',
                 alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                boxShadow: `0 3px 8px rgba(249,115,22,0.2)`,
               }}>
-                <Icon size={18} color="#fff" strokeWidth={2} />
+                <Icon size={16} color="#fff" strokeWidth={2} />
               </div>
-              <span style={{ fontSize: '13px', fontWeight: '600', color: colors.textSecondary }}>{action.label}</span>
+              <span style={{ fontSize: '12px', fontWeight: '600', color: colors.textSecondary }}>{action.label}</span>
             </Link>
           );
         })}
@@ -866,34 +786,38 @@ function QuickActions() {
   );
 }
 
-export default function AdminDashboard() {
+function LeftSidebar() {
   return (
-    <div>
-      <WelcomeBanner />
-
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginTop: '24px', marginBottom: '24px' }}>
-        {statsCards.map((stat, i) => (
-          <StatCard key={stat.label} stat={stat} index={i} />
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', minWidth: 0 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        {statsCards.map((stat) => (
+          <StatCard key={stat.label} stat={stat} />
         ))}
       </div>
+      <TopSellingCategories />
+      <QuickActions />
+    </div>
+  );
+}
 
-      <div className="grid-2col-responsive" style={{ marginBottom: '24px' }}>
+export default function AdminDashboard() {
+  return (
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+      <aside style={{
+        width: '340px', flexShrink: 0,
+        position: 'sticky', top: '76px',
+        maxHeight: 'calc(100vh - 92px)', overflowY: 'auto',
+        display: 'flex', flexDirection: 'column', gap: '16px',
+      }}>
+        <LeftSidebar />
+      </aside>
+
+      <main style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <WelcomeBanner />
         <RevenueChart />
-        <OrderStatus />
-      </div>
-
-      <div style={{ marginBottom: '24px' }}>
-        <TopSellingCategories />
-      </div>
-
-      <div style={{ marginBottom: '24px' }}>
         <TopSellingProducts />
-      </div>
-
-      <div className="grid-2col-responsive" style={{ marginBottom: '24px' }}>
         <RecentOrders />
-        <QuickActions />
-      </div>
+      </main>
     </div>
   );
 }

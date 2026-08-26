@@ -29,86 +29,53 @@ export default function UserNavbar({ onToggleSidebar }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [openMenu]);
 
-  const iconButtonStyle = {
-    background: 'none', border: 'none', cursor: 'pointer',
-    position: 'relative', color: colors.textSecondary, padding: '8px',
-    borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-    transition: 'all 0.2s', flexShrink: 0,
-  };
-
-  const badgeStyle = {
-    position: 'absolute', top: '1px', right: '0px',
-    minWidth: '17px', height: '17px', padding: '0 4px',
-    background: '#000000',
-    color: '#fff', fontSize: '10.5px', fontWeight: '700',
-    borderRadius: '9px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-    border: `2px solid ${colors.bgNavbar}`, boxSizing: 'content-box',
-  };
-
-  const menuCardStyle = {
-    position: 'absolute', right: 0, top: 'calc(100% + 10px)',
-    background: colors.bgModal, borderRadius: '14px',
-    border: `1px solid ${colors.border}`, boxShadow: colors.shadowXl,
-    minWidth: '230px', overflow: 'hidden', zIndex: 60,
-  };
-
-  const menuItemStyle = {
-    display: 'flex', alignItems: 'center', gap: '12px',
-    padding: '11px 14px', borderRadius: '8px', cursor: 'pointer',
-    transition: 'background 0.15s', textDecoration: 'none', width: '100%',
-    border: 'none', background: 'none', textAlign: 'left',
-    fontSize: '13px', fontWeight: '500', color: colors.textSecondary, fontFamily: 'inherit',
-  };
-
   return (
-    <header style={{
-      height: '64px',
-      background: `${colors.bgNavbar}ee`,
-      borderBottom: `1px solid ${colors.border}`,
-      backdropFilter: 'blur(12px)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      gap: '12px',
-      padding: '0 clamp(12px, 2vw, 20px)',
-      position: 'sticky',
-      top: 0,
-      zIndex: 20,
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+    <header
+      className="flex items-center justify-between gap-3 sticky top-0 z-20 backdrop-blur-md"
+      style={{
+        height: '64px',
+        background: `${colors.bgNavbar}ee`,
+        borderBottom: `1px solid ${colors.border}`,
+        padding: '0 clamp(12px, 2vw, 20px)',
+      }}
+    >
+      <div className="flex items-center gap-2.5">
         <button
           onClick={onToggleSidebar}
-          onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; }}
-          style={iconButtonStyle}
+          className="flex items-center justify-center rounded-[10px] p-2 shrink-0 cursor-pointer border-none hover:opacity-80 transition-all"
+          style={{ background: 'none', color: colors.textSecondary }}
           title="Toggle menu"
         >
           <Menu size={22} />
         </button>
-        <Link to="/" style={{
-          textDecoration: 'none', fontSize: '18px', fontWeight: '700',
-          color: colors.text, letterSpacing: '-0.02em', whiteSpace: 'nowrap',
-        }}>
-          🏪 Kh-Shop
+        <Link
+          to="/"
+          className="text-[18px] font-bold tracking-tight whitespace-nowrap no-underline"
+          style={{ color: colors.text }}
+        >
+          🏪 KH Shop
         </Link>
 
-        <nav className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: '4px', marginLeft: '16px' }}>
+        <nav className="hide-mobile flex items-center gap-1 ml-4">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               end={link.end}
+              className="rounded-[9px] no-underline transition-all text-[13.5px]"
               style={({ isActive }) => ({
-                padding: '7px 14px', borderRadius: '9px', textDecoration: 'none',
-                fontSize: '13.5px', fontWeight: isActive ? '600' : '500',
-                color: isActive ? colors.textOnAccent : colors.textMuted,
-                background: isActive ? colors.bgNavActive : 'transparent',
-                transition: 'all 0.15s',
+                padding: '7px 14px',
+                fontWeight: isActive ? '600' : '500',
+                color: isActive ? '#ffffff' : colors.textMuted,
+                background: isActive ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'transparent',
               })}
-              onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
+              onMouseEnter={(e) => {
+                const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
+                if (!isActive) e.currentTarget.style.background = colors.bgHover;
+              }}
               onMouseLeave={(e) => {
                 const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
-                e.currentTarget.style.background = isActive ? colors.bgNavActive : 'transparent';
+                e.currentTarget.style.background = isActive ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'transparent';
               }}
             >
               {link.label}
@@ -117,19 +84,25 @@ export default function UserNavbar({ onToggleSidebar }) {
         </nav>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+      <div className="flex items-center gap-1.5">
         <ThemeToggle />
 
         <Link
           to="/cart"
-          onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; }}
-          style={iconButtonStyle}
+          className="relative flex items-center justify-center rounded-[10px] p-2 shrink-0 cursor-pointer border-none hover:opacity-80 transition-all"
+          style={{ background: 'none', color: colors.textSecondary }}
           title="Shopping cart"
         >
           <ShoppingCart size={20} />
           {cartCount > 0 && (
-            <span style={badgeStyle}>
+            <span
+              className="absolute top-[1px] right-0 min-w-[17px] h-[17px] px-1 text-[10.5px] font-bold rounded-[9px] flex items-center justify-center text-white"
+              style={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                border: `2px solid ${colors.bgNavbar}`,
+                boxSizing: 'content-box',
+              }}
+            >
               {cartCount > 99 ? '99+' : cartCount}
             </span>
           )}
@@ -139,10 +112,8 @@ export default function UserNavbar({ onToggleSidebar }) {
           <>
             <Link
               to="/user/wishlist"
-              className="hide-mobile"
-              onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; }}
-              style={iconButtonStyle}
+              className="hide-mobile flex items-center justify-center rounded-[10px] p-2 shrink-0 cursor-pointer border-none hover:opacity-80 transition-all"
+              style={{ background: 'none', color: colors.textSecondary }}
               title="Wishlist"
             >
               <Heart size={19} />
@@ -150,92 +121,96 @@ export default function UserNavbar({ onToggleSidebar }) {
 
             <Link
               to="/user/notifications"
-              className="hide-mobile"
-              onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; }}
-              style={iconButtonStyle}
+              className="hide-mobile relative flex items-center justify-center rounded-[10px] p-2 shrink-0 cursor-pointer border-none hover:opacity-80 transition-all"
+              style={{ background: 'none', color: colors.textSecondary }}
               title="Notifications"
             >
               <Bell size={19} />
-              <span style={{
-                position: 'absolute', top: '6px', right: '6px',
-                width: '8px', height: '8px', background: '#0a0a0a',
-                borderRadius: '50%', border: `2px solid ${colors.bgNavbar}`,
-              }} />
+              <span
+                className="absolute top-[6px] right-[6px] w-2 h-2 rounded-full"
+                style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', border: `2px solid ${colors.bgNavbar}` }}
+              />
             </Link>
 
-            <div data-navbar-menu style={{ position: 'relative' }}>
+            <div data-navbar-menu className="relative">
               <button
                 onClick={() => setOpenMenu((prev) => (prev === 'profile' ? null : 'profile'))}
-                onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = openMenu === 'profile' ? colors.bgHover : 'none'; }}
+                className="flex items-center gap-2 rounded-3xl cursor-pointer border-none p-[5px] pr-2 transition-all font-inherit"
                 style={{
-                  display: 'flex', alignItems: 'center', gap: '8px',
-                  padding: '5px', paddingRight: '8px', borderRadius: '24px',
-                  cursor: 'pointer', border: 'none',
-                  background: openMenu === 'profile' ? colors.bgHover : 'none',
-                  transition: 'background 0.2s', fontFamily: 'inherit',
+                  background: openMenu === 'profile' ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'none',
+                  color: openMenu === 'profile' ? '#ffffff' : colors.text,
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'; e.currentTarget.style.color = '#ffffff'; }}
+                onMouseLeave={(e) => {
+                  const isOpen = openMenu === 'profile';
+                  e.currentTarget.style.background = isOpen ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'none';
+                  e.currentTarget.style.color = isOpen ? '#ffffff' : colors.text;
                 }}
               >
-                <div style={{
-                  width: '34px', height: '34px', borderRadius: '50%',
-                  background: '#000000',
-                  color: '#fff', display: 'flex',
-                  alignItems: 'center', justifyContent: 'center',
-                  fontSize: '14px', fontWeight: '600', flexShrink: 0,
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
-                }}>
+                <div
+                  className="w-[34px] h-[34px] rounded-full flex items-center justify-center text-white text-[14px] font-semibold shrink-0"
+                  style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', boxShadow: '0 2px 8px rgba(0,0,0,0.12)' }}
+                >
                   {user?.name?.charAt(0) || 'U'}
                 </div>
-                <span className="hide-mobile" style={{ fontSize: '13.5px', fontWeight: '600', color: colors.text }}>
+                <span className="hide-mobile text-[13.5px] font-semibold" style={{ color: colors.text }}>
                   {user?.name || 'User'}
                 </span>
-                <ChevronDown size={14} color={colors.textSubtle} style={{
-                  transform: openMenu === 'profile' ? 'rotate(180deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.2s',
-                }} />
+                <ChevronDown
+                  size={14}
+                  color={colors.textSubtle}
+                  style={{
+                    transform: openMenu === 'profile' ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 0.2s',
+                  }}
+                />
               </button>
 
               {openMenu === 'profile' && (
-                <div style={menuCardStyle}>
-                  <div style={{ padding: '14px 16px', borderBottom: `1px solid ${colors.borderLight}` }}>
-                    <p style={{ margin: 0, fontSize: '13.5px', fontWeight: '700', color: colors.text }}>
+                <div
+                  className="absolute right-0 min-w-[230px] rounded-[14px] overflow-hidden z-[60]"
+                  style={{
+                    top: 'calc(100% + 10px)',
+                    background: colors.bgModal,
+                    border: `1px solid ${colors.border}`,
+                    boxShadow: colors.shadowXl,
+                  }}
+                >
+                  <div className="p-3.5 px-4" style={{ borderBottom: `1px solid ${colors.borderLight}` }}>
+                    <p className="m-0 text-[13.5px] font-bold" style={{ color: colors.text }}>
                       {user?.name || 'User'}
                     </p>
-                    <p style={{ margin: '2px 0 0', fontSize: '12px', color: colors.textMuted }}>
+                    <p className="mt-0.5 text-xs" style={{ color: colors.textMuted }}>
                       {user?.email || 'user@khshop.com'}
                     </p>
                   </div>
-                  <div style={{ padding: '6px' }}>
-                    <Link to="/user" onClick={() => setOpenMenu(null)} style={menuItemStyle}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
-                    >
-                      <LayoutDashboard size={16} /> My Dashboard
-                    </Link>
-                    <Link to="/user/orders" onClick={() => setOpenMenu(null)} style={menuItemStyle}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
-                    >
-                      <Package size={16} /> My Orders
-                    </Link>
-                    <Link to="/user/wishlist" onClick={() => setOpenMenu(null)} style={menuItemStyle}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
-                    >
-                      <Heart size={16} /> Wishlist
-                    </Link>
-                    <Link to="/user/profile" onClick={() => setOpenMenu(null)} style={menuItemStyle}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
-                    >
-                      <Settings size={16} /> Profile Settings
-                    </Link>
+                  <div className="p-1.5">
+                    {[
+                      { to: '/user', icon: LayoutDashboard, label: 'My Dashboard' },
+                      { to: '/user/orders', icon: Package, label: 'My Orders' },
+                      { to: '/user/wishlist', icon: Heart, label: 'Wishlist' },
+                      { to: '/user/profile', icon: Settings, label: 'Profile Settings' },
+                    ].map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => setOpenMenu(null)}
+                        className="flex items-center gap-3 py-[11px] px-3.5 rounded-lg cursor-pointer w-full no-underline text-[13px] font-medium border-none text-left transition-all duration-150"
+                        style={{ background: 'none', color: colors.textSecondary, fontFamily: 'inherit' }}
+                        onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'; e.currentTarget.style.color = '#ffffff'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = colors.textSecondary; }}
+                      >
+                        <item.icon size={16} /> {item.label}
+                      </Link>
+                    ))}
                   </div>
-                  <div style={{ padding: '6px', borderTop: `1px solid ${colors.borderLight}` }}>
-                    <button onClick={() => { setOpenMenu(null); logout(); }} style={{ ...menuItemStyle, color: colors.danger }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgDanger; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                  <div className="p-1.5" style={{ borderTop: `1px solid ${colors.borderLight}` }}>
+                    <button
+                      onClick={() => { setOpenMenu(null); logout(); }}
+                      className="flex items-center gap-3 py-[11px] px-3.5 rounded-lg cursor-pointer w-full text-[13px] font-medium border-none text-left transition-all duration-150"
+                      style={{ background: 'none', color: colors.danger, fontFamily: 'inherit' }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)'; e.currentTarget.style.color = '#ffffff'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = colors.danger; }}
                     >
                       <LogOut size={16} /> Sign out
                     </button>
@@ -246,26 +221,28 @@ export default function UserNavbar({ onToggleSidebar }) {
           </>
         ) : (
           <>
-            <Link to="/auth/login" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '6px',
-              padding: '7px 14px', borderRadius: '9px', textDecoration: 'none',
-              fontSize: '13px', fontWeight: '600', color: colors.textSecondary,
-              border: `1px solid ${colors.border}`, transition: 'all 0.2s',
-            }}
+            <Link
+              to="/auth/login"
+              className="inline-flex items-center gap-1.5 rounded-[9px] no-underline text-[13px] font-semibold transition-all"
+              style={{
+                padding: '7px 14px',
+                color: colors.textSecondary,
+                border: `1px solid ${colors.border}`,
+              }}
               onMouseEnter={(e) => { e.currentTarget.style.background = colors.bgHover; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
             >
               <LogIn size={14} />
               <span className="hide-mobile">Login</span>
             </Link>
-            <Link to="/auth/register" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '6px',
-              padding: '7px 14px', borderRadius: '9px', textDecoration: 'none',
-              fontSize: '13px', fontWeight: '600', color: '#fff',
-              background: '#000000',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
-              transition: 'all 0.2s',
-            }}
+            <Link
+              to="/auth/register"
+              className="inline-flex items-center gap-1.5 rounded-[9px] no-underline text-[13px] font-semibold text-white transition-all"
+              style={{
+                padding: '7px 14px',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+              }}
               onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.9'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}
             >

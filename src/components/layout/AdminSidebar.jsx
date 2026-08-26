@@ -55,8 +55,8 @@ export default function AdminSidebar({ expanded, onClose }) {
     display: 'flex',
     alignItems: 'center',
     gap: '10px',
-    padding: '9px 14px',
-    borderRadius: '10px',
+    padding: '8px 12px',
+    borderRadius: '8px',
     textDecoration: 'none',
     fontSize: '13px',
     fontWeight: isActive ? '600' : '450',
@@ -83,7 +83,7 @@ export default function AdminSidebar({ expanded, onClose }) {
           minHeight: '100vh',
           background: colors.bgSidebar,
           borderRight: `1px solid ${colors.border}`,
-          padding: '20px 12px',
+          padding: '16px 10px',
           position: 'fixed',
           top: 0,
           left: 0,
@@ -96,43 +96,43 @@ export default function AdminSidebar({ expanded, onClose }) {
           transform: expanded ? 'translateX(0)' : 'translateX(-100%)',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 8px', marginBottom: '24px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '4px 6px', marginBottom: '20px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{
-              width: '36px', height: '36px', borderRadius: '10px',
+              width: '34px', height: '34px', borderRadius: '10px',
               background: colors.gradientPrimary,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.25)',
               flexShrink: 0,
             }}>
-              <TrendingUp size={18} color="#fff" strokeWidth={2.5} />
+              <TrendingUp size={16} color="#fff" strokeWidth={2.5} />
             </div>
             <div>
-              <h1 style={{ margin: 0, fontSize: '17px', fontWeight: '700', color: colors.text, letterSpacing: '-0.02em' }}>
-                Kh-Shop
+              <h1 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: colors.text, letterSpacing: '-0.02em' }}>
+                Kh Shop
               </h1>
-              <span style={{ fontSize: '11px', color: colors.textSubtle, fontWeight: '500' }}>Admin Panel</span>
+              <span style={{ fontSize: '10.5px', color: colors.textSubtle, fontWeight: '500' }}>Admin Panel</span>
             </div>
           </div>
           <button
             onClick={onClose}
             style={{
               background: 'none', border: 'none', cursor: 'pointer',
-              color: colors.textSecondary, padding: '6px',
-              borderRadius: '8px', display: 'flex',
+              color: colors.textSecondary, padding: '5px',
+              borderRadius: '6px', display: 'flex',
               alignItems: 'center', justifyContent: 'center',
             }}
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
-        <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1 }}>
+        <nav style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 }}>
           {menuGroups.map((group) => (
             <div key={group.label}>
               <p style={{
-                margin: '16px 0 6px', padding: '0 14px',
-                fontSize: '10.5px', fontWeight: '700', color: colors.textSubtle,
+                margin: '14px 0 4px', padding: '0 12px',
+                fontSize: '10px', fontWeight: '700', color: colors.textSubtle,
                 textTransform: 'uppercase', letterSpacing: '0.1em',
               }}>
                 {group.label}
@@ -147,7 +147,7 @@ export default function AdminSidebar({ expanded, onClose }) {
                     style={linkStyle}
                     onClick={onClose}
                   >
-                    <Icon size={18} strokeWidth={1.8} style={{ flexShrink: 0 }} />
+                    <Icon size={17} strokeWidth={1.8} style={{ flexShrink: 0 }} />
                     <span>{item.label}</span>
                   </NavLink>
                 );
@@ -157,18 +157,18 @@ export default function AdminSidebar({ expanded, onClose }) {
         </nav>
 
         <div style={{
-          marginTop: '16px', padding: '16px', borderRadius: '12px',
+          marginTop: '12px', padding: '14px', borderRadius: '10px',
           background: colors.bgHover,
           border: `1px solid ${colors.borderLight}`,
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '7px', marginBottom: '6px' }}>
             <div style={{
-              width: '8px', height: '8px', borderRadius: '50%',
+              width: '7px', height: '7px', borderRadius: '50%',
               background: colors.success, boxShadow: `0 0 6px ${colors.success}40`,
             }} />
-            <span style={{ fontSize: '12px', fontWeight: '600', color: colors.textSecondary }}>System Active</span>
+            <span style={{ fontSize: '11.5px', fontWeight: '600', color: colors.textSecondary }}>System Active</span>
           </div>
-          <p style={{ margin: 0, fontSize: '11.5px', color: colors.textSubtle, lineHeight: '1.5' }}>
+          <p style={{ margin: 0, fontSize: '11px', color: colors.textSubtle, lineHeight: '1.5' }}>
             All services running smoothly
           </p>
         </div>

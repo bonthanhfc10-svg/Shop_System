@@ -15,22 +15,22 @@ import {
 } from 'lucide-react';
 
 const heroCovers = [
-  { src: coverImg, alt: 'Kh-Shop - Your one-stop shop for everything' },
-  { src: coverImg1, alt: 'Kh-Shop featured collection 1' },
-  { src: coverImg2, alt: 'Kh-Shop featured collection 2' },
-  { src: coverImg3, alt: 'Kh-Shop featured collection 3' },
-  { src: coverImg4, alt: 'Kh-Shop featured collection 4' },
+  { src: coverImg, alt: 'Kh Shop - Quality Fashion' },
+  { src: coverImg1, alt: 'KH Shop featured collection 1' },
+  { src: coverImg2, alt: 'KH Shop featured collection 2' },
+  { src: coverImg3, alt: 'KH Shop featured collection 3' },
+  { src: coverImg4, alt: 'KH Shop featured collection 4' },
 ];
 
 const featuredProducts = [
-  { id: 1, name: 'Wireless Bluetooth Headphones', category: 'Electronics', price: 79.99, originalPrice: 99.99, rating: 4.5, reviews: 128, emoji: '🎧', badge: 'Best Seller' },
-  { id: 2, name: 'Smart Watch Pro', category: 'Electronics', price: 199.99, originalPrice: 249.99, rating: 4.8, reviews: 95, emoji: '⌚', badge: 'New' },
-  { id: 3, name: 'USB-C Hub Adapter', category: 'Accessories', price: 34.99, originalPrice: null, rating: 4.3, reviews: 67, emoji: '🔌', badge: null },
-  { id: 4, name: 'Laptop Stand Adjustable', category: 'Furniture', price: 45.99, originalPrice: 59.99, rating: 4.6, reviews: 43, emoji: '🖥️', badge: 'Sale' },
-  { id: 5, name: 'Wireless Mouse Ergonomic', category: 'Electronics', price: 39.99, originalPrice: null, rating: 4.4, reviews: 89, emoji: '🖱️', badge: null },
-  { id: 6, name: '4K Webcam HD', category: 'Electronics', price: 69.99, originalPrice: 89.99, rating: 4.7, reviews: 56, emoji: '📷', badge: 'Popular' },
-  { id: 7, name: 'Portable SSD 1TB', category: 'Accessories', price: 99.99, originalPrice: null, rating: 4.9, reviews: 201, emoji: '💾', badge: 'Top Rated' },
-  { id: 8, name: 'Mechanical Keyboard RGB', category: 'Electronics', price: 89.99, originalPrice: 119.99, rating: 4.5, reviews: 134, emoji: '⌨️', badge: 'Sale' },
+  { id: 1, name: 'Classic White T-Shirt', category: 'Shirts', sub: 'T-Shirts', price: 19.99, originalPrice: 29.99, rating: 4.7, reviews: 234, emoji: '👕', badge: 'Best Seller' },
+  { id: 2, name: 'Slim Fit Blue Jeans', category: 'Pants', sub: 'Jeans', price: 39.99, originalPrice: 54.99, rating: 4.8, reviews: 189, emoji: '👖', badge: 'New' },
+  { id: 3, name: 'White Running Sneakers', category: 'Shoes', sub: 'Sneakers', price: 59.99, originalPrice: null, rating: 4.6, reviews: 312, emoji: '👟', badge: null },
+  { id: 4, name: 'Polo Shirt Navy', category: 'Shirts', sub: 'Polo Shirts', price: 24.99, originalPrice: 34.99, rating: 4.5, reviews: 145, emoji: '👔', badge: 'Sale' },
+  { id: 5, name: 'Cargo Pants Olive', category: 'Pants', sub: 'Cargo Pants', price: 34.99, originalPrice: null, rating: 4.4, reviews: 98, emoji: '👖', badge: null },
+  { id: 6, name: 'Casual Canvas Shoes', category: 'Shoes', sub: 'Casual Shoes', price: 29.99, originalPrice: 44.99, rating: 4.7, reviews: 167, emoji: '👞', badge: 'Popular' },
+  { id: 7, name: 'Long Sleeve Flannel', category: 'Shirts', sub: 'Long Sleeve Shirts', price: 32.99, originalPrice: null, rating: 4.9, reviews: 89, emoji: '👕', badge: 'Top Rated' },
+  { id: 8, name: 'Summer Shorts Khaki', category: 'Pants', sub: 'Shorts', price: 22.99, originalPrice: 29.99, rating: 4.3, reviews: 201, emoji: '🩳', badge: 'Sale' },
 ];
 
 const features = [
@@ -41,18 +41,13 @@ const features = [
 ];
 
 const categories = [
-  { name: 'Fashion', emoji: '👗', subs: ['Men', 'Women', 'Kids'] },
-  { name: 'Shoes', emoji: '👟', subs: ['Sneakers', 'Sandals', 'Sports Shoes'] },
-  { name: 'Bags & Accessories', emoji: '👜', subs: ['Handbags', 'Backpacks', 'Watches', 'Jewelry'] },
-  { name: 'Beauty', emoji: '💄', subs: ['Skincare', 'Makeup', 'Perfume'] },
-  { name: 'Electronics', emoji: '📱', subs: ['Phones', 'Accessories', 'Gadgets'] },
-  { name: 'Home & Living', emoji: '🏠', subs: ['Decoration', 'Kitchen', 'Furniture'] },
-  { name: 'Gaming', emoji: '🎮', subs: ['Gaming Accessories', 'Consoles'] },
-  { name: 'Sale', emoji: '🔥', subs: [], sale: true },
+  { name: 'Shirts', emoji: '👕', subs: ['T-Shirts', 'Polo Shirts', 'Casual Shirts', 'Long Sleeve Shirts'] },
+  { name: 'Pants', emoji: '👖', subs: ['Jeans', 'Cargo Pants', 'Casual Pants', 'Shorts'] },
+  { name: 'Shoes', emoji: '👟', subs: ['Sneakers', 'Casual Shoes', 'Sandals', 'Sports Shoes'] },
 ];
 
 const newsTicker = [
-  { icon: Zap, text: 'New Season Collection is here — up to 50% off' },
+  { icon: Zap, text: 'New Season Collection is here — up to 40% off' },
   { icon: Truck, text: 'Free shipping on all orders over $50' },
   { icon: RotateCcw, text: '30-day easy returns, no questions asked' },
   { icon: Shield, text: '100% secure payments — KHQR, Visa & Mastercard' },
@@ -93,7 +88,7 @@ function ProductCard({ product, colors }) {
         </div>
         <div style={{ padding: '12px 14px' }}>
           <p style={{ margin: 0, fontSize: '11px', color: colors.textSubtle, fontWeight: '500' }}>
-            {product.category}
+            {product.sub || product.category}
           </p>
           <h3 style={{ margin: '4px 0 6px', fontSize: '14px', fontWeight: '600', color: colors.text, lineHeight: '1.3' }}>
             {product.name}
@@ -134,7 +129,6 @@ function ProductCard({ product, colors }) {
 }
 
 function CategoryCard({ cat, colors }) {
-  const isSale = Boolean(cat.sale);
   const navigate = useNavigate();
   const categoryPath = `/shop?category=${encodeURIComponent(cat.name)}`;
 
@@ -143,30 +137,30 @@ function CategoryCard({ cat, colors }) {
       onClick={() => navigate(categoryPath)}
       style={{
         padding: '14px', borderRadius: '12px', cursor: 'pointer',
-        background: isSale ? '#404040' : colors.bgCard,
-        border: `1px solid ${isSale ? 'transparent' : colors.border}`,
+        background: colors.bgCard,
+        border: `1px solid ${colors.border}`,
         transition: 'all 0.25s',
       }}
-      onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = isSale ? '0 12px 28px rgba(0,0,0,0.35)' : colors.shadowLg; }}
+      onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = colors.shadowLg; }}
       onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: cat.subs.length > 0 ? '12px' : '2px' }}>
         <div style={{
           width: '38px', height: '38px', borderRadius: '10px', flexShrink: 0,
-          background: isSale ? 'rgba(255,255,255,0.22)' : colors.bgBadge,
+          background: colors.bgBadge,
           display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '19px',
         }}>
           {cat.emoji}
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <p style={{ margin: 0, fontSize: '14px', fontWeight: '600', color: isSale ? '#fff' : colors.text }}>
+          <p style={{ margin: 0, fontSize: '14px', fontWeight: '600', color: colors.text }}>
             {cat.name}
           </p>
-          <p style={{ margin: '1px 0 0', fontSize: '11px', color: isSale ? 'rgba(255,255,255,0.9)' : colors.textMuted }}>
-            {isSale ? 'Limited-time deals inside' : `${cat.subs.length} collections`}
+          <p style={{ margin: '1px 0 0', fontSize: '11px', color: colors.textMuted }}>
+            {cat.subs.length} collections
           </p>
         </div>
-        <ChevronRight size={15} color={isSale ? '#fff' : colors.textSubtle} />
+        <ChevronRight size={15} color={colors.textSubtle} />
       </div>
       {cat.subs.length > 0 && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
@@ -178,16 +172,16 @@ function CategoryCard({ cat, colors }) {
               style={{
                 textDecoration: 'none', fontSize: '11px', fontWeight: '500',
                 padding: '4px 10px', borderRadius: '999px',
-                background: isSale ? 'rgba(255,255,255,0.18)' : colors.bgBadge,
-                border: `1px solid ${isSale ? 'rgba(255,255,255,0.35)' : colors.border}`,
-                color: isSale ? '#fff' : colors.textMuted,
+                background: colors.bgBadge,
+                border: `1px solid ${colors.border}`,
+                color: colors.textMuted,
                 transition: 'all 0.15s',
               }}
                 onMouseEnter={(e) => {
-                  if (isSale) { e.currentTarget.style.background = 'rgba(255,255,255,0.32)'; } else { e.currentTarget.style.color = colors.accent; e.currentTarget.style.borderColor = colors.accentLight; }
+                  e.currentTarget.style.color = colors.accent; e.currentTarget.style.borderColor = colors.accentLight;
                 }}
                 onMouseLeave={(e) => {
-                  if (isSale) { e.currentTarget.style.background = 'rgba(255,255,255,0.18)'; } else { e.currentTarget.style.color = colors.textMuted; e.currentTarget.style.borderColor = colors.border; }
+                  e.currentTarget.style.color = colors.textMuted; e.currentTarget.style.borderColor = colors.border;
                 }}
             >
               {sub}
@@ -215,129 +209,83 @@ export default function Home() {
   return (
     <div>
       <section
-        className="news-ticker"
+        className="news-ticker flex items-stretch overflow-hidden"
         style={{
           background: '#0a0a0a',
           borderBottom: '1px solid rgba(255,255,255,0.08)',
-          display: 'flex', alignItems: 'stretch', overflow: 'hidden',
         }}
       >
-        <div style={{
-          flexShrink: 0, zIndex: 2, display: 'flex', alignItems: 'center', gap: '6px',
-          padding: '8px 16px',
-          background: '#000000',
-          color: '#fff', fontSize: '11px', fontWeight: '700',
-          letterSpacing: '0.1em', textTransform: 'uppercase',
-          clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%)',
-          paddingRight: '24px',
-        }}>
+        <div
+          className="shrink-0 z-[2] flex items-center gap-1.5 px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-white"
+          style={{
+            background: '#000000',
+            clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%)',
+            paddingRight: '24px',
+          }}
+        >
           <Newspaper size={13} /> Latest
         </div>
-        <div style={{ position: 'relative', flex: 1, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
+        <div className="relative flex-1 overflow-hidden flex items-center">
           <div className="news-ticker-track">
             {[...newsTicker, ...newsTicker].map((item, i) => (
-              <span key={i} style={{
-                display: 'inline-flex', alignItems: 'center', gap: '7px',
-                padding: '8px 0', margin: '0 24px', whiteSpace: 'nowrap',
-                fontSize: '12px', color: 'rgba(255,255,255,0.85)',
-              }}>
+              <span key={i} className="inline-flex items-center gap-1.5 whitespace-nowrap text-xs px-0 py-2 mx-6" style={{ color: 'rgba(255,255,255,0.85)' }}>
                 <item.icon size={13} color="#fafafa" />
                 {item.text}
               </span>
             ))}
           </div>
-          <div style={{
-            position: 'absolute', top: 0, bottom: 0, left: 0, width: '32px',
-            background: 'linear-gradient(90deg, #0a0a0a 20%, transparent)', pointerEvents: 'none',
-          }} />
-          <div style={{
-            position: 'absolute', top: 0, bottom: 0, right: 0, width: '32px',
-            background: 'linear-gradient(270deg, #0a0a0a 20%, transparent)', pointerEvents: 'none',
-          }} />
+          <div className="absolute top-0 bottom-0 left-0 w-8 pointer-events-none" style={{ background: 'linear-gradient(90deg, #0a0a0a 20%, transparent)' }} />
+          <div className="absolute top-0 bottom-0 right-0 w-8 pointer-events-none" style={{ background: 'linear-gradient(270deg, #0a0a0a 20%, transparent)' }} />
         </div>
       </section>
 
-      <section style={{
-        background: `linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.55)), url(${bannerImg}) center / cover no-repeat`,
-        padding: 'clamp(34px, 5vw, 60px) clamp(16px, 3vw, 32px)',
-        position: 'relative', overflow: 'hidden',
-      }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '40px' }}>
-          <div style={{ maxWidth: '600px' }}>
-            <span style={{
-              display: 'inline-flex', alignItems: 'center', gap: '6px',
-              padding: '5px 12px', borderRadius: '20px',
-              background: 'rgba(255,255,255,0.12)', color: '#fafafa',
-              fontSize: '12px', fontWeight: '600', marginBottom: '14px',
-              backdropFilter: 'blur(8px)',
-            }}>
+      <section
+        className="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16"
+        style={{
+          background: `linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.55)), url(${bannerImg}) center / cover no-repeat`,
+        }}
+      >
+        <div className="max-w-[1280px] mx-auto relative z-[1] flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10">
+          <div className="w-full lg:max-w-[600px] text-center lg:text-left">
+            <span
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-3 sm:mb-4"
+              style={{ background: 'rgba(255,255,255,0.12)', color: '#fafafa', backdropFilter: 'blur(8px)' }}
+            >
               <Zap size={13} /> New Season Collection
             </span>
-            <h1 style={{
-              margin: 0, fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: '800',
-              color: '#fff', lineHeight: '1.1', letterSpacing: '-0.03em',
-            }}>
-              Discover the<br />
+            <h1 className="m-0 font-extrabold text-white leading-[1.1] tracking-tight text-[22px] sm:text-[30px] lg:text-[40px]">
+              Discover the{' '}
               <span style={{ background: 'linear-gradient(90deg, #ffffff 0%, #d4d4d4 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Best Deals
               </span>
             </h1>
-            <p style={{
-              margin: '14px 0 24px', fontSize: 'clamp(13px, 1.6vw, 15px)',
-              color: 'rgba(255,255,255,0.8)', lineHeight: '1.6', maxWidth: '480px',
-            }}>
-              Shop the latest electronics, accessories, and more at unbeatable prices. Quality products delivered to your doorstep.
+            <p className="m-0 mt-3 sm:mt-4 mb-4 sm:mb-6 max-w-[480px] mx-auto lg:mx-0 text-xs sm:text-sm lg:text-[15px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
+              Shop the latest shirts, pants, and shoes at unbeatable prices. Quality fashion delivered to your doorstep.
             </p>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <Link to="/shop" style={{
-                display: 'inline-flex', alignItems: 'center', gap: '7px',
-                padding: '11px 22px', borderRadius: '10px',
-                background: '#fff', color: '#0a0a0a',
-                fontSize: '13px', fontWeight: '700', textDecoration: 'none',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-                transition: 'all 0.25s',
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(0,0,0,0.2)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)'; }}
-              >
+            <div className="flex gap-2.5 justify-center lg:justify-start flex-wrap">
+              <Link to="/shop" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] bg-white text-[#0a0a0a] text-[13px] font-bold no-underline shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(0,0,0,0.2)]">
                 Shop Now <ArrowRight size={16} />
               </Link>
-              <Link to="/shop" style={{
-                display: 'inline-flex', alignItems: 'center', gap: '7px',
-                padding: '11px 22px', borderRadius: '10px',
-                background: 'rgba(255,255,255,0.12)', color: '#fff',
-                fontSize: '13px', fontWeight: '600', textDecoration: 'none',
-                border: '1px solid rgba(255,255,255,0.2)',
-                backdropFilter: 'blur(8px)',
-                transition: 'all 0.25s',
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; }}
-              >
+              <Link to="/shop" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-white text-[13px] font-semibold no-underline border border-white/20 backdrop-blur-sm transition-all hover:bg-white/20" style={{ background: 'rgba(255,255,255,0.12)' }}>
                 View Categories
               </Link>
             </div>
           </div>
+
+          {/* Cover carousel */}
           <div
-            className="hide-mobile"
-            style={{ width: '380px', maxWidth: '36%', flexShrink: 0 }}
+            className="w-full max-w-[340px] sm:max-w-[380px] lg:max-w-none lg:w-[36%] shrink-0"
             onMouseEnter={() => setCoverPaused(true)}
             onMouseLeave={() => setCoverPaused(false)}
           >
-            <div style={{
-              position: 'relative', width: '100%', borderRadius: '16px', overflow: 'hidden',
-              border: '1px solid rgba(255,255,255,0.25)',
-              boxShadow: '0 20px 48px rgba(0,0,0,0.35)',
-              aspectRatio: '16 / 10', background: 'rgba(255,255,255,0.08)',
-            }}>
+            <div className="relative w-full rounded-2xl overflow-hidden border border-white/25 shadow-[0_20px_48px_rgba(0,0,0,0.35)] bg-white/5" style={{ aspectRatio: '16 / 10' }}>
               {heroCovers.map((cover, i) => (
                 <img
                   key={cover.src}
                   src={cover.src}
                   alt={i === activeCover ? cover.alt : ''}
+                  className="absolute inset-0 w-full h-full object-cover"
                   style={{
-                    position: 'absolute', inset: 0, width: '100%', height: '100%',
-                    objectFit: 'cover',
                     opacity: i === activeCover ? 1 : 0,
                     transform: i === activeCover ? 'scale(1)' : 'scale(1.06)',
                     transition: 'opacity 0.6s ease, transform 1.4s ease',
@@ -345,21 +293,19 @@ export default function Home() {
                   }}
                 />
               ))}
-              <div style={{
-                position: 'absolute', bottom: '10px', left: 0, right: 0,
-                display: 'flex', justifyContent: 'center', gap: '5px',
-              }}>
+              <div className="absolute bottom-2.5 left-0 right-0 flex justify-center gap-1.5">
                 {heroCovers.map((cover, i) => (
                   <button
                     key={cover.src}
                     onClick={() => setActiveCover(i)}
                     aria-label={`Go to cover ${i + 1}`}
+                    className="border-none cursor-pointer transition-all"
                     style={{
-                      width: i === activeCover ? '16px' : '7px',
-                      height: '7px', borderRadius: '7px', border: 'none',
-                      padding: 0, cursor: 'pointer',
+                      width: i === activeCover ? '18px' : '8px',
+                      height: '8px',
+                      borderRadius: '8px',
+                      padding: 0,
                       background: i === activeCover ? '#fff' : 'rgba(255,255,255,0.45)',
-                      transition: 'all 0.25s',
                     }}
                   />
                 ))}
@@ -367,35 +313,25 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div style={{ position: 'absolute', bottom: '-80px', right: '200px', width: '250px', height: '250px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)' }} />
+
+        <div className="absolute -bottom-20 right-[200px] w-[250px] h-[250px] rounded-full bg-white/5" />
       </section>
 
-      <section style={{
-        maxWidth: '1280px', margin: '0 auto', padding: '32px clamp(16px, 3vw, 32px)',
-      }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '12px' }}>
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {features.map((f) => {
             const Icon = f.icon;
             return (
-              <div key={f.title} style={{
-                display: 'flex', alignItems: 'center', gap: '12px',
-                padding: '14px', borderRadius: '12px',
-                background: colors.bgCard, border: `1px solid ${colors.border}`,
-                transition: 'all 0.25s',
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = colors.shadowMd; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+              <div key={f.title} className="flex items-center gap-3 p-3.5 rounded-xl transition-all hover:-translate-y-0.5" style={{ background: colors.bgCard, border: `1px solid ${colors.border}` }}
+                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = colors.shadowMd; }}
+                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none'; }}
               >
-                <div style={{
-                  width: '38px', height: '38px', borderRadius: '10px',
-                  background: f.gradient, display: 'flex',
-                  alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                }}>
+                <div className="w-[38px] h-[38px] rounded-[10px] flex items-center justify-center shrink-0" style={{ background: f.gradient }}>
                   <Icon size={18} color="#fff" />
                 </div>
                 <div>
-                  <p style={{ margin: 0, fontSize: '13px', fontWeight: '600', color: colors.text }}>{f.title}</p>
-                  <p style={{ margin: '1px 0 0', fontSize: '11px', color: colors.textMuted }}>{f.desc}</p>
+                  <p className="m-0 text-[13px] font-semibold" style={{ color: colors.text }}>{f.title}</p>
+                  <p className="m-0 mt-px text-[11px]" style={{ color: colors.textMuted }}>{f.desc}</p>
                 </div>
               </div>
             );
@@ -403,96 +339,57 @@ export default function Home() {
         </div>
       </section>
 
-      <section style={{
-        maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(16px, 3vw, 32px) 36px',
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pb-9">
+        <div className="flex justify-between items-center mb-4 sm:mb-5">
           <div>
-            <h2 style={{ margin: 0, fontSize: '20px', fontWeight: '700', color: colors.text }}>Browse Categories</h2>
-            <p style={{ margin: '4px 0 0', fontSize: '13px', color: colors.textMuted }}>Find what you need</p>
+            <h2 className="m-0 text-lg sm:text-xl font-bold" style={{ color: colors.text }}>Browse Categories</h2>
+            <p className="m-1 0 0 text-[13px]" style={{ color: colors.textMuted }}>Find what you need</p>
           </div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '12px' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {categories.map((cat) => (
             <CategoryCard key={cat.name} cat={cat} colors={colors} />
           ))}
         </div>
       </section>
 
-      <section style={{
-        maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(16px, 3vw, 32px) 36px',
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pb-9">
+        <div className="flex justify-between items-center mb-4 sm:mb-5">
           <div>
-            <h2 style={{ margin: 0, fontSize: '20px', fontWeight: '700', color: colors.text }}>Featured Products</h2>
-            <p style={{ margin: '4px 0 0', fontSize: '13px', color: colors.textMuted }}>Hand-picked for you</p>
+            <h2 className="m-0 text-lg sm:text-xl font-bold" style={{ color: colors.text }}>Featured Products</h2>
+            <p className="m-1 0 0 text-[13px]" style={{ color: colors.textMuted }}>Hand-picked for you</p>
           </div>
-          <Link to="/shop" style={{
-            display: 'inline-flex', alignItems: 'center', gap: '5px',
-            fontSize: '13px', fontWeight: '600', color: colors.accent,
-            textDecoration: 'none', transition: 'opacity 0.15s',
-          }}
-            onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.8'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
-          >
+          <Link to="/shop" className="inline-flex items-center gap-1 text-[13px] font-semibold no-underline transition-opacity hover:opacity-80" style={{ color: colors.accent }}>
             View All <ChevronRight size={15} />
           </Link>
         </div>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))',
-          gap: '14px',
-        }}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-3.5">
           {featuredProducts.slice(0, 8).map((p) => (
             <ProductCard key={p.id} product={p} colors={colors} />
           ))}
         </div>
       </section>
 
-      <section style={{
-        maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(16px, 3vw, 32px) 40px',
-      }}>
-        <div style={{
-          background: '#000000',
-          borderRadius: '16px', padding: 'clamp(24px, 4vw, 40px)',
-          textAlign: 'center', position: 'relative', overflow: 'hidden',
-        }}>
-          <div style={{ position: 'relative', zIndex: 1 }}>
-            <h2 style={{ margin: 0, fontSize: 'clamp(20px, 3.2vw, 28px)', fontWeight: '800', color: '#fff', letterSpacing: '-0.02em' }}>
-              Join Our Newsletter
-            </h2>
-            <p style={{ margin: '10px auto 22px', fontSize: '13px', color: 'rgba(255,255,255,0.85)', maxWidth: '460px' }}>
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+        <div className="bg-[#000000] rounded-2xl p-6 sm:p-8 lg:p-10 text-center relative overflow-hidden">
+          <div className="relative z-[1]">
+            <h2 className="m-0 text-xl sm:text-[28px] font-extrabold text-white tracking-tight">Join Our Newsletter</h2>
+            <p className="m-2.5 auto 5.5 text-[13px] max-w-[460px]" style={{ color: 'rgba(255,255,255,0.85)' }}>
               Subscribe to get exclusive offers, new arrivals, and insider-only discounts.
             </p>
-            <div style={{
-              display: 'flex', gap: '8px', maxWidth: '420px', margin: '0 auto',
-              flexWrap: 'wrap', justifyContent: 'center',
-            }}>
+            <div className="flex gap-2 max-w-[420px] mx-auto flex-wrap justify-center">
               <input
                 type="email"
                 placeholder="Enter your email"
-                style={{
-                  flex: '1 1 240px', padding: '11px 15px', borderRadius: '10px',
-                  border: '1px solid rgba(255,255,255,0.25)', background: 'rgba(255,255,255,0.15)',
-                  color: '#fff', fontSize: '13px', outline: 'none',
-                  backdropFilter: 'blur(8px)',
-                }}
+                className="flex-[1_1_240px] px-4 py-2.5 rounded-[10px] border border-white/25 bg-white/15 text-white text-[13px] outline-none backdrop-blur-sm"
               />
-              <button style={{
-                padding: '11px 22px', borderRadius: '10px', border: 'none',
-                background: '#fff', color: '#0a0a0a',
-                fontSize: '13px', fontWeight: '700', cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
-              >
+              <button className="px-5 py-2.5 rounded-[10px] border-none bg-white text-[#0a0a0a] text-[13px] font-bold cursor-pointer transition-all hover:-translate-y-0.5">
                 Subscribe
               </button>
             </div>
           </div>
-          <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '160px', height: '160px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }} />
-          <div style={{ position: 'absolute', bottom: '-40px', left: '-40px', width: '120px', height: '120px', borderRadius: '50%', background: 'rgba(255,255,255,0.06)' }} />
+          <div className="absolute -top-15 -right-15 w-40 h-40 rounded-full bg-white/5" />
+          <div className="absolute -bottom-10 -left-10 w-[120px] h-[120px] rounded-full bg-white/5" />
         </div>
       </section>
     </div>
