@@ -3,6 +3,7 @@ import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
 import { ThemeProvider } from './context/ThemeContext';
+import { StorefrontProvider } from './context/StorefrontContext';
 import AppRoutes from './routes/AppRoutes';
 
 export default function App() {
@@ -11,9 +12,11 @@ export default function App() {
       <AuthProvider>
         <CartProvider>
           <WishlistProvider>
-            <BrowserRouter>
-              <AppRoutes />
-            </BrowserRouter>
+            <StorefrontProvider>
+              <BrowserRouter>
+                <AppRoutes />
+              </BrowserRouter>
+            </StorefrontProvider>
           </WishlistProvider>
         </CartProvider>
       </AuthProvider>

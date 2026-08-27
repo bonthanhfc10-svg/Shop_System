@@ -1,6 +1,13 @@
 @import "tailwindcss";
 
 @theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --color-ink: #111111;
+  --color-paper: #ffffff;
+  --color-mist: #F5F5F5;
+  --color-muted: #6B6B6B;
+  --color-volt: #B6FF2E;
+  --color-volt-dark: #9FEB14;
   --color-bg: var(--bg);
   --color-bg-card: var(--bgCard);
   --color-bg-hover: var(--bgHover);
@@ -261,3 +268,58 @@ input:focus, textarea:focus, select:focus {
     padding: 12px !important;
   }
 }
+
+
+/* ============================================
+   VIBE STOREFRONT UTILITIES
+   ============================================ */
+
+@keyframes vibeFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vibeFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes vibeSlideRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes vibeSlideLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes vibeZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.vibe-fade-up { animation: vibeFadeUp 0.5s ease both; }
+.vibe-fade { animation: vibeFade 0.3s ease both; }
+.vibe-slide-right { animation: vibeSlideRight 0.35s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.vibe-slide-left { animation: vibeSlideLeft 0.3s ease both; }
+
+/* Hide scrollbar for horizontal scrollers */
+.vibe-no-scrollbar::-webkit-scrollbar { display: none; }
+.vibe-no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Line clamp helper */
+.vibe-line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Accessible focus ring for the storefront */
+.vibe-focus:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 2px;
+}
+
+body.vibe-lock { overflow: hidden; }

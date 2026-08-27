@@ -1,14 +1,23 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../hooks/useTheme';
-import { Store } from 'lucide-react';
+import { Store, Truck, RefreshCcw, ShieldCheck, Headphones, ArrowUpRight } from 'lucide-react';
 
-function SocialIcon({ path, size = 14 }) {
+const gradient = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+
+function SocialIcon({ path, size = 15 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d={path} />
     </svg>
   );
 }
+
+const features = [
+  { icon: Truck, title: 'Free Shipping', desc: 'On orders over $50' },
+  { icon: RefreshCcw, title: 'Easy Returns', desc: '30-day return policy' },
+  { icon: ShieldCheck, title: 'Secure Payment', desc: '100% protected checkout' },
+  { icon: Headphones, title: '24/7 Support', desc: 'Always here to help' },
+];
 
 const footerLinks = [
   {
@@ -63,74 +72,105 @@ export default function Footer() {
 
   return (
     <footer className="mt-8 sm:mt-10" style={{ background: colors.bgSidebar }}>
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
-        {/* Brand */}
-        <div className="mb-4 sm:mb-5">
-          <Link to="/" className="inline-flex items-center gap-2 no-underline">
-            <div
-              className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
-              style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
-            >
-              <Store size={14} color="#fff" />
-            </div>
-            <span className="text-sm font-bold" style={{ color: colors.text }}>KH Shop</span>
-          </Link>
-          <p
-            className="text-[11px] leading-relaxed mt-2 max-w-[320px]"
-            style={{ color: colors.textMuted }}
-          >
-            Quality fashion at unbeatable prices with fast delivery.
-          </p>
-          <div className="flex gap-1.5 mt-2.5">
-            {socials.map((social) => (
-              <a
-                key={social.label}
-                href="#"
-                aria-label={social.label}
-                title={social.label}
-                onClick={(e) => e.preventDefault()}
-                className="w-7 h-7 rounded-md flex items-center justify-center no-underline transition-all duration-200 hover:scale-110"
-                style={{
-                  background: colors.bgAccent,
-                  color: colors.textMuted,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-                  e.currentTarget.style.color = '#ffffff';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = colors.bgAccent;
-                  e.currentTarget.style.color = colors.textMuted;
-                }}
+      {/* Feature Strip */}
+      <div className="border-b" style={{ borderColor: colors.borderLight }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0" style={{ borderColor: colors.borderLight }}>
+            {features.map((feature) => (
+              <div
+                key={feature.title}
+                className="flex items-center gap-2 px-2.5 sm:px-4 py-2.5 sm:py-3"
+                style={{ borderColor: colors.borderLight }}
               >
-                <SocialIcon path={social.path} />
-              </a>
+                <div
+                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center shrink-0 text-white"
+                  style={{ background: gradient, boxShadow: '0 2px 8px rgba(102, 126, 234, 0.3)' }}
+                >
+                  <feature.icon size={13} />
+                </div>
+                <div className="min-w-0">
+                  <p className="m-0 text-[10px] sm:text-[11px] font-bold leading-tight whitespace-nowrap" style={{ color: colors.text }}>
+                    {feature.title}
+                  </p>
+                  <p className="m-0 text-[9px] leading-tight hidden sm:block" style={{ color: colors.textMuted }}>
+                    {feature.desc}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Link Columns - always 3 columns */}
-        <div className="grid grid-cols-3 gap-3 sm:gap-5 lg:gap-8">
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr] gap-4 sm:gap-6">
+          {/* Brand */}
+          <div>
+            <Link to="/" className="inline-flex items-center gap-2 no-underline">
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 text-white" style={{ background: gradient, boxShadow: '0 2px 8px rgba(102, 126, 234, 0.35)' }}>
+                <Store size={14} color="#fff" />
+              </div>
+              <span className="text-[14px] font-bold tracking-tight" style={{ color: colors.text }}>KH Shop</span>
+            </Link>
+            <p className="text-[10.5px] leading-relaxed mt-2 max-w-[300px]" style={{ color: colors.textMuted }}>
+              Quality fashion at unbeatable prices with fast delivery. Shop the latest trends and enjoy a seamless experience.
+            </p>
+
+            <div className="flex items-center gap-1.5 mt-2.5">
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href="#"
+                  aria-label={social.label}
+                  title={social.label}
+                  onClick={(e) => e.preventDefault()}
+                  className="w-7 h-7 rounded-md flex items-center justify-center no-underline transition-all duration-200 hover:-translate-y-0.5"
+                  style={{
+                    background: colors.bgAccent,
+                    color: colors.textMuted,
+                    border: `1px solid ${colors.border}`,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = gradient;
+                    e.currentTarget.style.color = '#ffffff';
+                    e.currentTarget.style.borderColor = 'transparent';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(102, 126, 234, 0.35)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = colors.bgAccent;
+                    e.currentTarget.style.color = colors.textMuted;
+                    e.currentTarget.style.borderColor = colors.border;
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
+                  <SocialIcon path={social.path} size={13} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Link Columns */}
           {footerLinks.map((column) => (
             <div key={column.title}>
-              <h4
-                className="text-[9px] sm:text-[10px] font-bold tracking-widest uppercase m-0 mb-1.5 sm:mb-2.5"
-                style={{ color: colors.textSecondary }}
-              >
+              <h4 className="text-[9px] font-bold tracking-widest uppercase m-0 mb-2" style={{ color: colors.textSecondary }}>
                 {column.title}
               </h4>
-              <ul className="list-none m-0 p-0 flex flex-col gap-1 sm:gap-1.5">
+              <ul className="list-none m-0 p-0 flex flex-col gap-1.5">
                 {column.links.map((link) => (
                   <li key={link.path}>
                     <Link
                       to={link.path}
-                      className="text-[10px] sm:text-[11px] no-underline transition-colors duration-200"
+                      className="group inline-flex items-center gap-1 text-[10.5px] no-underline transition-all duration-200"
                       style={{ color: colors.textMuted }}
                       onMouseEnter={(e) => { e.currentTarget.style.color = '#667eea'; }}
                       onMouseLeave={(e) => { e.currentTarget.style.color = colors.textMuted; }}
                     >
-                      {link.label}
+                      <span>{link.label}</span>
+                      <ArrowUpRight
+                        size={11}
+                        className="opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      />
                     </Link>
                   </li>
                 ))}
@@ -142,20 +182,30 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t" style={{ borderColor: colors.border }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
-            <p className="text-[10px] sm:text-[11px] m-0 text-center sm:text-left" style={{ color: colors.textSubtle }}>
+            <p className="text-[10px] sm:text-[10.5px] m-0 text-center sm:text-left" style={{ color: colors.textSubtle }}>
               &copy; {new Date().getFullYear()} KH Shop. All rights reserved.
             </p>
-            <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center">
+            <div className="flex items-center gap-1.5 flex-wrap justify-center">
               {payments.map((payment) => (
                 <span
                   key={payment}
-                  className="text-[10px] sm:text-[11px] font-medium rounded py-0.5 px-1.5 sm:px-2"
+                  className="text-[9px] sm:text-[10px] font-medium rounded py-0.5 px-1.5 sm:px-2 transition-all duration-200 hover:-translate-y-0.5"
                   style={{
                     color: colors.textMuted,
                     background: colors.bgAccent,
                     border: `1px solid ${colors.border}`,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = gradient;
+                    e.currentTarget.style.color = '#ffffff';
+                    e.currentTarget.style.borderColor = 'transparent';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = colors.bgAccent;
+                    e.currentTarget.style.color = colors.textMuted;
+                    e.currentTarget.style.borderColor = colors.border;
                   }}
                 >
                   {payment}
