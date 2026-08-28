@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 
 export function useProductFilters(initialCategory = 'ALL') {
   const [activeCategory, setActiveCategory] = useState(initialCategory);

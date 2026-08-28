@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import {
   ChevronRight,
   ArrowRight,
-  Sparkles,
 } from 'lucide-react';
 import { products } from '../../data/products';
 import bannerImg from '../../assets/images/Banner.png';
@@ -44,41 +43,12 @@ export default function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative bg-ink text-white overflow-hidden">
+      <section className="relative bg-ink overflow-hidden">
         <img
           src={HERO_IMAGE}
           alt="VIBE new season collection"
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
+          className="w-full h-auto object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
-        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-24 lg:py-40">
-          <div className="max-w-xl vibe-fade-up">
-            <p className="inline-flex items-center gap-2 text-[13px] font-bold tracking-[0.25em] uppercase bg-volt text-ink px-4 py-2 rounded-full mb-6">
-              <Sparkles size={14} />
-              New Season
-            </p>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.95] tracking-tight">
-              Move With
-              <br />
-              Your <span className="text-volt">VIBE</span>
-            </h1>
-            <p className="mt-6 text-white/80 text-base sm:text-lg max-w-md">
-              Discover the latest collection designed for everyday movement.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/category/men">
-                <Button variant="accent" size="lg">
-                  Shop Men
-                </Button>
-              </Link>
-              <Link to="/category/women">
-                <Button variant="ghost" size="lg" className="!bg-white/10 !text-white hover:!bg-white/20">
-                  Shop Women
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* SHOP BY CATEGORY */}

@@ -4,7 +4,7 @@ import { useTheme } from '../../hooks/useTheme';
 import {
   Plus, Edit2, Trash2, Ticket, Copy, BarChart3,
   Calendar, Tag, Percent, DollarSign, Truck, X,
-  CheckCircle2, Clock, ChevronDown,
+  CheckCircle2, Clock,
 } from 'lucide-react';
 
 const couponsData = [
@@ -364,7 +364,6 @@ export default function Coupons() {
   const { colors } = useTheme();
   const [coupons, setCoupons] = useState(couponsData);
   const [filter, setFilter] = useState('all');
-  const [showFilter, setShowFilter] = useState(false);
 
   const filteredCoupons = coupons.filter((c) => {
     if (filter === 'all') return true;

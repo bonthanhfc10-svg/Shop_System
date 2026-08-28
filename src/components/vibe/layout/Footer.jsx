@@ -58,8 +58,8 @@ export default function Footer() {
   return (
     <footer className="bg-ink text-white">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-14 lg:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
-          <div className="col-span-2 md:col-span-4 lg:col-span-2">
+        <div className="lg:grid lg:grid-cols-5 gap-10">
+          <div className="mb-10 lg:mb-0 lg:col-span-2">
             <span className="font-black text-3xl tracking-tight">VIBE</span>
             <p className="mt-4 max-w-xs text-white/60 text-sm leading-relaxed">
               Modern fashion designed for everyday movement. Premium essentials that move with your vibe.
@@ -80,25 +80,27 @@ export default function Footer() {
             </div>
           </div>
 
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h4 className="text-[12px] font-bold tracking-[0.15em] text-white/80 mb-5">
-                {col.title}
-              </h4>
-              <ul className="space-y-3">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      to={link.to}
-                      className="text-white/60 hover:text-white text-sm transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="grid grid-cols-3 gap-10 lg:col-span-3">
+            {columns.map((col) => (
+              <div key={col.title}>
+                <h4 className="text-[12px] font-bold tracking-[0.15em] text-white/80 mb-5">
+                  {col.title}
+                </h4>
+                <ul className="space-y-3">
+                  {col.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        to={link.to}
+                        className="text-white/60 hover:text-white text-sm transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">

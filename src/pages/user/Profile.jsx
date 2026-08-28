@@ -5,7 +5,7 @@ import { useAuth } from '../../hooks/useAuth';
 import {
   User, Mail, Phone, Lock, Camera, Save, Edit3,
   Shield, Calendar, MapPin, CreditCard, Package,
-  ChevronRight, CheckCircle2, Heart, Tag, Star, Bell,
+  CheckCircle2, Heart, Tag, Star, Bell,
   ShoppingBag, LogOut, ExternalLink,
 } from 'lucide-react';
 

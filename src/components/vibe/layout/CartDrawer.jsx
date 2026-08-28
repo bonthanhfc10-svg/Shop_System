@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { X, Plus, Minus, Trash2 } from 'lucide-react';
 import { useCart } from '../../../hooks/useCart';
 import { useStorefront } from '../../../context/StorefrontContext';

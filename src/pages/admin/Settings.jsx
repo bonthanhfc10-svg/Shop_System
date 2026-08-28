@@ -3,7 +3,7 @@ import { useTheme } from '../../hooks/useTheme';
 import {
   Store, DollarSign, Bell, Shield, Save, MapPin, Globe,
   Mail, Phone, Building, ChevronDown, Check, AlertTriangle,
-  Lock, Clock, KeyRound, ShieldCheck,
+  Clock, KeyRound, ShieldCheck,
 } from 'lucide-react';
 
 const currencies = [
@@ -178,60 +178,6 @@ function TextInput({ value, onChange, placeholder, icon: Icon, type = 'text', di
   );
 }
 
-function SelectInput({ value, onChange, options, icon: Icon }) {
-  const { colors } = useTheme();
-  return (
-    <div style={{ position: 'relative' }}>
-      {Icon && (
-        <div style={{
-          position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)',
-          display: 'flex', alignItems: 'center', pointerEvents: 'none', zIndex: 1,
-        }}>
-          <Icon size={16} color={colors.textSubtle} />
-        </div>
-      )}
-      <select
-        value={value}
-        onChange={onChange}
-        style={{
-          width: '100%',
-          padding: Icon ? '10px 38px 10px 38px' : '10px 38px 10px 14px',
-          borderRadius: '10px',
-          border: `1px solid ${colors.borderInput}`,
-          background: colors.bgInput,
-          color: colors.text,
-          fontSize: '13.5px',
-          fontWeight: '400',
-          outline: 'none',
-          appearance: 'none',
-          WebkitAppearance: 'none',
-          cursor: 'pointer',
-          boxSizing: 'border-box',
-          transition: 'border-color 0.2s, box-shadow 0.2s',
-        }}
-        onFocus={(e) => {
-          e.target.style.borderColor = colors.accent;
-          e.target.style.boxShadow = `0 0 0 3px ${colors.accent}22`;
-        }}
-        onBlur={(e) => {
-          e.target.style.borderColor = colors.borderInput;
-          e.target.style.boxShadow = 'none';
-        }}
-      >
-        {options.map((opt) => (
-          <option key={opt.value} value={opt.value}>{opt.label}</option>
-        ))}
-      </select>
-      <div style={{
-        position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)',
-        display: 'flex', alignItems: 'center', pointerEvents: 'none',
-      }}>
-        <ChevronDown size={16} color={colors.textSubtle} />
-      </div>
-    </div>
-  );
-}
-
 function SaveButton({ onClick, saving }) {
   const { colors } = useTheme();
   return (
@@ -302,19 +248,6 @@ export default function Settings() {
   const handleSave = (section) => {
     setSaving(section);
     setTimeout(() => setSaving(null), 1200);
-  };
-
-  const inputStyle = {
-    width: '100%',
-    padding: '10px 14px',
-    borderRadius: '10px',
-    border: `1px solid ${colors.borderInput}`,
-    background: colors.bgInput,
-    color: colors.text,
-    fontSize: '13.5px',
-    outline: 'none',
-    transition: 'border-color 0.2s, box-shadow 0.2s',
-    boxSizing: 'border-box',
   };
 
   return (

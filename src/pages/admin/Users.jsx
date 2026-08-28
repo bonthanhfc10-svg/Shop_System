@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '../../hooks/useTheme';
 import {
   Users as UsersIcon, UserCheck, UserPlus, Shield,
-  Search, Plus, Edit2, Ban, ChevronRight, MoreHorizontal,
+  Search, Plus, Edit2, Ban,
 } from 'lucide-react';
 
 const statsCards = [

@@ -48,6 +48,7 @@ export default function Navbar() {
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         <div className="flex items-center justify-between h-16 lg:h-20">
+
           {/* Left: mobile menu + logo */}
           <div className="flex items-center gap-3 lg:gap-10">
             <IconButton label="Open menu" onClick={() => setMenuOpen(true)} className="lg:hidden -ml-2">
@@ -121,6 +122,19 @@ export default function Navbar() {
               )}
             </IconButton>
           </div>
+        </div>
+      </div>
+
+      <div className="news-ticker overflow-hidden border-t border-mist bg-ink">
+        <div className="news-ticker-track items-center py-2">
+          <span className="text-[11px] sm:text-xs font-semibold tracking-widest text-white/70 uppercase mx-8">Free shipping on orders over $100</span>
+          <span className="text-[11px] sm:text-xs font-semibold tracking-widest text-white/70 uppercase mx-8">New arrivals every week</span>
+          <span className="text-[11px] sm:text-xs font-semibold tracking-widest text-white/70 uppercase mx-8">Use code VIBE10 for 10% off</span>
+          <span className="text-[11px] sm:text-xs font-semibold tracking-widest text-white/70 uppercase mx-8">Free returns within 30 days</span>
+          <span className="text-[11px] sm:text-xs font-semibold tracking-widest text-white/70 uppercase mx-8">Free shipping on orders over $100</span>
+          <span className="text-[11px] sm:text-xs font-semibold tracking-widest text-white/70 uppercase mx-8">New arrivals every week</span>
+          <span className="text-[11px] sm:text-xs font-semibold tracking-widest text-white/70 uppercase mx-8">Use code VIBE10 for 10% off</span>
+          <span className="text-[11px] sm:text-xs font-semibold tracking-widest text-white/70 uppercase mx-8">Free returns within 30 days</span>
         </div>
       </div>
     </header>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTheme } from '../../hooks/useTheme';
 import {
   Star, MessageSquare, ThumbsUp, AlertTriangle, Trash2,
-  CheckCircle2, Flag, Clock, Search, Filter, ChevronDown,
+  CheckCircle2, Flag, Clock, Search, Filter,
 } from 'lucide-react';
 
 const reviewsData = [

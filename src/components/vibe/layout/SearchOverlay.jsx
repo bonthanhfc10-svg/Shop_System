@@ -12,6 +12,12 @@ export default function SearchOverlay() {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
+  const [lastSearchOpen, setLastSearchOpen] = useState(searchOpen);
+  if (lastSearchOpen !== searchOpen) {
+    setLastSearchOpen(searchOpen);
+    if (!searchOpen) setQuery('');
+  }
+
   useEffect(() => {
     if (searchOpen) {
       document.body.classList.add('vibe-lock');
@@ -22,10 +28,6 @@ export default function SearchOverlay() {
       };
     }
     return undefined;
-  }, [searchOpen]);
-
-  useEffect(() => {
-    if (!searchOpen) setQuery('');
   }, [searchOpen]);
 
   const results = useMemo(() => {

@@ -1,10 +1,9 @@
 import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import { useTheme } from '../../hooks/useTheme';
 import {
   Activity, Filter, Calendar, Download, RefreshCw,
   LogIn, ShoppingCart, Package, Server, ChevronDown,
-  Clock, User, Search, X, ChevronRight, ArrowUpDown,
+  Clock, User, Search, X, ArrowUpDown,
 } from 'lucide-react';
 
 const typeConfig = {
@@ -35,7 +34,7 @@ const logsData = [
 
 const filterTypes = ['All', 'Login', 'Order', 'Product', 'System'];
 
-function LogEntry({ log, index, isLast, colors }) {
+function LogEntry({ log, isLast, colors }) {
   const cfg = typeConfig[log.type];
   const TypeIcon = cfg.icon;
   const aCfg = actorConfig[log.actor] || actorConfig.system;
@@ -192,7 +191,7 @@ export default function Logs() {
             <button style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               padding: '10px 20px', borderRadius: '10px', background: 'rgba(255,255,255,0.15)',
-              color: '#fff', fontSize: '13px', fontWeight: '600', border: 'none', cursor: 'pointer',
+              color: '#fff', fontSize: '13px', fontWeight: '600', cursor: 'pointer',
               backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.12)',
               transition: 'all 0.2s',
             }}
@@ -464,7 +463,6 @@ export default function Logs() {
               <LogEntry
                 key={log.id}
                 log={log}
-                index={index}
                 isLast={index === filteredLogs.length - 1}
                 colors={colors}
               />

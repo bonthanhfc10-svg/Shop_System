@@ -6,7 +6,7 @@ import { useTheme } from '../../hooks/useTheme';
 import {
   DollarSign, Clock, RotateCcw, TrendingUp,
   CreditCard, Search, Filter, Download, ChevronDown,
-  CheckCircle2, AlertCircle, XCircle, ArrowUpRight,
+  CheckCircle2, AlertCircle, XCircle,
   Eye, MoreHorizontal, Receipt,
 } from 'lucide-react';
 
