@@ -72,7 +72,7 @@ export default function Shop() {
         ))}
       </div>
 
-      <div className="grid lg:grid-cols-[240px_1fr] gap-10 lg:gap-14">
+      <div className="grid lg:grid-cols-[260px_1fr] gap-10 lg:gap-14">
         {/* Desktop sidebar */}
         <div className="hidden lg:block">
           <FilterSidebar {...filtersProps} />
