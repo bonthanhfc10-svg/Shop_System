@@ -237,7 +237,7 @@ export default function Reviews() {
                     <td style={{ padding: '14px 20px', borderBottom: `1px solid ${colors.borderLight}`, maxWidth: '260px' }}>
                       <span style={{
                         fontSize: '13px', color: colors.textMuted,
-                        display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
+                        display: '-webkit-box', WebkitLineClamp: 2, lineClamp: 2, WebkitBoxOrient: 'vertical',
                         overflow: 'hidden', lineHeight: '1.5',
                       }}>
                         {review.text}
